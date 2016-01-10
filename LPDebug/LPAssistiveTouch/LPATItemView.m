@@ -87,7 +87,8 @@
     UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.center radius:radius startAngle:0 endAngle:2 * M_PI clockwise:YES];
     layer.path = path.CGPath;
     layer.fillColor = [UIColor colorWithWhite:1 alpha:alpha].CGColor;
-    layer.strokeColor = [UIColor colorWithWhite:0 alpha:0.5].CGColor;
+    layer.lineWidth = 1;
+    layer.strokeColor = [UIColor colorWithWhite:0 alpha:0.3 * alpha].CGColor;
     return layer;
 }
 

@@ -14,6 +14,7 @@
 
 @implementation LPATNavigationController {
     NSMutableArray<LPATPosition *> *_pushPosition;
+    UIVisualEffectView *_effectView;
 }
 
 #pragma mark - Initialization
@@ -40,9 +41,14 @@
     
     _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, imageViewWidth, imageViewWidth)];
     _contentView.center = _shrinkPoint;
-    _contentView.backgroundColor = [UIColor grayColor];
     _contentView.layer.cornerRadius = 14;
     [self.view addSubview:_contentView];
+    
+    _effectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+    _effectView.frame = _contentView.bounds;
+    _effectView.layer.cornerRadius = cornerRadius;
+    _effectView.layer.masksToBounds = YES;
+    [_contentView addSubview:_effectView];
     
     _contentItem = [LPATItemView itemWithType:LPATItemViewTypeSystem];
     _contentItem.center = _shrinkPoint;
@@ -84,6 +90,8 @@
     
     [UIView animateWithDuration:duration animations:^{
         _contentView.frame = [LPATPosition contentViewSpreadFrame];
+        _effectView.frame = _contentView.bounds;
+        _contentView.alpha = 1;
         _contentItem.center = [LPATPosition positionWithCount:count index:count - 1].center;
         _contentItem.alpha = 0;
     }];
@@ -105,6 +113,7 @@
     [UIView animateWithDuration:duration animations:^{
         _contentView.frame = CGRectMake(0, 0, imageViewWidth, imageViewWidth);
         _contentView.center = _shrinkPoint;
+        _effectView.frame = _contentView.bounds;
         _contentItem.alpha = 1;
         _contentItem.center = _shrinkPoint;
     } completion:^(BOOL finished) {

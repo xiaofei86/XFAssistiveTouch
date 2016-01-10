@@ -19,17 +19,17 @@
     
     [[LPAssistiveTouch shareInstance] showAssistiveTouch];
     
-//    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
+    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
     
     return YES;
 }
 
-//void UncaughtExceptionHandler(NSException *exception) {
-//    NSArray *callStack = [exception callStackSymbols];
-//    NSString *reason = [exception reason];
-//    NSString *name = [exception name];
-//    NSString *content = [NSString stringWithFormat:@"========异常错误报告========\nname:%@\nreason:\n%@\ncallStackSymbols:\n%@",name,reason,[callStack componentsJoinedByString:@"\n"]];
-//    NSLog(@"%@", content);
-//}
+void UncaughtExceptionHandler(NSException *exception) {
+    NSArray *callStack = [exception callStackSymbols];
+    NSString *reason = [exception reason];
+    NSString *name = [exception name];
+    NSString *content = [NSString stringWithFormat:@"========异常错误报告========\nname:%@\nreason:\n%@\ncallStackSymbols:\n%@",name,reason,[callStack componentsJoinedByString:@"\n"]];
+    NSLog(@"%@", content);
+}
 
 @end
