@@ -182,6 +182,9 @@
                     item.alpha = 1;
                 }];
             }
+            [UIView animateWithDuration:duration animations:^{
+                _viewControllers.lastObject.backItem.alpha = 1;
+            }];
         }];
     }
 }

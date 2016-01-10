@@ -61,23 +61,50 @@
     CAShapeLayer *layer = [CAShapeLayer layer];
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:CGPointMake(0, 0)];
-    [path addLineToPoint:CGPointMake(11, 4.5)];
-    [path addLineToPoint:CGPointMake(11, 1.5)];
-    [path addLineToPoint:CGPointMake(22, 1.5)];
-    [path addLineToPoint:CGPointMake(22, -1.5)];
-    [path addLineToPoint:CGPointMake(11, -1.5)];
-    [path addLineToPoint:CGPointMake(11, -4.5)];
+    [path addLineToPoint:CGPointMake(11, 8.5)];
+    [path addLineToPoint:CGPointMake(11, 3.5)];
+    [path addLineToPoint:CGPointMake(22, 3.5)];
+    [path addLineToPoint:CGPointMake(22, -3.5)];
+    [path addLineToPoint:CGPointMake(11, -3.5)];
+    [path addLineToPoint:CGPointMake(11, -8.5)];
     [path closePath];
     layer.path = path.CGPath;
     layer.lineWidth = 2;
-    layer.strokeColor = [UIColor colorWithWhite:1 alpha:0.8].CGColor;
-    layer.position = self.layer.position;
+    layer.fillColor = [UIColor clearColor].CGColor;
+    layer.strokeColor = [UIColor whiteColor].CGColor;
+    layer.position = CGPointMake(self.layer.position.x - 11, self.layer.position.y);
     [self.layer addSublayer:layer];
 }
 
 - (void)initWithStarType {
     [_noneLayer removeFromSuperlayer];
-    [self.layer addSublayer:[self createCircle:10 alpha:0.2]];
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    CGSize size = CGSizeMake(44, 44);
+    CGFloat numberOfPoints = 5;
+    CGFloat starRatio = 0.5;
+    CGFloat steps = numberOfPoints * 2;
+    CGFloat outerRadius = MIN(size.height, size.width) / 2;
+    CGFloat innerRadius = outerRadius * starRatio;
+    CGFloat stepAngle = 2 * M_PI / steps;
+    CGPoint center = CGPointMake(size.width / 2, size.height / 2);
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    for (int i = 0; i < steps; i++) {
+        CGFloat radius = i % 2 == 0 ? outerRadius : innerRadius;
+        CGFloat angle = i * stepAngle - M_PI_2;
+        CGFloat x = radius * cos(angle) + center.x;
+        CGFloat y = radius * sin(angle) + center.y;
+        if (i == 0) {
+            [path moveToPoint:CGPointMake(x, y)];
+        } else {
+            [path addLineToPoint:CGPointMake(x, y)];
+        }
+    }
+    [path closePath];
+    layer.path = path.CGPath;
+    layer.lineWidth = 2;
+    layer.fillColor = [UIColor whiteColor].CGColor;
+    layer.position = CGPointMake(self.layer.position.x - 22, self.layer.position.y - 22);
+    [self.layer addSublayer:layer];
 }
 
 #pragma mark - Private
