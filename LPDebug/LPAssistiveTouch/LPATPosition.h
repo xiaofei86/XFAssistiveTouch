@@ -14,6 +14,7 @@ static const CGFloat imageViewWidth = 60;
 static const CGFloat imageWidth = 44;
 static const CGFloat cornerRadius = 14;
 static const CGFloat contentViewEdge = 2.5;
+static const CGFloat maxCount = 8;
 
 @interface LPATPosition : NSObject
 

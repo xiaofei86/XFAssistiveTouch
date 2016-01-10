@@ -6,7 +6,7 @@
 //  Copyright © 2015年 loopeer. All rights reserved.
 //
 
-#import "LPATRootViewController.h"
+#import "LPATRootNavigationController.h"
 
 @interface LPAssistiveTouch : NSObject 
 

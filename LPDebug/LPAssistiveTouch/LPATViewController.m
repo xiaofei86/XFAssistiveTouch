@@ -16,7 +16,7 @@
 @implementation LPATViewController
 
 - (instancetype)initWithItems:(NSArray<LPATItemView *> *)items {
-    self = [super init];
+    self = [self init];
     if (self) {
         _items = items;
     }
@@ -33,11 +33,7 @@
     return self;
 }
 
-- (void)dealloc {
-    NSLog(@"%s", __func__);
-}
-
-- (NSArray<UIView *> *)items {
+- (NSArray<LPATItemView *> *)items {
     if (!_items) {
         [self loadView];
         [self viewDidLoad];

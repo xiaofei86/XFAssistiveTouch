@@ -1,23 +1,13 @@
 //
-//  LPAssistiveTouchViewController.h
-//  LPAssistiveTouchDemo
+//  LPATRootViewController.h
+//  LPDebugDemo
 //
-//  Created by XuYafei on 15/10/29.
-//  Copyright © 2015年 loopeer. All rights reserved.
+//  Created by XuYafei on 16/1/10.
+//  Copyright © 2016年 loopeer. All rights reserved.
 //
 
-#import "LPATNavigationController.h"
+#import "LPATViewController.h"
 
-@protocol LPATViewControllerDelegate <NSObject>
-
-- (void)touchBegan;
-
-- (void)shrinkToPoint:(CGPoint)point;
-
-@end
-
-@interface LPATRootViewController : LPATNavigationController
-
-@property (nonatomic, assign) id<LPATViewControllerDelegate> delegate;
+@interface LPATRootViewController : LPATViewController
 
 @end

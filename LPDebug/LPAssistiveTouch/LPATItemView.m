@@ -52,7 +52,7 @@
 }
 
 - (void)initWithNoneType {
-    _noneLayer = [self createCircle:22 alpha:0.2];
+    _noneLayer = [self createCircle:22 alpha:1.0];
     [self.layer addSublayer:_noneLayer];
 }
 

@@ -8,14 +8,14 @@
 
 #import "LPAssistiveTouch.h"
 
-@interface LPAssistiveTouch () <LPATViewControllerDelegate>
+@interface LPAssistiveTouch () <LPATRootNavigationControllerDelegate>
 
 @end
 
 @implementation LPAssistiveTouch {
     CGPoint _assistiveWindowPoint;
     CGPoint _coverWindowPoint;
-    LPATRootViewController *_rootViewController;
+    LPATRootNavigationController *_rootNavigationController;
 }
 
 #pragma mark - Initialization
@@ -32,8 +32,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _rootViewController = [[LPATRootViewController alloc] init];
-        _rootViewController.delegate = self;
+        _rootNavigationController = [[LPATRootNavigationController alloc] init];
+        _rootNavigationController.delegate = self;
         _assistiveWindowPoint = [LPATPosition cotentViewShrinkPointInRect:[UIScreen mainScreen].bounds];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     }
@@ -45,7 +45,7 @@
     _assistiveWindow.center = _assistiveWindowPoint;
     _assistiveWindow.windowLevel = powf(10, 7);
     _assistiveWindow.backgroundColor = [UIColor clearColor];
-    _assistiveWindow.rootViewController = _rootViewController;
+    _assistiveWindow.rootViewController = _rootNavigationController;
     [self makeVisibleWindow];
 }
 
@@ -62,15 +62,15 @@
 - (void)touchBegan {
     _coverWindowPoint = CGPointZero;
     _assistiveWindow.frame = [[UIScreen mainScreen] bounds];
-    _rootViewController.view.frame = [[UIScreen mainScreen] bounds];
-    _rootViewController.shrinkPoint = _assistiveWindowPoint;
+    _rootNavigationController.view.frame = [[UIScreen mainScreen] bounds];
+    _rootNavigationController.shrinkPoint = _assistiveWindowPoint;
 }
 
 - (void)shrinkToPoint:(CGPoint)point {
     _assistiveWindowPoint = point;
     _assistiveWindow.frame = CGRectMake(0, 0, imageViewWidth, imageViewWidth);
     _assistiveWindow.center = _assistiveWindowPoint;
-    _rootViewController.shrinkPoint = CGPointMake(imageViewWidth / 2, imageViewWidth / 2);
+    _rootNavigationController.shrinkPoint = CGPointMake(imageViewWidth / 2, imageViewWidth / 2);
 }
 
 #pragma mark - UIKeyboardWillChangeFrameNotification
