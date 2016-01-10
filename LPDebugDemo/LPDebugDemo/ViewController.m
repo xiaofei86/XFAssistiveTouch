@@ -18,6 +18,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.navigationItem.title = @"LPDebug";
+        self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     return self;
 }
@@ -25,10 +26,18 @@
 - (void)loadView {
     [super loadView];
     self.view.backgroundColor = [UIColor whiteColor];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resign)];
+    [self.view addGestureRecognizer:tapGesture];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 44)];
+    [self.view addSubview:searchBar];
+}
+
+- (void)resign {
+    [self.view endEditing:YES];
 }
 
 @end

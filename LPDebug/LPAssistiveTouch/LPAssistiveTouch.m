@@ -14,7 +14,7 @@
 
 @implementation LPAssistiveTouch {
     CGPoint _assistiveWindowPoint;
-    CGRect _coverWindowRect;
+    CGPoint _coverWindowPoint;
     LPATRootViewController *_rootViewController;
 }
 
@@ -35,7 +35,7 @@
         _rootViewController = [[LPATRootViewController alloc] init];
         _rootViewController.delegate = self;
         _assistiveWindowPoint = [LPATPosition cotentViewShrinkPointInRect:[UIScreen mainScreen].bounds];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     }
     return self;
 }
@@ -60,7 +60,7 @@
 #pragma mark - LPATViewControllerDelegate
 
 - (void)touchBegan {
-    _coverWindowRect = CGRectZero;
+    _coverWindowPoint = CGPointZero;
     _assistiveWindow.frame = [[UIScreen mainScreen] bounds];
     _rootViewController.view.frame = [[UIScreen mainScreen] bounds];
     _rootViewController.shrinkPoint = _assistiveWindowPoint;
@@ -73,50 +73,47 @@
     _rootViewController.shrinkPoint = CGPointMake(imageViewWidth / 2, imageViewWidth / 2);
 }
 
-//#pragma mark - UIKeyboardWillChangeFrameNotification
-//
-//- (void)keyboardWillChangeFrame:(NSNotification *)notification {
-//    /*因为动画过程中不能实时修改_assistiveWindowRect,
-//     *所以如果执行点击操作的话,_assistiveTouchView位置会以动画之前的位置为准.
-//     *如果执行拖动操作则会有跳动效果.所以需要禁止用户操作.*/
-//    _assistiveWindow.userInteractionEnabled = NO;
-//    NSDictionary *info = [notification userInfo];
-//    CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
-//    CGRect endKeyboardRect = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    
-//    //根据实时位置计算于键盘的间距
-//    CGFloat yOffset = endKeyboardRect.origin.y - _assistiveWindow.frame.origin.y - _assistiveWindow.frame.size.height;
-//    
-//    //如果键盘弹起给_coverWindowRect赋值
-//    if (endKeyboardRect.origin.y < CGRectGetHeight([[UIScreen mainScreen] bounds])) {
-//        _coverWindowRect = _assistiveWindowRect;
-//    }
-//    
-//    //根据间距计算移动后的位置viewFrame
-//    CGRect viewFrame = _assistiveWindow.frame;
-//    viewFrame.origin.y += yOffset;
-//    //如果viewFrame在原位置之下,将viewFrame变为原位置
-//    if (viewFrame.origin.y > _coverWindowRect.origin.y) {
-//        viewFrame.origin.y = _coverWindowRect.origin.y;
-//    }
-//    //如果_assistiveWindow被移动,将viewFrame变为移动后的位置
-//    if (_coverWindowRect.origin.x == 0
-//        && _coverWindowRect.origin.y == 0
-//        && _coverWindowRect.size.width == 0
-//        && _coverWindowRect.size.height == 0) {
-//        viewFrame.origin.y = _assistiveWindow.frame.origin.y;
-//    }
-//    
-//    //根据计算好的位置执行动画
-//    [UIView animateWithDuration:duration animations:^{
-//        _assistiveWindow.frame = viewFrame;
-//    } completion:^(BOOL finished) {
-//        //将_assistiveWindowRect变为移动后的位置并恢复用户操作
-//        _assistiveWindowRect = _assistiveWindow.frame;
-//        _assistiveWindow.userInteractionEnabled = YES;
-//        //使其遮盖键盘
-//        [self makeVisibleWindow];
-//    }];
-//}
+#pragma mark - UIKeyboardWillChangeFrameNotification
+
+- (void)keyboardWillChangeFrame:(NSNotification *)notification {
+    /*因为动画过程中不能实时修改_assistiveWindowRect,
+     *所以如果执行点击操作的话,_assistiveTouchView位置会以动画之前的位置为准.
+     *如果执行拖动操作则会有跳动效果.所以需要禁止用户操作.*/
+    _assistiveWindow.userInteractionEnabled = NO;
+    NSDictionary *info = [notification userInfo];
+    CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    CGRect endKeyboardRect = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    //根据实时位置计算于键盘的间距
+    CGFloat yOffset = endKeyboardRect.origin.y - _assistiveWindow.frame.origin.y - _assistiveWindow.frame.size.height;
+    
+    //如果键盘弹起给_coverWindowPoint赋值
+    if (endKeyboardRect.origin.y < CGRectGetHeight([[UIScreen mainScreen] bounds])) {
+        _coverWindowPoint = _assistiveWindowPoint;
+    }
+    
+    //根据间距计算移动后的位置viewPoint
+    CGPoint viewPoint = _assistiveWindow.center;
+    viewPoint.y += yOffset;
+    //如果viewPoint在原位置之下,将viewPoint变为原位置
+    if (viewPoint.y > _coverWindowPoint.y) {
+        viewPoint.y = _coverWindowPoint.y;
+    }
+    //如果_assistiveWindow被移动,将viewPoint变为移动后的位置
+    if (_coverWindowPoint.x == 0 && _coverWindowPoint.y == 0) {
+        viewPoint.y = _assistiveWindow.center.y;
+    }
+    
+    //根据计算好的位置执行动画
+    [UIView animateWithDuration:duration animations:^{
+        _assistiveWindow.center = viewPoint;
+    } completion:^(BOOL finished) {
+        //将_assistiveWindowRect变为移动后的位置并恢复用户操作
+        _assistiveWindowPoint = _assistiveWindow.center;
+        _assistiveWindow.userInteractionEnabled = YES;
+        //使其遮盖键盘
+        [self makeVisibleWindow];
+    }];
+}
 
 @end
