@@ -32,16 +32,11 @@
     return self;
 }
 
-- (void)dealloc {
-    NSLog(@"%@%s", NSStringFromClass([self class]), __func__);
-}
-
 #pragma mark - UIViewController
 
 - (void)loadView {
     [super loadView];
-    _shrinkPoint = CGPointMake(CGRectGetWidth(self.view.frame) - imageViewWidth / 2,
-                               CGRectGetMidY(self.view.frame));
+    _shrinkPoint = [LPATPosition cotentViewShrinkPointInRect:self.view.frame];
     
     _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, imageViewWidth, imageViewWidth)];
     _contentView.center = _shrinkPoint;
@@ -64,7 +59,16 @@
 
 #pragma mark - Animition
 
+- (void)spreadBegin {
+    
+}
+
+- (void)shrinkEnd {
+    
+}
+
 - (void)spread {
+    [self spreadBegin];
     _show = YES;
     NSUInteger count = _viewControllers.firstObject.items.count;
     for (int i = 0; i < count; i++) {
@@ -79,7 +83,7 @@
     }
     
     [UIView animateWithDuration:duration animations:^{
-        _contentView.frame = [LPATPosition contentViewFrame];
+        _contentView.frame = [LPATPosition contentViewSpreadFrame];
         _contentItem.center = [LPATPosition positionWithCount:count index:count - 1].center;
         _contentItem.alpha = 0;
     }];
@@ -109,6 +113,7 @@
             [viewController.backItem removeFromSuperview];
         }
         _viewControllers = [NSMutableArray arrayWithObject:_viewControllers.firstObject];
+        [self shrinkEnd];
     }];
 }
 

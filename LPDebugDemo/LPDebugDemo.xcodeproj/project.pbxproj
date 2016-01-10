@@ -109,10 +109,6 @@
 		AF7B6CA71C2AB29C00EAC088 /* LPAssistiveTouch */ = {
 			isa = PBXGroup;
 			children = (
-				AF7B6CA81C2AB29C00EAC088 /* LPAssistiveTouch.h */,
-				AF7B6CA91C2AB29C00EAC088 /* LPAssistiveTouch.m */,
-				AFC4CA611C3E2AC7007FB460 /* LPATRootViewController.h */,
-				AFC4CA621C3E2AC7007FB460 /* LPATRootViewController.m */,
 				AFFCC5101C4242940087F02F /* LPATPosition.h */,
 				AFFCC5111C4242940087F02F /* LPATPosition.m */,
 				AFFCC50C1C4242940087F02F /* LPATItemView.h */,
@@ -121,6 +117,10 @@
 				AFFCC5131C4242940087F02F /* LPATViewController.m */,
 				AFFCC50E1C4242940087F02F /* LPATNavigationController.h */,
 				AFFCC50F1C4242940087F02F /* LPATNavigationController.m */,
+				AFC4CA611C3E2AC7007FB460 /* LPATRootViewController.h */,
+				AFC4CA621C3E2AC7007FB460 /* LPATRootViewController.m */,
+				AF7B6CA81C2AB29C00EAC088 /* LPAssistiveTouch.h */,
+				AF7B6CA91C2AB29C00EAC088 /* LPAssistiveTouch.m */,
 			);
 			path = LPAssistiveTouch;
 			sourceTree = "<group>";

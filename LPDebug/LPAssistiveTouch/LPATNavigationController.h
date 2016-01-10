@@ -19,6 +19,9 @@ static const NSTimeInterval duration = 0.25;
 - (void)pushViewController:(LPATViewController *)viewController atPisition:(LPATPosition *)position;
 - (void)popViewController;
 
+- (void)spreadBegin;
+- (void)shrinkEnd;
+
 @property (nonatomic, strong) NSMutableArray<LPATViewController *> *viewControllers;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) LPATItemView *contentItem;

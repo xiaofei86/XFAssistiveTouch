@@ -11,29 +11,18 @@
 static NSTimeInterval ATHideAlpha = 0.2;
 static NSTimeInterval ATShowAlpha = 0.7;
 static NSTimeInterval hideDuration = 5;
-static CGFloat ATEdge = 2.5;
 
 @implementation LPATRootViewController {
-    UITableView *_tableView;
     NSTimer *_timer;
 }
 
 #pragma mark - Initialization
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        CGSize size = [[UIScreen mainScreen] bounds].size;
-        _assistiveViewRect = CGRectMake(size.width - imageViewWidth - ATEdge, size.height / 2 - imageViewWidth / 2, imageViewWidth, imageViewWidth);
-    }
-    return self;
-}
-
 - (BOOL)prefersStatusBarHidden {
     return NO;
 }
 
-#pragma mark - LoadView
+#pragma mark - UIViewController
 
 - (void)loadView {
     [super loadView];
@@ -77,7 +66,7 @@ static CGFloat ATEdge = 2.5;
 
 #pragma mark - GestureAction
 
-- (void)touchesBegan {
+- (void)spreadBegin {
     if (!self.isShow) {
         if (_delegate && [_delegate respondsToSelector:@selector(touchBegan)]) {
             [_delegate touchBegan];
@@ -85,8 +74,15 @@ static CGFloat ATEdge = 2.5;
     }
 }
 
+- (void)shrinkEnd {
+    if (!self.isShow) {
+        if (_delegate && [_delegate respondsToSelector:@selector(shrinkToPoint:)]) {
+            [_delegate shrinkToPoint:self.shrinkPoint];
+        }
+    }
+}
+
 - (void)spreadGestureAction:(UIGestureRecognizer *)gestureRecognizer {
-    [self touchesBegan];
     if (!self.isShow) {
         [self stopTimer];
         [self spread];
@@ -110,22 +106,21 @@ static CGFloat ATEdge = 2.5;
     });
     
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        [self touchesBegan];
+        [self spreadBegin];
         [self stopTimer];
         [UIView animateWithDuration:duration animations:^{
             self.contentItem.alpha = ATShowAlpha;
         }];
     } else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
         self.shrinkPoint = CGPointMake(point.x + imageViewWidth / 2 - pointOffset.x, point.y  + imageViewWidth / 2 - pointOffset.y);
-        _assistiveViewRect = self.contentItem.frame;
     } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded
         || gestureRecognizer.state == UIGestureRecognizerStateCancelled
         || gestureRecognizer.state == UIGestureRecognizerStateFailed) {
         [UIView animateWithDuration:duration animations:^{
             self.shrinkPoint = [self stickToPointByHorizontal];
         } completion:^(BOOL finished) {
-            if (_delegate && [_delegate respondsToSelector:@selector(shrinkToRect:)]) {
-                [_delegate shrinkToRect:_assistiveViewRect];
+            if (_delegate && [_delegate respondsToSelector:@selector(shrinkToPoint:)]) {
+                [_delegate shrinkToPoint:self.shrinkPoint];
             }
             onceToken = NO;
             [self beginTimer];
@@ -136,104 +131,88 @@ static CGFloat ATEdge = 2.5;
 #pragma mark - StickToPoint
 
 - (CGPoint)stickToPointByHorizontal {
-    CGRect rect = [[UIScreen mainScreen] bounds];
-    CGPoint center = self.contentItem.center;
-    if (center.y < center.x && center.y < -center.x + rect.size.width) {
-        _assistiveViewRect = self.contentItem.frame;
-        CGRect temp = _assistiveViewRect;
-        temp.origin.y = ATEdge;
-        _assistiveViewRect = [self makeRectValid:temp];
-        CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
-                                    CGRectGetMidY(_assistiveViewRect));
-        return point;
-    } else if (center.y > center.x + rect.size.height - rect.size.width
-               && center.y > -center.x + rect.size.height) {
-        _assistiveViewRect = self.contentItem.frame;
-        CGRect temp = _assistiveViewRect;
-        temp.origin.y = rect.size.height - imageViewWidth - ATEdge;
-        _assistiveViewRect = [self makeRectValid:temp];
-        CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
-                                    CGRectGetMidY(_assistiveViewRect));
-        return point;
-    } else {
-        if (center.x < rect.size.width / 2) {
-            _assistiveViewRect = self.contentItem.frame;
-            CGRect temp = _assistiveViewRect;
-            temp.origin.x = ATEdge;
-            _assistiveViewRect = [self makeRectValid:temp];
-            CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
-                                        CGRectGetMidY(_assistiveViewRect));
-            return point;
-        } else {
-            _assistiveViewRect = self.contentItem.frame;
-            CGRect temp = _assistiveViewRect;
-            temp.origin.x = rect.size.width - imageViewWidth - ATEdge;
-            _assistiveViewRect = [self makeRectValid:temp];
-            CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
-                                        CGRectGetMidY(_assistiveViewRect));
-            return point;
-        }
-    }
-}
-
-- (CGPoint)stickToPointByVertical {
-    CGRect rect = [[UIScreen mainScreen] bounds];
-    CGPoint center = self.contentItem.center;
-    CGFloat k = rect.size.height / rect.size.width;
-    if (center.y < k * center.x) {
-        if (center.y < -k * center.x + rect.size.height) {
-            _assistiveViewRect = self.contentItem.frame;
-            CGRect temp = _assistiveViewRect;
-            temp.origin.y = ATEdge;
-            _assistiveViewRect = [self makeRectValid:temp];
-            CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
-                                        CGRectGetMidY(_assistiveViewRect));
-            return point;
-        } else {
-            _assistiveViewRect = self.contentItem.frame;
-            CGRect temp = _assistiveViewRect;
-            temp.origin.x = rect.size.width - imageViewWidth - ATEdge;
-            _assistiveViewRect = [self makeRectValid:temp];
-            CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
-                                        CGRectGetMidY(_assistiveViewRect));
-            return point;
-        }
-    } else {
-        if (center.y < -k * center.x + rect.size.height) {
-            _assistiveViewRect = self.contentItem.frame;
-            CGRect temp = _assistiveViewRect;
-            temp.origin.x = ATEdge;
-            _assistiveViewRect = [self makeRectValid:temp];
-            CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
-                                        CGRectGetMidY(_assistiveViewRect));
-            return point;
-        } else {
-            _assistiveViewRect = self.contentItem.frame;
-            CGRect temp = _assistiveViewRect;
-            temp.origin.y = rect.size.height - imageViewWidth - ATEdge;
-            _assistiveViewRect = [self makeRectValid:temp];
-            CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
-                                        CGRectGetMidY(_assistiveViewRect));
-            return point;
-        }
-    }
-}
-
-- (CGRect)makeRectValid:(CGRect)rect {
     CGRect screen = [[UIScreen mainScreen] bounds];
-    if (rect.origin.x < ATEdge) {
-        rect.origin.x = ATEdge;
+    CGPoint center = self.shrinkPoint;
+    if (center.y < center.x && center.y < -center.x + screen.size.width) {
+        CGPoint point = CGPointMake(center.x, contentViewEdge + imageViewWidth / 2);
+        point = [self makePointValid:point];
+        return point;
+    } else if (center.y > center.x + screen.size.height - screen.size.width
+               && center.y > -center.x + screen.size.height) {
+        CGPoint point = CGPointMake(center.x, CGRectGetHeight(screen) - imageViewWidth / 2 - contentViewEdge);
+        point = [self makePointValid:point];
+        return point;
+    } else {
+        if (center.x < screen.size.width / 2) {
+            CGPoint point = CGPointMake(contentViewEdge + imageViewWidth / 2, center.y);
+            point = [self makePointValid:point];
+            return point;
+        } else {
+            CGPoint point = CGPointMake(CGRectGetWidth(screen) - imageViewWidth / 2 - contentViewEdge, center.y);
+            point = [self makePointValid:point];
+            return point;
+        }
     }
-    if (rect.origin.x > screen.size.width - rect.size.width - ATEdge) {
-        rect.origin.x = screen.size.width - rect.size.width - ATEdge;
+}
+
+//- (CGPoint)stickToPointByVertical {
+//    CGRect screen = [[UIScreen mainScreen] bounds];
+//    CGPoint center = self.contentItem.center;
+//    CGFloat k = screen.size.height / screen.size.width;
+//    if (center.y < k * center.x) {
+//        if (center.y < -k * center.x + screen.size.height) {
+//            _assistiveViewRect = self.contentItem.frame;
+//            CGRect temp = _assistiveViewRect;
+//            temp.origin.y = contentViewEdge;
+//            _assistiveViewRect = [self makePointValid:temp];
+//            CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
+//                                        CGRectGetMidY(_assistiveViewRect));
+//            return point;
+//        } else {
+//            _assistiveViewRect = self.contentItem.frame;
+//            CGRect temp = _assistiveViewRect;
+//            temp.origin.x = screen.size.width - imageViewWidth - contentViewEdge;
+//            _assistiveViewRect = [self makePointValid:temp];
+//            CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
+//                                        CGRectGetMidY(_assistiveViewRect));
+//            return point;
+//        }
+//    } else {
+//        if (center.y < -k * center.x + screen.size.height) {
+//            _assistiveViewRect = self.contentItem.frame;
+//            CGRect temp = _assistiveViewRect;
+//            temp.origin.x = contentViewEdge;
+//            _assistiveViewRect = [self makePointValid:temp];
+//            CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
+//                                        CGRectGetMidY(_assistiveViewRect));
+//            return point;
+//        } else {
+//            _assistiveViewRect = self.contentItem.frame;
+//            CGRect temp = _assistiveViewRect;
+//            temp.origin.y = screen.size.height - imageViewWidth - contentViewEdge;
+//            _assistiveViewRect = [self makePointValid:temp];
+//            CGPoint point = CGPointMake(CGRectGetMidX(_assistiveViewRect),
+//                                        CGRectGetMidY(_assistiveViewRect));
+//            return point;
+//        }
+//    }
+//}
+
+- (CGPoint)makePointValid:(CGPoint)point {
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    if (point.x < contentViewEdge + imageViewWidth / 2) {
+        point.x = contentViewEdge + imageViewWidth / 2;
     }
-    if (rect.origin.y < ATEdge) {
-        rect.origin.y = ATEdge;
+    if (point.x > CGRectGetWidth(screen) - imageViewWidth / 2 - contentViewEdge) {
+        point.x = CGRectGetWidth(screen) - imageViewWidth / 2 - contentViewEdge;
     }
-    if (rect.origin.y > screen.size.height - rect.size.height - ATEdge) {
-        rect.origin.y = screen.size.height - rect.size.height - ATEdge;
+    if (point.y < contentViewEdge + imageViewWidth / 2) {
+        point.y = contentViewEdge + imageViewWidth / 2;
     }
-    return rect;
+    if (point.y > CGRectGetHeight(screen) - imageViewWidth / 2 - contentViewEdge) {
+        point.y = CGRectGetHeight(screen) - imageViewWidth / 2 - contentViewEdge;
+    }
+    return point;
 }
 
 @end

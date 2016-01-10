@@ -12,13 +12,11 @@
 
 - (void)touchBegan;
 
-- (void)shrinkToRect:(CGRect)rect;
+- (void)shrinkToPoint:(CGPoint)point;
 
 @end
 
 @interface LPATRootViewController : LPATNavigationController
-
-@property (nonatomic, assign) CGRect assistiveViewRect;
 
 @property (nonatomic, assign) id<LPATViewControllerDelegate> delegate;
 

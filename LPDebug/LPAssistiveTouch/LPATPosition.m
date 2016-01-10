@@ -8,16 +8,25 @@
 
 #import "LPATPosition.h"
 
-@implementation LPATPosition {
-    CGRect _contentViewFrame;
-}
+@implementation LPATPosition
 
 + (instancetype)positionWithCount:(NSUInteger)count index:(NSUInteger)index {
     return [[LPATPosition alloc] initWithCount:count index:index];
 }
 
-+ (CGRect)contentViewFrame {
-    return [[LPATPosition alloc] init]->_contentViewFrame;
++ (CGRect)contentViewSpreadFrame {
+    CGFloat width = itemWidth * itemEdgeCount;
+    CGRect screen = [UIScreen mainScreen].bounds;
+    CGRect rect = CGRectMake((CGRectGetWidth(screen) - width) / 2,
+                             (CGRectGetHeight(screen) - width) / 2,
+                             width, width);
+    return rect;
+}
+
++ (CGPoint)cotentViewShrinkPointInRect:(CGRect)rect {
+    CGPoint point = CGPointMake(CGRectGetWidth(rect) - imageViewWidth / 2 - contentViewEdge,
+                                CGRectGetMidY(rect));
+    return point;
 }
 
 - (instancetype)init {
@@ -31,12 +40,6 @@
         _index = index;
         _center = [self getCenter];
         _frame = [self getFrame];
-        
-        CGFloat width = itemWidth * itemSideCount;
-        CGRect rect = [UIScreen mainScreen].bounds;
-        _contentViewFrame = CGRectMake((CGRectGetWidth(rect) - width) / 2,
-                                       (CGRectGetHeight(rect) - width) / 2,
-                                       width, width);
     }
     return self;
 }
