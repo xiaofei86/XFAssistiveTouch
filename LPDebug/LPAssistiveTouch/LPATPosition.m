@@ -23,7 +23,7 @@
     return rect;
 }
 
-+ (CGPoint)cotentViewShrinkPointInRect:(CGRect)rect {
++ (CGPoint)cotentViewDefaultPointInRect:(CGRect)rect {
     CGPoint point = CGPointMake(CGRectGetWidth(rect) - imageViewWidth / 2 - contentViewEdge,
                                 CGRectGetMidY(rect));
     return point;

@@ -20,7 +20,7 @@ static const CGFloat maxCount = 8;
 
 + (instancetype)positionWithCount:(NSUInteger)count index:(NSUInteger)index;
 + (CGRect)contentViewSpreadFrame;
-+ (CGPoint)cotentViewShrinkPointInRect:(CGRect)rect;
++ (CGPoint)cotentViewDefaultPointInRect:(CGRect)rect;
 
 @property (nonatomic, assign, readonly) NSUInteger count;
 @property (nonatomic, assign, readonly) NSUInteger index;

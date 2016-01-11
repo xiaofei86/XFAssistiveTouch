@@ -37,10 +37,10 @@
 
 - (void)loadView {
     [super loadView];
-    _shrinkPoint = [LPATPosition cotentViewShrinkPointInRect:self.view.frame];
+    _contentPoint = [LPATPosition cotentViewDefaultPointInRect:self.view.frame];
     
     _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, imageViewWidth, imageViewWidth)];
-    _contentView.center = _shrinkPoint;
+    _contentView.center = _contentPoint;
     _contentView.layer.cornerRadius = 14;
     [self.view addSubview:_contentView];
     
@@ -51,15 +51,25 @@
     [_contentView addSubview:_effectView];
     
     _contentItem = [LPATItemView itemWithType:LPATItemViewTypeSystem];
-    _contentItem.center = _shrinkPoint;
+    _contentItem.center = _contentPoint;
     [self.view addSubview:_contentItem];
 }
 
-- (void)setShrinkPoint:(CGPoint)shrinkPoint {
+#pragma mark - Accessor
+
+- (void)setContentPoint:(CGPoint)contentPoint {
     if (!_show) {
-        _shrinkPoint = shrinkPoint;
-        _contentView.center = shrinkPoint;
-        _contentItem.center = shrinkPoint;
+        _contentPoint = contentPoint;
+        _contentView.center = _contentPoint;
+        _contentItem.center = _contentPoint;
+    }
+}
+
+- (void)setContentAlpha:(CGFloat)contentAlpha {
+    if (!_show) {
+        _contentAlpha = contentAlpha;
+        _contentView.alpha = _contentAlpha;
+        _contentItem.alpha = _contentAlpha;
     }
 }
 
@@ -80,7 +90,7 @@
     for (int i = 0; i < count; i++) {
         LPATItemView *item = _viewControllers.firstObject.items[i];
         item.alpha = 0;
-        item.center = _shrinkPoint;
+        item.center = _contentPoint;
         [self.view addSubview:item];
         [UIView animateWithDuration:duration animations:^{
             item.center = [LPATPosition positionWithCount:count index:i].center;
@@ -101,21 +111,21 @@
     _show = NO;
     for (LPATItemView *item in _viewControllers.lastObject.items) {
         [UIView animateWithDuration:duration animations:^{
-            item.center = _shrinkPoint;
+            item.center = _contentPoint;
             item.alpha = 0;
         }];
     }
     [UIView animateWithDuration:duration animations:^{
-        _viewControllers.lastObject.backItem.center = _shrinkPoint;
+        _viewControllers.lastObject.backItem.center = _contentPoint;
         _viewControllers.lastObject.backItem.alpha = 0;
     }];
     
     [UIView animateWithDuration:duration animations:^{
         _contentView.frame = CGRectMake(0, 0, imageViewWidth, imageViewWidth);
-        _contentView.center = _shrinkPoint;
+        _contentView.center = _contentPoint;
         _effectView.frame = _contentView.bounds;
         _contentItem.alpha = 1;
-        _contentItem.center = _shrinkPoint;
+        _contentItem.center = _contentPoint;
     } completion:^(BOOL finished) {
         for (LPATViewController *viewController in _viewControllers) {
             [viewController.items makeObjectsPerformSelector:@selector(removeFromSuperview)];

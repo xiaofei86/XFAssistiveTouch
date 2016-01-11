@@ -25,7 +25,8 @@ static const NSTimeInterval duration = 0.25;
 @property (nonatomic, strong) NSMutableArray<LPATViewController *> *viewControllers;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) LPATItemView *contentItem;
+@property (nonatomic, assign) CGPoint contentPoint;
+@property (nonatomic, assign) CGFloat contentAlpha;
 @property (nonatomic, assign, readonly, getter=isShow) BOOL show;
-@property (nonatomic, assign) CGPoint shrinkPoint;
 
 @end

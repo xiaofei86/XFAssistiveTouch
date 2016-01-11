@@ -34,7 +34,7 @@
     if (self) {
         _rootNavigationController = [[LPATRootNavigationController alloc] init];
         _rootNavigationController.delegate = self;
-        _assistiveWindowPoint = [LPATPosition cotentViewShrinkPointInRect:[UIScreen mainScreen].bounds];
+        _assistiveWindowPoint = [LPATPosition cotentViewDefaultPointInRect:[UIScreen mainScreen].bounds];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     }
     return self;
@@ -63,14 +63,14 @@
     _coverWindowPoint = CGPointZero;
     _assistiveWindow.frame = [[UIScreen mainScreen] bounds];
     _rootNavigationController.view.frame = [[UIScreen mainScreen] bounds];
-    _rootNavigationController.shrinkPoint = _assistiveWindowPoint;
+    _rootNavigationController.contentPoint = _assistiveWindowPoint;
 }
 
 - (void)shrinkToPoint:(CGPoint)point {
     _assistiveWindowPoint = point;
     _assistiveWindow.frame = CGRectMake(0, 0, imageViewWidth, imageViewWidth);
     _assistiveWindow.center = _assistiveWindowPoint;
-    _rootNavigationController.shrinkPoint = CGPointMake(imageViewWidth / 2, imageViewWidth / 2);
+    _rootNavigationController.contentPoint = CGPointMake(imageViewWidth / 2, imageViewWidth / 2);
 }
 
 #pragma mark - UIKeyboardWillChangeFrameNotification

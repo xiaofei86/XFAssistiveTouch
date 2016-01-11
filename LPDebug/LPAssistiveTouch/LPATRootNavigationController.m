@@ -31,9 +31,8 @@ static const NSTimeInterval hideAlpha = 0.4;
 - (void)loadView {
     [super loadView];
     self.view.frame = CGRectMake(0, 0, imageViewWidth, imageViewWidth);
-    self.shrinkPoint = CGPointMake(imageViewWidth / 2, imageViewWidth / 2);
-    self.contentItem.alpha = hideAlpha;
-    self.contentView.alpha = hideAlpha;
+    self.contentPoint = CGPointMake(imageViewWidth / 2, imageViewWidth / 2);
+    self.contentAlpha = hideAlpha;
 }
 
 - (void)viewDidLoad {
@@ -60,8 +59,7 @@ static const NSTimeInterval hideAlpha = 0.4;
 
 - (void)timerFired {
     [UIView animateWithDuration:duration animations:^{
-        self.contentItem.alpha = hideAlpha;
-        self.contentView.alpha = hideAlpha;
+        self.contentAlpha = hideAlpha;
     }];
     [self stopTimer];
 }
@@ -79,7 +77,7 @@ static const NSTimeInterval hideAlpha = 0.4;
 - (void)shrinkEnd {
     if (!self.isShow) {
         if (_delegate && [_delegate respondsToSelector:@selector(shrinkToPoint:)]) {
-            [_delegate shrinkToPoint:self.shrinkPoint];
+            [_delegate shrinkToPoint:self.contentPoint];
         }
     }
 }
@@ -111,19 +109,18 @@ static const NSTimeInterval hideAlpha = 0.4;
         [self spreadBegin];
         [self stopTimer];
         [UIView animateWithDuration:duration animations:^{
-            self.contentItem.alpha = 1;
-            self.contentView.alpha = 1;
+            self.contentAlpha = 1;
         }];
     } else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
-        self.shrinkPoint = CGPointMake(point.x + imageViewWidth / 2 - pointOffset.x, point.y  + imageViewWidth / 2 - pointOffset.y);
+        self.contentPoint = CGPointMake(point.x + imageViewWidth / 2 - pointOffset.x, point.y  + imageViewWidth / 2 - pointOffset.y);
     } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded
         || gestureRecognizer.state == UIGestureRecognizerStateCancelled
         || gestureRecognizer.state == UIGestureRecognizerStateFailed) {
         [UIView animateWithDuration:duration animations:^{
-            self.shrinkPoint = [self stickToPointByHorizontal];
+            self.contentPoint = [self stickToPointByHorizontal];
         } completion:^(BOOL finished) {
             if (_delegate && [_delegate respondsToSelector:@selector(shrinkToPoint:)]) {
-                [_delegate shrinkToPoint:self.shrinkPoint];
+                [_delegate shrinkToPoint:self.contentPoint];
             }
             onceToken = NO;
             [self beginTimer];
@@ -135,7 +132,7 @@ static const NSTimeInterval hideAlpha = 0.4;
 
 - (CGPoint)stickToPointByHorizontal {
     CGRect screen = [[UIScreen mainScreen] bounds];
-    CGPoint center = self.shrinkPoint;
+    CGPoint center = self.contentPoint;
     if (center.y < center.x && center.y < -center.x + screen.size.width) {
         CGPoint point = CGPointMake(center.x, contentViewEdge + imageViewWidth / 2);
         point = [self makePointValid:point];
@@ -160,7 +157,7 @@ static const NSTimeInterval hideAlpha = 0.4;
 
 - (CGPoint)stickToPointByVertical {
     CGRect screen = [[UIScreen mainScreen] bounds];
-    CGPoint center = self.shrinkPoint;
+    CGPoint center = self.contentPoint;
     CGFloat k = screen.size.height / screen.size.width;
     if (center.y < k * center.x) {
         if (center.y < - k * center.x + screen.size.height) {
