@@ -7,10 +7,7 @@
 //
 
 #import "LPATNavigationController.h"
-
-@interface LPATNavigationController ()
-
-@end
+//#import <objc/runtime.h>
 
 @implementation LPATNavigationController {
     NSMutableArray<LPATPosition *> *_pushPosition;
@@ -200,3 +197,19 @@
 }
 
 @end
+
+//static const void *navgationControllerKey = &navgationControllerKey;
+//
+//@implementation LPATViewController (LPATNavigationControllerItem)
+//
+//@dynamic navgationController;
+//
+//- (LPATNavigationController *)navgationController {
+//    return objc_getAssociatedObject(self, navgationControllerKey);
+//}
+//
+//- (void)setPageBarItem:(LPATNavigationController *)navgationController {
+//    objc_setAssociatedObject(self, navgationControllerKey, navgationController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+//
+//@end

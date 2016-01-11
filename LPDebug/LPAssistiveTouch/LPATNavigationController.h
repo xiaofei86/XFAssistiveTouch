@@ -30,3 +30,9 @@ static const NSTimeInterval duration = 0.25;
 @property (nonatomic, assign, readonly, getter=isShow) BOOL show;
 
 @end
+
+//@interface LPATViewController (LPATNavigationControllerItem)
+//
+//@property (nonatomic, assign) LPATNavigationController *navgationController;
+//
+//@end

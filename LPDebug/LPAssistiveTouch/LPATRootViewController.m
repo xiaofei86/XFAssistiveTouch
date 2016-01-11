@@ -29,26 +29,21 @@ static const NSInteger itemTag = 1994;
 
 - (void)tapGestureAction:(UITapGestureRecognizer *)tapGestureRecognizer {
     LPATItemView *item = (LPATItemView *)tapGestureRecognizer.view;
-    NSInteger tag = item.tag - itemTag;
     NSMutableArray *itemsArray = [NSMutableArray array];
-    for (int i = 0; i < tag + 1; i++) {
+    for (int i = 0; i < item.position.index + 1; i++) {
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureAction2:)];
         LPATItemView *item = [LPATItemView itemWithType:LPATItemViewTypeNone];
-        item.tag = itemTag + tag * 10 + i;
         [item addGestureRecognizer:tapGestureRecognizer];
         [itemsArray addObject:item];
     }
     LPATViewController *viewController = [[LPATViewController alloc] initWithItems:itemsArray];
-    LPATPosition *position = [LPATPosition positionWithCount:maxCount index:tag];
-    [self.navgationController pushViewController:viewController atPisition:position];
+    [self.navgationController pushViewController:viewController atPisition:item.position];
 }
 
 - (void)tapGestureAction2:(UITapGestureRecognizer *)tapGestureRecognizer {
     LPATItemView *item = (LPATItemView *)tapGestureRecognizer.view;
-    NSInteger tag = item.tag - itemTag;
     LPATViewController *viewController = [[LPATViewController alloc] init];
-    LPATPosition *position = [LPATPosition positionWithCount:tag / 10 + 1 index:tag % 10];
-    [self.navgationController pushViewController:viewController atPisition:position];
+    [self.navgationController pushViewController:viewController atPisition:item.position];
 }
 
 @end

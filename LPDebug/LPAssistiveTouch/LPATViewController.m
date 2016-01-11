@@ -15,10 +15,14 @@
 
 @implementation LPATViewController
 
+@synthesize items = _items;
+
+#pragma mark - Initialization
+
 - (instancetype)initWithItems:(NSArray<LPATItemView *> *)items {
     self = [self init];
     if (self) {
-        _items = items;
+        self.items = items;
     }
     return self;
 }
@@ -33,6 +37,8 @@
     return self;
 }
 
+#pragma mark - Accessor
+
 - (NSArray<LPATItemView *> *)items {
     if (!_items) {
         [self loadView];
@@ -40,6 +46,16 @@
     }
     return _items;
 }
+
+- (void)setItems:(NSArray<LPATItemView *> *)items {
+    _items = items;
+    for (int i = 0; i < _items.count; i++) {
+        LPATItemView *item = _items[i];
+        item.position = [LPATPosition positionWithCount:_items.count index:i];
+    }
+}
+
+#pragma mark - LoadView
 
 - (void)loadView {
     _items = @[[LPATItemView new], [LPATItemView new],
@@ -52,7 +68,7 @@
     
 }
 
-#pragma mark - Actino
+#pragma mark - Action
 
 - (void)tapGesture:(UITapGestureRecognizer *)gestureRecognizer {
     [self.navgationController popViewController];

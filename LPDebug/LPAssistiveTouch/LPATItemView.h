@@ -19,4 +19,6 @@ typedef NS_ENUM(NSInteger, LPATItemViewType) {
 
 + (instancetype)itemWithType:(LPATItemViewType)type;
 
+@property (nonatomic, strong) LPATPosition *position;
+
 @end
