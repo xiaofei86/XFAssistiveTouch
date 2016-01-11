@@ -35,6 +35,13 @@
     return item;
 }
 
++ (instancetype)itemWithLayer:(CALayer *)layer {
+    LPATItemView *item = [[LPATItemView alloc] initWithFrame:CGRectZero];
+    [item->_noneLayer removeFromSuperlayer];
+    [item.layer addSublayer:layer];
+    return item;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:CGRectMake(0, 0, itemWidth, itemWidth)];
     if (self) {

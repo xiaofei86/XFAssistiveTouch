@@ -9,10 +9,6 @@
 #import "LPATViewController.h"
 #import "LPATNavigationController.h"
 
-@interface LPATViewController ()
-
-@end
-
 @implementation LPATViewController
 
 @synthesize items = _items;

@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, LPATItemViewType) {
 @interface LPATItemView : UIView
 
 + (instancetype)itemWithType:(LPATItemViewType)type;
++ (instancetype)itemWithLayer:(CALayer *)layer;
 
 @property (nonatomic, strong) LPATPosition *position;
 
