@@ -31,8 +31,8 @@ static const NSTimeInterval duration = 0.25;
 
 @end
 
-//@interface LPATViewController (LPATNavigationControllerItem)
-//
-//@property (nonatomic, assign) LPATNavigationController *navgationController;
-//
-//@end
+@interface LPATViewController (LPATNavigationControllerItem)
+
+@property (nonatomic, assign) LPATNavigationController *navigationController;
+
+@end

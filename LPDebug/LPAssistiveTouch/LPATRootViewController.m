@@ -37,13 +37,13 @@ static const NSInteger itemTag = 1994;
         [itemsArray addObject:item];
     }
     LPATViewController *viewController = [[LPATViewController alloc] initWithItems:itemsArray];
-    [self.navgationController pushViewController:viewController atPisition:item.position];
+    [self.navigationController pushViewController:viewController atPisition:item.position];
 }
 
 - (void)tapGestureAction2:(UITapGestureRecognizer *)tapGestureRecognizer {
     LPATItemView *item = (LPATItemView *)tapGestureRecognizer.view;
     LPATViewController *viewController = [[LPATViewController alloc] init];
-    [self.navgationController pushViewController:viewController atPisition:item.position];
+    [self.navigationController pushViewController:viewController atPisition:item.position];
 }
 
 @end

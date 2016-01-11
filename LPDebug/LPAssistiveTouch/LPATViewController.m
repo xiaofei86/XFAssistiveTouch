@@ -71,7 +71,7 @@
 #pragma mark - Action
 
 - (void)tapGesture:(UITapGestureRecognizer *)gestureRecognizer {
-    [self.navgationController popViewController];
+    [self.navigationController popViewController];
 }
 
 @end

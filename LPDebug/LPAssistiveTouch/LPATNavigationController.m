@@ -7,7 +7,7 @@
 //
 
 #import "LPATNavigationController.h"
-//#import <objc/runtime.h>
+#import <objc/runtime.h>
 
 @implementation LPATNavigationController {
     NSMutableArray<LPATPosition *> *_pushPosition;
@@ -24,7 +24,7 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _viewControllers = [NSMutableArray arrayWithObject:viewController];
-        viewController.navgationController = self;
+        viewController.navigationController = self;
         _pushPosition = [NSMutableArray array];
     }
     return self;
@@ -163,7 +163,7 @@
         viewController.backItem.alpha = 1;
     }];
     
-    viewController.navgationController = self;
+    viewController.navigationController = self;
     [_viewControllers addObject:viewController];
     [_pushPosition addObject:position];
 }
@@ -198,18 +198,18 @@
 
 @end
 
-//static const void *navgationControllerKey = &navgationControllerKey;
-//
-//@implementation LPATViewController (LPATNavigationControllerItem)
-//
-//@dynamic navgationController;
-//
-//- (LPATNavigationController *)navgationController {
-//    return objc_getAssociatedObject(self, navgationControllerKey);
-//}
-//
-//- (void)setPageBarItem:(LPATNavigationController *)navgationController {
-//    objc_setAssociatedObject(self, navgationControllerKey, navgationController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//}
-//
-//@end
+static const void *navigationControllerKey = &navigationControllerKey;
+
+@implementation LPATViewController (LPATNavigationControllerItem)
+
+@dynamic navigationController;
+
+- (LPATNavigationController *)navigationController {
+    return objc_getAssociatedObject(self, navigationControllerKey);
+}
+
+- (void)setNavigationController:(LPATNavigationController *)navigationController {
+    objc_setAssociatedObject(self, navigationControllerKey, navigationController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end

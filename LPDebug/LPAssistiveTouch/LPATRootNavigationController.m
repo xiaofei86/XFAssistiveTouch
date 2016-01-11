@@ -7,7 +7,6 @@
 //
 
 #import "LPATRootNavigationController.h"
-#import "LPATRootViewController.h"
 
 static NSTimeInterval hideDuration = 5;
 static const NSTimeInterval hideAlpha = 0.4;

@@ -7,6 +7,7 @@
 //
 
 #import "LPATNavigationController.h"
+#import "LPATRootViewController.h"
 
 @protocol LPATRootNavigationControllerDelegate <NSObject>
 

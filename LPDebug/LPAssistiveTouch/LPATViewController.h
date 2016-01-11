@@ -8,8 +8,6 @@
 
 #import "LPATItemView.h"
 
-@class LPATNavigationController;
-
 @interface LPATViewController : UIResponder
 
 - (instancetype)initWithItems:(NSArray<LPATItemView *> *)items;
@@ -19,6 +17,5 @@
 
 @property (nonatomic, strong) LPATItemView *backItem;
 @property (nonatomic, strong) NSArray<LPATItemView *> *items;
-@property (nonatomic, assign) LPATNavigationController *navgationController;
 
 @end
