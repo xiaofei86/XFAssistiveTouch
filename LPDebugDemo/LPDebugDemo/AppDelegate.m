@@ -23,8 +23,8 @@
     
     LPAssistiveTouch *_assistiveTouch = [LPAssistiveTouch shareInstance];
     [_assistiveTouch showAssistiveTouch];
-//    LPATRootViewController *rootViewController = (LPATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
-//    rootViewController.delegate = self;
+    LPATRootViewController *rootViewController = (LPATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
+    rootViewController.delegate = self;
     
     NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
     
