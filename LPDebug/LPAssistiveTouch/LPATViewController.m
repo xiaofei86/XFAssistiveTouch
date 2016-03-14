@@ -17,9 +17,7 @@
 
 - (instancetype)initWithItems:(NSArray<LPATItemView *> *)items {
     self = [self init];
-    if (self) {
-        self.items = items;
-    }
+    self.items = items;
     return self;
 }
 

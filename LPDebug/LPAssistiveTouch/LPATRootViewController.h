@@ -8,6 +8,20 @@
 
 #import "LPATViewController.h"
 
+@class LPATRootViewController;
+
+@protocol LPATRootViewControllerDelegate <NSObject>
+
+- (NSInteger)numberOfItemsInController:(LPATRootViewController *)atViewController;
+
+- (LPATItemView *)controller:(LPATRootViewController *)controller itemViewAtPosition:(LPATPosition *)position;
+
+- (void)controller:(LPATRootViewController *)controller didSelectedAtPosition:(LPATPosition *)position;
+
+@end
+
 @interface LPATRootViewController : LPATViewController
+
+@property (nonatomic, weak) id<LPATRootViewControllerDelegate> delegate;
 
 @end

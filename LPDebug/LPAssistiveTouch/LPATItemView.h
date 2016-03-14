@@ -9,10 +9,13 @@
 #import "LPATPosition.h"
 
 typedef NS_ENUM(NSInteger, LPATItemViewType) {
-    LPATItemViewTypeSystem,
     LPATItemViewTypeNone,
+    LPATItemViewTypeSystem,
     LPATItemViewTypeBack,
     LPATItemViewTypeStar,
+    LPATItemViewTypeNSLog,
+    LPATItemViewTypeAPNS,
+    LPATItemViewTypeTransform
 };
 
 @interface LPATItemView : UIView

@@ -8,9 +8,7 @@
 
 #import "LPATItemView.h"
 
-@implementation LPATItemView {
-    CALayer *_noneLayer;
-}
+@implementation LPATItemView
 
 #pragma mark - Initialization
 
@@ -29,6 +27,15 @@
         case LPATItemViewTypeStar:
             [item initWithStarType];
             break;
+        case LPATItemViewTypeNSLog:
+            [item initWithNSLogType];
+            break;
+        case LPATItemViewTypeAPNS:
+            [item initWithAPNSType];
+            break;
+        case LPATItemViewTypeTransform:
+            [item initWithTransformType];
+            break;
         default:
             break;
     }
@@ -37,7 +44,6 @@
 
 + (instancetype)itemWithLayer:(CALayer *)layer {
     LPATItemView *item = [[LPATItemView alloc] initWithFrame:CGRectZero];
-    [item->_noneLayer removeFromSuperlayer];
     [item.layer addSublayer:layer];
     return item;
 }
@@ -50,21 +56,23 @@
     return self;
 }
 
+#pragma mark - NativeType
+
+- (void)initWithNoneType {
+    CGFloat itemScale = itemWidth / imageViewWidth;
+    [self.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+    self.layer.contentsScale = [UIScreen mainScreen].scale;
+    self.layer.contentsRect = CGRectMake((1 - itemScale) / 2, (1 - itemScale) / 2, itemScale, itemScale);
+}
+
 - (void)initWithSystemType {
-    [_noneLayer removeFromSuperlayer];
     self.frame = CGRectMake(0, 0, imageViewWidth, imageViewWidth);
     [self.layer addSublayer:[self createCircle:22 alpha:0.2]];
     [self.layer addSublayer:[self createCircle:18 alpha:0.5]];
     [self.layer addSublayer:[self createCircle:14 alpha:0.8]];
 }
 
-- (void)initWithNoneType {
-    _noneLayer = [self createCircle:22 alpha:1.0];
-    [self.layer addSublayer:_noneLayer];
-}
-
 - (void)initWithBackType {
-    [_noneLayer removeFromSuperlayer];
     CAShapeLayer *layer = [CAShapeLayer layer];
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:CGPointMake(0, 0)];
@@ -84,7 +92,6 @@
 }
 
 - (void)initWithStarType {
-    [_noneLayer removeFromSuperlayer];
     CAShapeLayer *layer = [CAShapeLayer layer];
     CGSize size = CGSizeMake(44, 44);
     CGFloat numberOfPoints = 5;
@@ -112,6 +119,18 @@
     layer.fillColor = [UIColor whiteColor].CGColor;
     layer.position = CGPointMake(self.layer.position.x - 22, self.layer.position.y - 22);
     [self.layer addSublayer:layer];
+}
+
+- (void)initWithNSLogType {
+    self.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"NSLog"].CGImage);
+}
+
+- (void)initWithAPNSType {
+    self.layer.contents = (__bridge id _Nullable)[UIImage imageNamed:@"APNS"].CGImage;
+}
+
+- (void)initWithTransformType {
+    self.layer.contents = (__bridge id _Nullable)[UIImage imageNamed:@"Transform"].CGImage;
 }
 
 #pragma mark - Private

@@ -15,7 +15,6 @@
 @implementation LPAssistiveTouch {
     CGPoint _assistiveWindowPoint;
     CGPoint _coverWindowPoint;
-    LPATRootNavigationController *_rootNavigationController;
 }
 
 #pragma mark - Initialization

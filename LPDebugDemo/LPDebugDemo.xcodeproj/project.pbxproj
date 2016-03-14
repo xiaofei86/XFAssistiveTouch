@@ -14,6 +14,9 @@
 		AF7B6CAE1C2AB29C00EAC088 /* LPAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7B6CA91C2AB29C00EAC088 /* LPAssistiveTouch.m */; };
 		AFC4CA3A1C3E0018007FB460 /* LPTransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC4CA391C3E0018007FB460 /* LPTransformViewController.m */; };
 		AFC4CA631C3E2AC7007FB460 /* LPATRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC4CA621C3E2AC7007FB460 /* LPATRootNavigationController.m */; };
+		AFCA564F1C964F5100AE5F18 /* APNS.png in Resources */ = {isa = PBXBuildFile; fileRef = AFCA564C1C964F5100AE5F18 /* APNS.png */; };
+		AFCA56501C964F5100AE5F18 /* NSLog.png in Resources */ = {isa = PBXBuildFile; fileRef = AFCA564D1C964F5100AE5F18 /* NSLog.png */; };
+		AFCA56511C964F5100AE5F18 /* Transform.png in Resources */ = {isa = PBXBuildFile; fileRef = AFCA564E1C964F5100AE5F18 /* Transform.png */; };
 		AFFCC5141C4242940087F02F /* LPATItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCC50D1C4242940087F02F /* LPATItemView.m */; };
 		AFFCC5151C4242940087F02F /* LPATNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCC50F1C4242940087F02F /* LPATNavigationController.m */; };
 		AFFCC5161C4242940087F02F /* LPATPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCC5111C4242940087F02F /* LPATPosition.m */; };
@@ -36,6 +39,9 @@
 		AFC4CA391C3E0018007FB460 /* LPTransformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPTransformViewController.m; sourceTree = "<group>"; };
 		AFC4CA611C3E2AC7007FB460 /* LPATRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATRootNavigationController.h; sourceTree = "<group>"; };
 		AFC4CA621C3E2AC7007FB460 /* LPATRootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATRootNavigationController.m; sourceTree = "<group>"; };
+		AFCA564C1C964F5100AE5F18 /* APNS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = APNS.png; sourceTree = "<group>"; };
+		AFCA564D1C964F5100AE5F18 /* NSLog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSLog.png; sourceTree = "<group>"; };
+		AFCA564E1C964F5100AE5F18 /* Transform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform.png; sourceTree = "<group>"; };
 		AFFCC50C1C4242940087F02F /* LPATItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATItemView.h; sourceTree = "<group>"; };
 		AFFCC50D1C4242940087F02F /* LPATItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATItemView.m; sourceTree = "<group>"; };
 		AFFCC50E1C4242940087F02F /* LPATNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATNavigationController.h; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		AF7B6CA61C2AB25C00EAC088 /* LPDebug */ = {
 			isa = PBXGroup;
 			children = (
+				AFCA564B1C964F5100AE5F18 /* Images */,
 				AF7B6CA71C2AB29C00EAC088 /* LPAssistiveTouch */,
 				AFC4CA381C3E0018007FB460 /* LPTransformViewController.h */,
 				AFC4CA391C3E0018007FB460 /* LPTransformViewController.m */,
@@ -128,6 +135,16 @@
 				AF7B6CA91C2AB29C00EAC088 /* LPAssistiveTouch.m */,
 			);
 			path = LPAssistiveTouch;
+			sourceTree = "<group>";
+		};
+		AFCA564B1C964F5100AE5F18 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				AFCA564C1C964F5100AE5F18 /* APNS.png */,
+				AFCA564D1C964F5100AE5F18 /* NSLog.png */,
+				AFCA564E1C964F5100AE5F18 /* Transform.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +205,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFCA56511C964F5100AE5F18 /* Transform.png in Resources */,
 				AF19688B1C2AAD5F00599D19 /* Assets.xcassets in Resources */,
+				AFCA564F1C964F5100AE5F18 /* APNS.png in Resources */,
+				AFCA56501C964F5100AE5F18 /* NSLog.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

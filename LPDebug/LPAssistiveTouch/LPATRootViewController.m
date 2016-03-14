@@ -9,16 +9,24 @@
 #import "LPATRootViewController.h"
 #import "LPATNavigationController.h"
 
-static const NSInteger itemTag = 1994;
-
 @implementation LPATRootViewController
 
 - (void)loadView {
     NSMutableArray<LPATItemView *> *itemsArray = [NSMutableArray array];
-    for (int i = 0; i < maxCount; i++) {
+    // FIXME:
+    NSInteger count = 0;
+    if (_delegate && [_delegate respondsToSelector:@selector(controller:didSelectedAtPosition:)]) {
+        count = [_delegate numberOfItemsInController:self];
+        count < 0? count = 0: count;
+        count > maxCount? count = maxCount: count;
+    }
+    for (int i = 0; i < count; i++) {
+        LPATItemView *item;
+        if (_delegate && [_delegate respondsToSelector:@selector(controller:itemViewAtPosition:)]) {
+            item = [_delegate controller:self itemViewAtPosition:[LPATPosition positionWithCount:count index:i]];
+        }
+        !item? item = [LPATItemView new]: item;
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureAction:)];
-        LPATItemView *item = [LPATItemView itemWithType:LPATItemViewTypeStar];
-        item.tag = itemTag + i;
         [item addGestureRecognizer:tapGestureRecognizer];
         [itemsArray addObject:item];
     }
@@ -28,22 +36,10 @@ static const NSInteger itemTag = 1994;
 #pragma mark - Action
 
 - (void)tapGestureAction:(UITapGestureRecognizer *)tapGestureRecognizer {
-    LPATItemView *item = (LPATItemView *)tapGestureRecognizer.view;
-    NSMutableArray *itemsArray = [NSMutableArray array];
-    for (int i = 0; i < item.position.index + 1; i++) {
-        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureAction2:)];
-        LPATItemView *item = [LPATItemView itemWithType:LPATItemViewTypeNone];
-        [item addGestureRecognizer:tapGestureRecognizer];
-        [itemsArray addObject:item];
+    if (_delegate && [_delegate respondsToSelector:@selector(controller:didSelectedAtPosition:)]) {
+        LPATItemView *item = (LPATItemView *)tapGestureRecognizer.view;
+        [_delegate controller:self didSelectedAtPosition:item.position];
     }
-    LPATViewController *viewController = [[LPATViewController alloc] initWithItems:itemsArray];
-    [self.navigationController pushViewController:viewController atPisition:item.position];
-}
-
-- (void)tapGestureAction2:(UITapGestureRecognizer *)tapGestureRecognizer {
-    LPATItemView *item = (LPATItemView *)tapGestureRecognizer.view;
-    LPATViewController *viewController = [[LPATViewController alloc] init];
-    [self.navigationController pushViewController:viewController atPisition:item.position];
 }
 
 @end

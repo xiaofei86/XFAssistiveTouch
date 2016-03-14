@@ -17,17 +17,25 @@
 #pragma mark - Initialization
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    return [self initWithRootViewController:[LPATViewController new]];
+    return [self initWithRootViewController:_rootViewController];
 }
 
 - (instancetype)initWithRootViewController:(LPATViewController *)viewController {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        _viewControllers = [NSMutableArray arrayWithObject:viewController];
-        viewController.navigationController = self;
+        _rootViewController = viewController;
+        _rootViewController.navigationController = self;
+        _viewControllers = [NSMutableArray arrayWithObject:_rootViewController];
         _pushPosition = [NSMutableArray array];
     }
     return self;
+}
+
+- (LPATViewController *)rootViewController {
+    if (!_rootViewController) {
+        _rootViewController = [LPATViewController new];
+    }
+    return _rootViewController;
 }
 
 #pragma mark - UIViewController

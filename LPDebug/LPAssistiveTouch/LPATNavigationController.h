@@ -22,7 +22,9 @@ static const NSTimeInterval duration = 0.25;
 - (void)spreadBegin;
 - (void)shrinkEnd;
 
-@property (nonatomic, strong) NSMutableArray<LPATViewController *> *viewControllers;
+// TODO: Remove readonly
+@property (nonatomic, strong, readonly) NSMutableArray<LPATViewController *> *viewControllers;
+@property (nonatomic, strong) LPATViewController *rootViewController;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) LPATItemView *contentItem;
 @property (nonatomic, assign) CGPoint contentPoint;

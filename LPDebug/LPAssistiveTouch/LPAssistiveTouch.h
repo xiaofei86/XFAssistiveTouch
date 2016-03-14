@@ -16,4 +16,6 @@
 
 @property (nonatomic, strong) UIWindow *assistiveWindow;
 
+@property (nonatomic, strong) LPATRootNavigationController *rootNavigationController;
+
 @end

@@ -10,7 +10,7 @@
 
 @implementation LPATPosition
 
-+ (instancetype)positionWithCount:(NSUInteger)count index:(NSUInteger)index {
++ (instancetype)positionWithCount:(NSInteger)count index:(NSInteger)index {
     return [[LPATPosition alloc] initWithCount:count index:index];
 }
 
@@ -33,11 +33,13 @@
     return [self initWithCount:0 index:0];
 }
 
-- (instancetype)initWithCount:(NSUInteger)count index:(NSUInteger)index {
+- (instancetype)initWithCount:(NSInteger)count index:(NSInteger)index {
     self = [super init];
     if (self) {
-        _count = count;
-        _index = index;
+        _count = count < 0? 0: count;
+        _count = _count > maxCount? maxCount: _count;
+        _index = index < 0? 0: index;
+        _index = _index > _count? maxCount: _index;
         _center = [self getCenter];
         _frame = [self getFrame];
     }
@@ -45,7 +47,14 @@
 }
 
 - (CGPoint)getCenter {
-    CGFloat angle = 5 * M_PI_2 - M_PI * 2 / _count * _index;
+    //If count is zero ,make contentItem spread to (1,1)
+    NSInteger count = _count;
+    NSInteger index = _index;
+    if (!_count) {
+        count = 1;
+        index = 1;
+    }
+    CGFloat angle = 5 * M_PI_2 - M_PI * 2 / count * index;
     CGFloat k = tan(angle);
     CGFloat x;
     CGFloat y;
