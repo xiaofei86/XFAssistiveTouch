@@ -1,2 +1,0 @@
-/Users/XuYafei/Library/Developer/Xcode/DerivedData/LPDebugDemo-cclzqxqtjoetyfgnynppaksemkwr/Build/Products/Debug-iphonesimulator/LPDebugDemo.app
-iPhone Developer
