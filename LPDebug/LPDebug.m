@@ -23,22 +23,23 @@
     dispatch_once(&onceToken, ^{
         sharedInstance = [self new];
     });
-    
-    LPAssistiveTouch *_assistiveTouch = [LPAssistiveTouch shareInstance];
-    [_assistiveTouch showAssistiveTouch];
-    LPATRootViewController *rootViewController = (LPATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
-    rootViewController.delegate = sharedInstance;
-    
-    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
-    
-//    hookLog();
-//    NSLog(@"%@", [NSThread callStackSymbols]);
-    
     return sharedInstance;
 }
 
 - (instancetype)init {
-    return [LPDebug run];
+    self = [super init];
+    if (self) {
+        LPAssistiveTouch *_assistiveTouch = [LPAssistiveTouch shareInstance];
+        [_assistiveTouch showAssistiveTouch];
+        LPATRootViewController *rootViewController = (LPATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
+        rootViewController.delegate = self;
+        
+        NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
+        
+//        hookLog();
+//        NSLog(@"%@", [NSThread callStackSymbols]);
+    }
+    return self;
 }
 
 #pragma mark - HookNSLog
