@@ -12,7 +12,6 @@
 		AF1968861C2AAD5F00599D19 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1968851C2AAD5F00599D19 /* ViewController.m */; };
 		AF19688B1C2AAD5F00599D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF19688A1C2AAD5F00599D19 /* Assets.xcassets */; };
 		AF7B6CAE1C2AB29C00EAC088 /* LPAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7B6CA91C2AB29C00EAC088 /* LPAssistiveTouch.m */; };
-		AFC4CA3A1C3E0018007FB460 /* LPTransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC4CA391C3E0018007FB460 /* LPTransformViewController.m */; };
 		AFC4CA631C3E2AC7007FB460 /* LPATRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC4CA621C3E2AC7007FB460 /* LPATRootNavigationController.m */; };
 		AFCA564F1C964F5100AE5F18 /* APNS.png in Resources */ = {isa = PBXBuildFile; fileRef = AFCA564C1C964F5100AE5F18 /* APNS.png */; };
 		AFCA56501C964F5100AE5F18 /* NSLog.png in Resources */ = {isa = PBXBuildFile; fileRef = AFCA564D1C964F5100AE5F18 /* NSLog.png */; };
@@ -22,6 +21,7 @@
 		AFFCC5161C4242940087F02F /* LPATPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCC5111C4242940087F02F /* LPATPosition.m */; };
 		AFFCC5171C4242940087F02F /* LPATViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCC5131C4242940087F02F /* LPATViewController.m */; };
 		AFFCC51A1C42ADA10087F02F /* LPATRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCC5191C42ADA10087F02F /* LPATRootViewController.m */; };
+		AFFF7BFC1C97904D00AC618D /* LPDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFF7BFB1C97904D00AC618D /* LPDebug.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +35,6 @@
 		AF19688F1C2AAD5F00599D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF7B6CA81C2AB29C00EAC088 /* LPAssistiveTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPAssistiveTouch.h; sourceTree = "<group>"; };
 		AF7B6CA91C2AB29C00EAC088 /* LPAssistiveTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPAssistiveTouch.m; sourceTree = "<group>"; };
-		AFC4CA381C3E0018007FB460 /* LPTransformViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPTransformViewController.h; sourceTree = "<group>"; };
-		AFC4CA391C3E0018007FB460 /* LPTransformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPTransformViewController.m; sourceTree = "<group>"; };
 		AFC4CA611C3E2AC7007FB460 /* LPATRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATRootNavigationController.h; sourceTree = "<group>"; };
 		AFC4CA621C3E2AC7007FB460 /* LPATRootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATRootNavigationController.m; sourceTree = "<group>"; };
 		AFCA564C1C964F5100AE5F18 /* APNS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = APNS.png; sourceTree = "<group>"; };
@@ -52,6 +50,8 @@
 		AFFCC5131C4242940087F02F /* LPATViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATViewController.m; sourceTree = "<group>"; };
 		AFFCC5181C42ADA10087F02F /* LPATRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATRootViewController.h; sourceTree = "<group>"; };
 		AFFCC5191C42ADA10087F02F /* LPATRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATRootViewController.m; sourceTree = "<group>"; };
+		AFFF7BFA1C97904D00AC618D /* LPDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPDebug.h; sourceTree = "<group>"; };
+		AFFF7BFB1C97904D00AC618D /* LPDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPDebug.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +107,10 @@
 		AF7B6CA61C2AB25C00EAC088 /* LPDebug */ = {
 			isa = PBXGroup;
 			children = (
-				AFCA564B1C964F5100AE5F18 /* Images */,
 				AF7B6CA71C2AB29C00EAC088 /* LPAssistiveTouch */,
-				AFC4CA381C3E0018007FB460 /* LPTransformViewController.h */,
-				AFC4CA391C3E0018007FB460 /* LPTransformViewController.m */,
+				AFCA564B1C964F5100AE5F18 /* Images */,
+				AFFF7BFA1C97904D00AC618D /* LPDebug.h */,
+				AFFF7BFB1C97904D00AC618D /* LPDebug.m */,
 			);
 			name = LPDebug;
 			path = ../LPDebug;
@@ -220,8 +220,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFC4CA631C3E2AC7007FB460 /* LPATRootNavigationController.m in Sources */,
-				AFC4CA3A1C3E0018007FB460 /* LPTransformViewController.m in Sources */,
 				AFFCC5141C4242940087F02F /* LPATItemView.m in Sources */,
+				AFFF7BFC1C97904D00AC618D /* LPDebug.m in Sources */,
 				AFFCC5171C4242940087F02F /* LPATViewController.m in Sources */,
 				AFFCC5151C4242940087F02F /* LPATNavigationController.m in Sources */,
 				AFFCC51A1C42ADA10087F02F /* LPATRootViewController.m in Sources */,
