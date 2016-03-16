@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09A359F2DD77EE40115DA865 /* libPods-LPDebugDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C6C43402F79059CF618A12 /* libPods-LPDebugDemo.a */; };
+		AF0C0E011C98F36A002CFF28 /* LPTransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0C0E001C98F36A002CFF28 /* LPTransformViewController.m */; };
 		AF1968801C2AAD5F00599D19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF19687F1C2AAD5F00599D19 /* main.m */; };
 		AF1968831C2AAD5F00599D19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1968821C2AAD5F00599D19 /* AppDelegate.m */; };
 		AF1968861C2AAD5F00599D19 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1968851C2AAD5F00599D19 /* ViewController.m */; };
@@ -29,6 +30,8 @@
 		0B5A8585BC64F3AFA36F0FF5 /* Pods-LPDebugDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LPDebugDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LPDebugDemo/Pods-LPDebugDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		2BC9E8A8F7660B0963F50701 /* Pods-LPDebugDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LPDebugDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LPDebugDemo/Pods-LPDebugDemo.release.xcconfig"; sourceTree = "<group>"; };
 		52C6C43402F79059CF618A12 /* libPods-LPDebugDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LPDebugDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF0C0DFF1C98F36A002CFF28 /* LPTransformViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPTransformViewController.h; sourceTree = "<group>"; };
+		AF0C0E001C98F36A002CFF28 /* LPTransformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPTransformViewController.m; sourceTree = "<group>"; };
 		AF19687B1C2AAD5F00599D19 /* LPDebugDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LPDebugDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF19687F1C2AAD5F00599D19 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AF1968811C2AAD5F00599D19 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -131,8 +134,10 @@
 		AF7B6CA61C2AB25C00EAC088 /* LPDebug */ = {
 			isa = PBXGroup;
 			children = (
-				AF7B6CA71C2AB29C00EAC088 /* LPAssistiveTouch */,
 				AFCA564B1C964F5100AE5F18 /* Images */,
+				AF7B6CA71C2AB29C00EAC088 /* LPAssistiveTouch */,
+				AF0C0DFF1C98F36A002CFF28 /* LPTransformViewController.h */,
+				AF0C0E001C98F36A002CFF28 /* LPTransformViewController.m */,
 				AFFF7BFA1C97904D00AC618D /* LPDebug.h */,
 				AFFF7BFB1C97904D00AC618D /* LPDebug.m */,
 			);
@@ -279,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFC4CA631C3E2AC7007FB460 /* LPATRootNavigationController.m in Sources */,
+				AF0C0E011C98F36A002CFF28 /* LPTransformViewController.m in Sources */,
 				AFFCC5141C4242940087F02F /* LPATItemView.m in Sources */,
 				AFFF7BFC1C97904D00AC618D /* LPDebug.m in Sources */,
 				AFFCC5171C4242940087F02F /* LPATViewController.m in Sources */,

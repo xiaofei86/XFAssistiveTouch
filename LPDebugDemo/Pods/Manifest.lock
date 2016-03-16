@@ -1,13 +1,13 @@
 PODS:
   - BPushSDK (1.4.3)
-  - LPPushService (1.1.0):
+  - LPPushService (1.2.0):
     - BPushSDK (= 1.4.3)
 
 DEPENDENCIES:
-  - LPPushService (~> 1.1.0)
+  - LPPushService (~> 1.2.0)
 
 SPEC CHECKSUMS:
   BPushSDK: 8586f1cb44aa16833cc6491929753df86f3601ad
-  LPPushService: f76ca98edb78a32df01c1db64b483c36701ef919
+  LPPushService: d3c22fe74c7ac2f2bd9e4999c693b49206180a40
 
 COCOAPODS: 0.38.2

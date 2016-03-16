@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// 通过推送消息启动
 static NSString *kPushLaunchNotification = @"kPushLaunchNotification";
 /// 收到本地通知
 static NSString *kPushLocalNotification = @"kPushLocalNotification";
 /// 收到远程通知
 static NSString *kPushRemoteNotification = @"kPushRemoteNotification";
-/// 收到远程静默通知(打开静默通知的情况下远程通知无效)
-static NSString *kPushSilentNotification = @"kPushSilentNotification";
 /// 获取设备号成功
 static NSString *kPushGetDeviceTokenSuccessNotification = @"kPushGetDeviceTokenSuccessNotification";
 /// 获取设备号失败
@@ -65,3 +65,5 @@ static NSString *kPushPrivateCacheKey = @"kPushPrivateCacheKey";
 + (void)setAppBadgeNumber:(NSInteger)count;
 
 @end
+
+NS_ASSUME_NONNULL_END
