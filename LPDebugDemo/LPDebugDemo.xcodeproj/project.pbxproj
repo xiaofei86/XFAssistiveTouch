@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		09A359F2DD77EE40115DA865 /* libPods-LPDebugDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C6C43402F79059CF618A12 /* libPods-LPDebugDemo.a */; };
-		AF0C0E011C98F36A002CFF28 /* LPTransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0C0E001C98F36A002CFF28 /* LPTransformViewController.m */; };
 		AF0C0E0D1C9907DB002CFF28 /* APNS.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E021C9907DB002CFF28 /* APNS.png */; };
 		AF0C0E0E1C9907DB002CFF28 /* NSLog.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E031C9907DB002CFF28 /* NSLog.png */; };
 		AF0C0E0F1C9907DB002CFF28 /* Transform.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E041C9907DB002CFF28 /* Transform.png */; };
@@ -38,8 +37,6 @@
 		0B5A8585BC64F3AFA36F0FF5 /* Pods-LPDebugDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LPDebugDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LPDebugDemo/Pods-LPDebugDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		2BC9E8A8F7660B0963F50701 /* Pods-LPDebugDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LPDebugDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LPDebugDemo/Pods-LPDebugDemo.release.xcconfig"; sourceTree = "<group>"; };
 		52C6C43402F79059CF618A12 /* libPods-LPDebugDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LPDebugDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF0C0DFF1C98F36A002CFF28 /* LPTransformViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPTransformViewController.h; sourceTree = "<group>"; };
-		AF0C0E001C98F36A002CFF28 /* LPTransformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPTransformViewController.m; sourceTree = "<group>"; };
 		AF0C0E021C9907DB002CFF28 /* APNS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = APNS.png; sourceTree = "<group>"; };
 		AF0C0E031C9907DB002CFF28 /* NSLog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSLog.png; sourceTree = "<group>"; };
 		AF0C0E041C9907DB002CFF28 /* Transform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform.png; sourceTree = "<group>"; };
@@ -152,8 +149,6 @@
 			children = (
 				AFCA564B1C964F5100AE5F18 /* Images */,
 				AF7B6CA71C2AB29C00EAC088 /* LPAssistiveTouch */,
-				AF0C0DFF1C98F36A002CFF28 /* LPTransformViewController.h */,
-				AF0C0E001C98F36A002CFF28 /* LPTransformViewController.m */,
 				AFFF7BFA1C97904D00AC618D /* LPDebug.h */,
 				AFFF7BFB1C97904D00AC618D /* LPDebug.m */,
 			);
@@ -316,7 +311,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFC4CA631C3E2AC7007FB460 /* LPATRootNavigationController.m in Sources */,
-				AF0C0E011C98F36A002CFF28 /* LPTransformViewController.m in Sources */,
 				AFFCC5141C4242940087F02F /* LPATItemView.m in Sources */,
 				AFFF7BFC1C97904D00AC618D /* LPDebug.m in Sources */,
 				AFFCC5171C4242940087F02F /* LPATViewController.m in Sources */,

@@ -65,10 +65,6 @@ void hookLog() {
     //printf("Here is dll init, redirect stdout and stderr to logfile\n");
 }
 
-//    Method ori_Method =  class_getInstanceMethod([NSArray class], @selector(lastObject));
-//    Method my_Method = class_getInstanceMethod([NSArray class], @selector(myLastObject));
-//    method_exchangeImplementations(ori_Method, my_Method);
-
 //+ (void)injectIntoNSURLConnectionCancel
 //{
 //    static dispatch_once_t onceToken;
