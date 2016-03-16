@@ -6,9 +6,11 @@
 //  Copyright © 2016年 loopeer. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface LPDebug : NSObject
+
+@property (nonatomic, weak) UINavigationController *navigationController;
 
 + (instancetype)run;
 

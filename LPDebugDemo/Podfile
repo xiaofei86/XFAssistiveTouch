@@ -3,7 +3,7 @@
 
 target 'LPDebugDemo' do
 
-pod 'LPPushService', '~> 1.2.0'
+pod 'LPPushService', '~> 1.2.1'
 
 end
 

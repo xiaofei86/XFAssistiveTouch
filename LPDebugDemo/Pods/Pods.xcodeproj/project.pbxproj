@@ -7,62 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E332E6E07DDC0377374E99DE65C1399 /* LPPushService.h in Headers */ = {isa = PBXBuildFile; fileRef = 21EB12D3026D08966A60D8407506D9FB /* LPPushService.h */; };
-		24337AE2BBB963BB6FCEEDEC20E0ACA1 /* LPPushNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EFE72B8249AA8FFA718D520378FBCC /* LPPushNetworking.m */; };
-		27B6D4E4E6C0E36D8194B05E78A43FC6 /* LPPushService-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D8FEB8860F37F6A310B1CCB68506A7 /* LPPushService-dummy.m */; };
-		6EA3C9C28A4D2ED931A351A5182BEC7D /* LPPushDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356B2096405B524CF6A2F77759B19A2 /* LPPushDataManager.m */; };
-		7AC3345AFF54E019F3B8474AFF7993D0 /* LPPushDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CCE6EDE69A2D1A36F6D3444591B39A40 /* LPPushDataManager.h */; };
+		0682EF892580B982C32B3D0306041B7D /* LPPushDataController.h in Headers */ = {isa = PBXBuildFile; fileRef = C14D451860C492228547EABA3FDDF3A5 /* LPPushDataController.h */; };
+		4AE8C05D8816873E2C1C8A09B56AFF1D /* LPPushService.h in Headers */ = {isa = PBXBuildFile; fileRef = 774E26A98C42F6DD903DAF4A7F292007 /* LPPushService.h */; };
+		4DC9DDD553EF5E12B43D56534A1FAA6A /* LPPushController.h in Headers */ = {isa = PBXBuildFile; fileRef = FBFF4DEA6A64FA04B86119D8C56E8D34 /* LPPushController.h */; };
+		6A6756F9E656209AB6605439ED2DA600 /* LPPushController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5C67C1D30AD6B8BCCF483AE643F2AA /* LPPushController.m */; };
 		7BC0A16CE29309E62A40D22BBC763EAE /* Pods-LPDebugDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0BEA9227404371AC6C92ED157BC7F6 /* Pods-LPDebugDemo-dummy.m */; };
-		80B0A21E49C5E0D19D3DE4A8837408E9 /* LPPushNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = B2F056A2F1EA6A33D7937C41F4AA93EF /* LPPushNetworking.h */; };
-		86543745BAF2823F1B1734DA903EA844 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8817F96D532902472BA8E6FE50216E15 /* Foundation.framework */; };
-		D6856F12D3547A4934B057DD19A2C17B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8817F96D532902472BA8E6FE50216E15 /* Foundation.framework */; };
-		E4D527F72B6CBA340B09007A6886CCBB /* LPPushService.m in Sources */ = {isa = PBXBuildFile; fileRef = C5457CAF2A4DAE06D3ADED6213770103 /* LPPushService.m */; };
+		7D0857D06ABCCA5848AE3AF3114A54C5 /* LPPushNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC0F6E4771D74F68BFA4BEDEC5DBDCE /* LPPushNetworking.m */; };
+		86543745BAF2823F1B1734DA903EA844 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE505281542C5420BFCD9F60D784660 /* Foundation.framework */; };
+		9062D9E351252B83CE73600F6476270A /* LPPushService.m in Sources */ = {isa = PBXBuildFile; fileRef = F352FD820BCE57B81C6B4AF538EEA218 /* LPPushService.m */; };
+		A25E94727C6CD20E63FE97D9140BA003 /* LPPushDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007EBD5E3CF01861CFA6D4F33DFB8A0E /* LPPushDataController.m */; };
+		BB4BFC54F5284E08FE7565217DD546F8 /* LPPushDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D8D0E5D3451FA4A5E64AC74C8B65DC /* LPPushDataManager.h */; };
+		C53B4F05E649A10DE78040169B686574 /* LPPushDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2962160098F6A277E7368DE0639F21 /* LPPushDataManager.m */; };
+		C896DD2B4ED303F8EAC90BF9913ACFD4 /* LPPushService-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF0DAA76FE3701D0345625883D58D88 /* LPPushService-dummy.m */; };
+		D228CF53028A997F7727E21FB2D7BF0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE505281542C5420BFCD9F60D784660 /* Foundation.framework */; };
+		D67D4ECB30FD0F8A1DC431E02612431E /* LPPushNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B0C7D81B3AC646B6F004502A385C6B4 /* LPPushNetworking.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F78E6EC000656EBC8B8F84BCEB5C7B19 /* PBXContainerItemProxy */ = {
+		4B73158DC47633916E591F03CB88BD45 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0C37D4E698B71843D11C0259EFCDED2B;
+			remoteGlobalIDString = 56652B5DB5A63FFBF641F8EEFC7695BD;
 			remoteInfo = LPPushService;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08D8FEB8860F37F6A310B1CCB68506A7 /* LPPushService-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LPPushService-dummy.m"; sourceTree = "<group>"; };
-		21EB12D3026D08966A60D8407506D9FB /* LPPushService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LPPushService.h; path = LPPushService/LPPushService.h; sourceTree = "<group>"; };
+		007EBD5E3CF01861CFA6D4F33DFB8A0E /* LPPushDataController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPushDataController.m; path = LPPushService/Controllers/LPPushDataController.m; sourceTree = "<group>"; };
 		24C50CB51FDAAE18847060004F3E03FC /* Pods-LPDebugDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LPDebugDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3440EA069BBDC5338BB6A70D332A1B5D /* LPPushService.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LPPushService.xcconfig; sourceTree = "<group>"; };
 		3989EBC4F1D73F8CA5548077ADCD2F89 /* Pods-LPDebugDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LPDebugDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		489700FA31454F84FF9BBDF754D2BEC8 /* BPush.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BPush.h; path = "Official-Sources/LibBPush/BPush.h"; sourceTree = "<group>"; };
+		3BC0F6E4771D74F68BFA4BEDEC5DBDCE /* LPPushNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPushNetworking.m; path = LPPushService/LPPushNetworking.m; sourceTree = "<group>"; };
+		3DA85BEB227ADC42C882838E984D45EA /* LPPushService-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "LPPushService-Private.xcconfig"; sourceTree = "<group>"; };
+		48C891CFDCF5CB7A2BB929B110DBB3BC /* BPush.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BPush.h; path = "Official-Sources/LibBPush/BPush.h"; sourceTree = "<group>"; };
+		4B0C7D81B3AC646B6F004502A385C6B4 /* LPPushNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LPPushNetworking.h; path = LPPushService/LPPushNetworking.h; sourceTree = "<group>"; };
 		4C0D60D5DBF52739FC523F9484BF9FD2 /* Pods-LPDebugDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LPDebugDemo-resources.sh"; sourceTree = "<group>"; };
-		5356B2096405B524CF6A2F77759B19A2 /* LPPushDataManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPushDataManager.m; path = LPPushService/LPPushDataManager.m; sourceTree = "<group>"; };
-		60A0BA0E8116057C603FFF1076E05557 /* LPPushService-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LPPushService-prefix.pch"; sourceTree = "<group>"; };
-		693A8AEE4D2F32B200A9CD2BA8249E4A /* libBPush.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libBPush.a; path = "Official-Sources/LibBPush/libBPush.a"; sourceTree = "<group>"; };
-		8817F96D532902472BA8E6FE50216E15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		90D9548BF5F6DBBEB0FE285536F8189F /* LPPushService-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "LPPushService-Private.xcconfig"; sourceTree = "<group>"; };
+		62D8D0E5D3451FA4A5E64AC74C8B65DC /* LPPushDataManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LPPushDataManager.h; path = LPPushService/LPPushDataManager.h; sourceTree = "<group>"; };
+		774E26A98C42F6DD903DAF4A7F292007 /* LPPushService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LPPushService.h; path = LPPushService/LPPushService.h; sourceTree = "<group>"; };
+		7B10A684706D58742E95A2E2A5CFC21C /* LPPushService-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LPPushService-prefix.pch"; sourceTree = "<group>"; };
+		7DF0DAA76FE3701D0345625883D58D88 /* LPPushService-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LPPushService-dummy.m"; sourceTree = "<group>"; };
 		919458027F8DB07BC7C77EDC67A5B299 /* Pods-LPDebugDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LPDebugDemo.release.xcconfig"; sourceTree = "<group>"; };
-		9E1E3CA107B822930D9D78B3BC7534AF /* libLPPushService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLPPushService.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7C903846B8191C35A723829A78AF987 /* LPPushService.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LPPushService.xcconfig; sourceTree = "<group>"; };
-		B2F056A2F1EA6A33D7937C41F4AA93EF /* LPPushNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LPPushNetworking.h; path = LPPushService/LPPushNetworking.h; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C5457CAF2A4DAE06D3ADED6213770103 /* LPPushService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPushService.m; path = LPPushService/LPPushService.m; sourceTree = "<group>"; };
-		CCE6EDE69A2D1A36F6D3444591B39A40 /* LPPushDataManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LPPushDataManager.h; path = LPPushService/LPPushDataManager.h; sourceTree = "<group>"; };
+		C14D451860C492228547EABA3FDDF3A5 /* LPPushDataController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LPPushDataController.h; path = LPPushService/Controllers/LPPushDataController.h; sourceTree = "<group>"; };
 		DA10FE5E06E07A255121A69F8ED726E8 /* libPods-LPDebugDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LPDebugDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0BEA9227404371AC6C92ED157BC7F6 /* Pods-LPDebugDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LPDebugDemo-dummy.m"; sourceTree = "<group>"; };
-		E4EFE72B8249AA8FFA718D520378FBCC /* LPPushNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPushNetworking.m; path = LPPushService/LPPushNetworking.m; sourceTree = "<group>"; };
+		DEF5CF0F7331C89EB6D248F5C48285FD /* libBPush.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libBPush.a; path = "Official-Sources/LibBPush/libBPush.a"; sourceTree = "<group>"; };
+		EA5C67C1D30AD6B8BCCF483AE643F2AA /* LPPushController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPushController.m; path = LPPushService/Controllers/LPPushController.m; sourceTree = "<group>"; };
+		F2082A3917E3A0EBA3DC080D9B1E9D11 /* libLPPushService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLPPushService.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F352FD820BCE57B81C6B4AF538EEA218 /* LPPushService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPushService.m; path = LPPushService/LPPushService.m; sourceTree = "<group>"; };
+		FBFF4DEA6A64FA04B86119D8C56E8D34 /* LPPushController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LPPushController.h; path = LPPushService/Controllers/LPPushController.h; sourceTree = "<group>"; };
 		FD402471DE0F38ABCDC8C0703F558D7F /* Pods-LPDebugDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LPDebugDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		FDE505281542C5420BFCD9F60D784660 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FF2962160098F6A277E7368DE0639F21 /* LPPushDataManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPushDataManager.m; path = LPPushService/LPPushDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5A40A573662CA662A4A3E101EB38CDBB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D6856F12D3547A4934B057DD19A2C17B /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6BF82C5F843481CA5C1367D23303E0A7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,39 +71,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6EDF68F203A8209B282F58F031109883 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D228CF53028A997F7727E21FB2D7BF0A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04C1C26715A398E1145B24F0C565075A /* BPushSDK */ = {
+		04EDBBDB49507292AEC8E7FFD9473E22 /* BPushSDK */ = {
 			isa = PBXGroup;
 			children = (
-				489700FA31454F84FF9BBDF754D2BEC8 /* BPush.h */,
-				EB0232BB3A2342824CB4FAA88BD57B4B /* Frameworks */,
+				48C891CFDCF5CB7A2BB929B110DBB3BC /* BPush.h */,
+				E89B11AB2CCCCD1169B9D70727B5759D /* Frameworks */,
 			);
 			path = BPushSDK;
 			sourceTree = "<group>";
 		};
-		389CF5D60FE67BB6EC3F9881193A6CA5 /* LPPushService */ = {
+		196DED87F7A947DD71BE0A303517FA9A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCE6EDE69A2D1A36F6D3444591B39A40 /* LPPushDataManager.h */,
-				5356B2096405B524CF6A2F77759B19A2 /* LPPushDataManager.m */,
-				B2F056A2F1EA6A33D7937C41F4AA93EF /* LPPushNetworking.h */,
-				E4EFE72B8249AA8FFA718D520378FBCC /* LPPushNetworking.m */,
-				21EB12D3026D08966A60D8407506D9FB /* LPPushService.h */,
-				C5457CAF2A4DAE06D3ADED6213770103 /* LPPushService.m */,
-				4B51329D2A500AB4D35920A62739F9E0 /* Support Files */,
-			);
-			path = LPPushService;
-			sourceTree = "<group>";
-		};
-		4B51329D2A500AB4D35920A62739F9E0 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				A7C903846B8191C35A723829A78AF987 /* LPPushService.xcconfig */,
-				90D9548BF5F6DBBEB0FE285536F8189F /* LPPushService-Private.xcconfig */,
-				08D8FEB8860F37F6A310B1CCB68506A7 /* LPPushService-dummy.m */,
-				60A0BA0E8116057C603FFF1076E05557 /* LPPushService-prefix.pch */,
+				3440EA069BBDC5338BB6A70D332A1B5D /* LPPushService.xcconfig */,
+				3DA85BEB227ADC42C882838E984D45EA /* LPPushService-Private.xcconfig */,
+				7DF0DAA76FE3701D0345625883D58D88 /* LPPushService-dummy.m */,
+				7B10A684706D58742E95A2E2A5CFC21C /* LPPushService-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/LPPushService";
@@ -126,16 +120,34 @@
 		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				8817F96D532902472BA8E6FE50216E15 /* Foundation.framework */,
+				FDE505281542C5420BFCD9F60D784660 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		5CA74500DB0271C8173CF04C5B3E8AFA /* Pods */ = {
+		6785D8C7501A959445236036197D4412 /* LPPushService */ = {
 			isa = PBXGroup;
 			children = (
-				04C1C26715A398E1145B24F0C565075A /* BPushSDK */,
-				389CF5D60FE67BB6EC3F9881193A6CA5 /* LPPushService */,
+				FBFF4DEA6A64FA04B86119D8C56E8D34 /* LPPushController.h */,
+				EA5C67C1D30AD6B8BCCF483AE643F2AA /* LPPushController.m */,
+				C14D451860C492228547EABA3FDDF3A5 /* LPPushDataController.h */,
+				007EBD5E3CF01861CFA6D4F33DFB8A0E /* LPPushDataController.m */,
+				62D8D0E5D3451FA4A5E64AC74C8B65DC /* LPPushDataManager.h */,
+				FF2962160098F6A277E7368DE0639F21 /* LPPushDataManager.m */,
+				4B0C7D81B3AC646B6F004502A385C6B4 /* LPPushNetworking.h */,
+				3BC0F6E4771D74F68BFA4BEDEC5DBDCE /* LPPushNetworking.m */,
+				774E26A98C42F6DD903DAF4A7F292007 /* LPPushService.h */,
+				F352FD820BCE57B81C6B4AF538EEA218 /* LPPushService.m */,
+				196DED87F7A947DD71BE0A303517FA9A /* Support Files */,
+			);
+			path = LPPushService;
+			sourceTree = "<group>";
+		};
+		6D2B96D368C5D4ADAD96628349A2E29C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04EDBBDB49507292AEC8E7FFD9473E22 /* BPushSDK */,
+				6785D8C7501A959445236036197D4412 /* LPPushService */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -145,7 +157,7 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				5CA74500DB0271C8173CF04C5B3E8AFA /* Pods */,
+				6D2B96D368C5D4ADAD96628349A2E29C /* Pods */,
 				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
 				F831F09E885AB2B0FE5AD14D27412B46 /* Targets Support Files */,
 			);
@@ -162,16 +174,16 @@
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9E1E3CA107B822930D9D78B3BC7534AF /* libLPPushService.a */,
+				F2082A3917E3A0EBA3DC080D9B1E9D11 /* libLPPushService.a */,
 				DA10FE5E06E07A255121A69F8ED726E8 /* libPods-LPDebugDemo.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EB0232BB3A2342824CB4FAA88BD57B4B /* Frameworks */ = {
+		E89B11AB2CCCCD1169B9D70727B5759D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				693A8AEE4D2F32B200A9CD2BA8249E4A /* libBPush.a */,
+				DEF5CF0F7331C89EB6D248F5C48285FD /* libBPush.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -187,26 +199,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		7D27E1EE0C8F9BFAB4A8C22FC8ADB324 /* Headers */ = {
+		8B2146B8507062430A284162F5442C89 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AC3345AFF54E019F3B8474AFF7993D0 /* LPPushDataManager.h in Headers */,
-				80B0A21E49C5E0D19D3DE4A8837408E9 /* LPPushNetworking.h in Headers */,
-				1E332E6E07DDC0377374E99DE65C1399 /* LPPushService.h in Headers */,
+				4DC9DDD553EF5E12B43D56534A1FAA6A /* LPPushController.h in Headers */,
+				0682EF892580B982C32B3D0306041B7D /* LPPushDataController.h in Headers */,
+				BB4BFC54F5284E08FE7565217DD546F8 /* LPPushDataManager.h in Headers */,
+				D67D4ECB30FD0F8A1DC431E02612431E /* LPPushNetworking.h in Headers */,
+				4AE8C05D8816873E2C1C8A09B56AFF1D /* LPPushService.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0C37D4E698B71843D11C0259EFCDED2B /* LPPushService */ = {
+		56652B5DB5A63FFBF641F8EEFC7695BD /* LPPushService */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0859E4462E1BC119AF54A29622EE3158 /* Build configuration list for PBXNativeTarget "LPPushService" */;
+			buildConfigurationList = EBA2DA1DD6FA901327CEEC87F8BA10F8 /* Build configuration list for PBXNativeTarget "LPPushService" */;
 			buildPhases = (
-				F96DEFBF1DFB8FF81D8F7D1141B94958 /* Sources */,
-				5A40A573662CA662A4A3E101EB38CDBB /* Frameworks */,
-				7D27E1EE0C8F9BFAB4A8C22FC8ADB324 /* Headers */,
+				7E9003FCB3714650AF17A074BB2A8A51 /* Sources */,
+				6EDF68F203A8209B282F58F031109883 /* Frameworks */,
+				8B2146B8507062430A284162F5442C89 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -214,7 +228,7 @@
 			);
 			name = LPPushService;
 			productName = LPPushService;
-			productReference = 9E1E3CA107B822930D9D78B3BC7534AF /* libLPPushService.a */;
+			productReference = F2082A3917E3A0EBA3DC080D9B1E9D11 /* libLPPushService.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		60BF9341E8BA13BD0AC045D4FBF7BCB5 /* Pods-LPDebugDemo */ = {
@@ -227,7 +241,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				E89BE661F455F7B451499E0DD596D53D /* PBXTargetDependency */,
+				BAC0B7202A20E73C38C0388214A8449C /* PBXTargetDependency */,
 			);
 			name = "Pods-LPDebugDemo";
 			productName = "Pods-LPDebugDemo";
@@ -255,13 +269,26 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0C37D4E698B71843D11C0259EFCDED2B /* LPPushService */,
+				56652B5DB5A63FFBF641F8EEFC7695BD /* LPPushService */,
 				60BF9341E8BA13BD0AC045D4FBF7BCB5 /* Pods-LPDebugDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7E9003FCB3714650AF17A074BB2A8A51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A6756F9E656209AB6605439ED2DA600 /* LPPushController.m in Sources */,
+				A25E94727C6CD20E63FE97D9140BA003 /* LPPushDataController.m in Sources */,
+				C53B4F05E649A10DE78040169B686574 /* LPPushDataManager.m in Sources */,
+				7D0857D06ABCCA5848AE3AF3114A54C5 /* LPPushNetworking.m in Sources */,
+				C896DD2B4ED303F8EAC90BF9913ACFD4 /* LPPushService-dummy.m in Sources */,
+				9062D9E351252B83CE73600F6476270A /* LPPushService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2AF93CAC18F69C64265850E1C17C12B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,45 +297,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F96DEFBF1DFB8FF81D8F7D1141B94958 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6EA3C9C28A4D2ED931A351A5182BEC7D /* LPPushDataManager.m in Sources */,
-				24337AE2BBB963BB6FCEEDEC20E0ACA1 /* LPPushNetworking.m in Sources */,
-				27B6D4E4E6C0E36D8194B05E78A43FC6 /* LPPushService-dummy.m in Sources */,
-				E4D527F72B6CBA340B09007A6886CCBB /* LPPushService.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E89BE661F455F7B451499E0DD596D53D /* PBXTargetDependency */ = {
+		BAC0B7202A20E73C38C0388214A8449C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LPPushService;
-			target = 0C37D4E698B71843D11C0259EFCDED2B /* LPPushService */;
-			targetProxy = F78E6EC000656EBC8B8F84BCEB5C7B19 /* PBXContainerItemProxy */;
+			target = 56652B5DB5A63FFBF641F8EEFC7695BD /* LPPushService */;
+			targetProxy = 4B73158DC47633916E591F03CB88BD45 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0777C42F6BF6642885E2297FE34BBA76 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90D9548BF5F6DBBEB0FE285536F8189F /* LPPushService-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/LPPushService/LPPushService-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 		1CA50E173FC727132EEE22BCD6DF5DAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3989EBC4F1D73F8CA5548077ADCD2F89 /* Pods-LPDebugDemo.debug.xcconfig */;
@@ -325,6 +325,22 @@
 			};
 			name = Debug;
 		};
+		535D8DA11E00A3DD65414A17B4A20752 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DA85BEB227ADC42C882838E984D45EA /* LPPushService-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LPPushService/LPPushService-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		A0A9860B1BC52784B7FB1B4DA5C8A100 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 919458027F8DB07BC7C77EDC67A5B299 /* Pods-LPDebugDemo.release.xcconfig */;
@@ -335,22 +351,6 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		A5BA81F6649226FF6F06925EEC20BE2D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90D9548BF5F6DBBEB0FE285536F8189F /* LPPushService-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/LPPushService/LPPushService-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -396,6 +396,22 @@
 			};
 			name = Debug;
 		};
+		BA54A027A5F0358EC996FB27B565AA3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DA85BEB227ADC42C882838E984D45EA /* LPPushService-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LPPushService/LPPushService-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -433,15 +449,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0859E4462E1BC119AF54A29622EE3158 /* Build configuration list for PBXNativeTarget "LPPushService" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0777C42F6BF6642885E2297FE34BBA76 /* Debug */,
-				A5BA81F6649226FF6F06925EEC20BE2D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -456,6 +463,15 @@
 			buildConfigurations = (
 				1CA50E173FC727132EEE22BCD6DF5DAD /* Debug */,
 				A0A9860B1BC52784B7FB1B4DA5C8A100 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBA2DA1DD6FA901327CEEC87F8BA10F8 /* Build configuration list for PBXNativeTarget "LPPushService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				535D8DA11E00A3DD65414A17B4A20752 /* Debug */,
+				BA54A027A5F0358EC996FB27B565AA3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

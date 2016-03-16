@@ -44,7 +44,7 @@
 
 + (instancetype)itemWithLayer:(CALayer *)layer {
     LPATItemView *item = [[LPATItemView alloc] initWithFrame:CGRectZero];
-    [item.layer addSublayer:layer];
+    item.layer.contents = layer.contents;
     return item;
 }
 

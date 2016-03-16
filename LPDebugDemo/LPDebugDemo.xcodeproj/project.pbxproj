@@ -9,15 +9,23 @@
 /* Begin PBXBuildFile section */
 		09A359F2DD77EE40115DA865 /* libPods-LPDebugDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C6C43402F79059CF618A12 /* libPods-LPDebugDemo.a */; };
 		AF0C0E011C98F36A002CFF28 /* LPTransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0C0E001C98F36A002CFF28 /* LPTransformViewController.m */; };
+		AF0C0E0D1C9907DB002CFF28 /* APNS.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E021C9907DB002CFF28 /* APNS.png */; };
+		AF0C0E0E1C9907DB002CFF28 /* NSLog.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E031C9907DB002CFF28 /* NSLog.png */; };
+		AF0C0E0F1C9907DB002CFF28 /* Transform.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E041C9907DB002CFF28 /* Transform.png */; };
+		AF0C0E101C9907DB002CFF28 /* Transform1.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E051C9907DB002CFF28 /* Transform1.png */; };
+		AF0C0E111C9907DB002CFF28 /* Transform2.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E061C9907DB002CFF28 /* Transform2.png */; };
+		AF0C0E121C9907DB002CFF28 /* Transform3.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E071C9907DB002CFF28 /* Transform3.png */; };
+		AF0C0E131C9907DB002CFF28 /* Transform4.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E081C9907DB002CFF28 /* Transform4.png */; };
+		AF0C0E141C9907DB002CFF28 /* Transform5.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E091C9907DB002CFF28 /* Transform5.png */; };
+		AF0C0E151C9907DB002CFF28 /* Transform6.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E0A1C9907DB002CFF28 /* Transform6.png */; };
+		AF0C0E161C9907DB002CFF28 /* Transform7.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E0B1C9907DB002CFF28 /* Transform7.png */; };
+		AF0C0E171C9907DB002CFF28 /* Transform8.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E0C1C9907DB002CFF28 /* Transform8.png */; };
 		AF1968801C2AAD5F00599D19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF19687F1C2AAD5F00599D19 /* main.m */; };
 		AF1968831C2AAD5F00599D19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1968821C2AAD5F00599D19 /* AppDelegate.m */; };
 		AF1968861C2AAD5F00599D19 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1968851C2AAD5F00599D19 /* ViewController.m */; };
 		AF19688B1C2AAD5F00599D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF19688A1C2AAD5F00599D19 /* Assets.xcassets */; };
 		AF7B6CAE1C2AB29C00EAC088 /* LPAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7B6CA91C2AB29C00EAC088 /* LPAssistiveTouch.m */; };
 		AFC4CA631C3E2AC7007FB460 /* LPATRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC4CA621C3E2AC7007FB460 /* LPATRootNavigationController.m */; };
-		AFCA564F1C964F5100AE5F18 /* APNS.png in Resources */ = {isa = PBXBuildFile; fileRef = AFCA564C1C964F5100AE5F18 /* APNS.png */; };
-		AFCA56501C964F5100AE5F18 /* NSLog.png in Resources */ = {isa = PBXBuildFile; fileRef = AFCA564D1C964F5100AE5F18 /* NSLog.png */; };
-		AFCA56511C964F5100AE5F18 /* Transform.png in Resources */ = {isa = PBXBuildFile; fileRef = AFCA564E1C964F5100AE5F18 /* Transform.png */; };
 		AFFCC5141C4242940087F02F /* LPATItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCC50D1C4242940087F02F /* LPATItemView.m */; };
 		AFFCC5151C4242940087F02F /* LPATNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCC50F1C4242940087F02F /* LPATNavigationController.m */; };
 		AFFCC5161C4242940087F02F /* LPATPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCC5111C4242940087F02F /* LPATPosition.m */; };
@@ -32,6 +40,17 @@
 		52C6C43402F79059CF618A12 /* libPods-LPDebugDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LPDebugDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0C0DFF1C98F36A002CFF28 /* LPTransformViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPTransformViewController.h; sourceTree = "<group>"; };
 		AF0C0E001C98F36A002CFF28 /* LPTransformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPTransformViewController.m; sourceTree = "<group>"; };
+		AF0C0E021C9907DB002CFF28 /* APNS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = APNS.png; sourceTree = "<group>"; };
+		AF0C0E031C9907DB002CFF28 /* NSLog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSLog.png; sourceTree = "<group>"; };
+		AF0C0E041C9907DB002CFF28 /* Transform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform.png; sourceTree = "<group>"; };
+		AF0C0E051C9907DB002CFF28 /* Transform1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform1.png; sourceTree = "<group>"; };
+		AF0C0E061C9907DB002CFF28 /* Transform2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform2.png; sourceTree = "<group>"; };
+		AF0C0E071C9907DB002CFF28 /* Transform3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform3.png; sourceTree = "<group>"; };
+		AF0C0E081C9907DB002CFF28 /* Transform4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform4.png; sourceTree = "<group>"; };
+		AF0C0E091C9907DB002CFF28 /* Transform5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform5.png; sourceTree = "<group>"; };
+		AF0C0E0A1C9907DB002CFF28 /* Transform6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform6.png; sourceTree = "<group>"; };
+		AF0C0E0B1C9907DB002CFF28 /* Transform7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform7.png; sourceTree = "<group>"; };
+		AF0C0E0C1C9907DB002CFF28 /* Transform8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform8.png; sourceTree = "<group>"; };
 		AF19687B1C2AAD5F00599D19 /* LPDebugDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LPDebugDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF19687F1C2AAD5F00599D19 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AF1968811C2AAD5F00599D19 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,9 +63,6 @@
 		AF7B6CA91C2AB29C00EAC088 /* LPAssistiveTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPAssistiveTouch.m; sourceTree = "<group>"; };
 		AFC4CA611C3E2AC7007FB460 /* LPATRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATRootNavigationController.h; sourceTree = "<group>"; };
 		AFC4CA621C3E2AC7007FB460 /* LPATRootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATRootNavigationController.m; sourceTree = "<group>"; };
-		AFCA564C1C964F5100AE5F18 /* APNS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = APNS.png; sourceTree = "<group>"; };
-		AFCA564D1C964F5100AE5F18 /* NSLog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSLog.png; sourceTree = "<group>"; };
-		AFCA564E1C964F5100AE5F18 /* Transform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform.png; sourceTree = "<group>"; };
 		AFFCC50C1C4242940087F02F /* LPATItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATItemView.h; sourceTree = "<group>"; };
 		AFFCC50D1C4242940087F02F /* LPATItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATItemView.m; sourceTree = "<group>"; };
 		AFFCC50E1C4242940087F02F /* LPATNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATNavigationController.h; sourceTree = "<group>"; };
@@ -169,9 +185,17 @@
 		AFCA564B1C964F5100AE5F18 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AFCA564C1C964F5100AE5F18 /* APNS.png */,
-				AFCA564D1C964F5100AE5F18 /* NSLog.png */,
-				AFCA564E1C964F5100AE5F18 /* Transform.png */,
+				AF0C0E021C9907DB002CFF28 /* APNS.png */,
+				AF0C0E031C9907DB002CFF28 /* NSLog.png */,
+				AF0C0E041C9907DB002CFF28 /* Transform.png */,
+				AF0C0E051C9907DB002CFF28 /* Transform1.png */,
+				AF0C0E061C9907DB002CFF28 /* Transform2.png */,
+				AF0C0E071C9907DB002CFF28 /* Transform3.png */,
+				AF0C0E081C9907DB002CFF28 /* Transform4.png */,
+				AF0C0E091C9907DB002CFF28 /* Transform5.png */,
+				AF0C0E0A1C9907DB002CFF28 /* Transform6.png */,
+				AF0C0E0B1C9907DB002CFF28 /* Transform7.png */,
+				AF0C0E0C1C9907DB002CFF28 /* Transform8.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -236,10 +260,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFCA56511C964F5100AE5F18 /* Transform.png in Resources */,
+				AF0C0E141C9907DB002CFF28 /* Transform5.png in Resources */,
+				AF0C0E151C9907DB002CFF28 /* Transform6.png in Resources */,
+				AF0C0E0F1C9907DB002CFF28 /* Transform.png in Resources */,
+				AF0C0E161C9907DB002CFF28 /* Transform7.png in Resources */,
+				AF0C0E131C9907DB002CFF28 /* Transform4.png in Resources */,
+				AF0C0E101C9907DB002CFF28 /* Transform1.png in Resources */,
 				AF19688B1C2AAD5F00599D19 /* Assets.xcassets in Resources */,
-				AFCA564F1C964F5100AE5F18 /* APNS.png in Resources */,
-				AFCA56501C964F5100AE5F18 /* NSLog.png in Resources */,
+				AF0C0E111C9907DB002CFF28 /* Transform2.png in Resources */,
+				AF0C0E121C9907DB002CFF28 /* Transform3.png in Resources */,
+				AF0C0E171C9907DB002CFF28 /* Transform8.png in Resources */,
+				AF0C0E0D1C9907DB002CFF28 /* APNS.png in Resources */,
+				AF0C0E0E1C9907DB002CFF28 /* NSLog.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

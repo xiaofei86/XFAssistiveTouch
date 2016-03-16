@@ -8,12 +8,19 @@
 
 #import "LPDebug.h"
 #import "LPAssistiveTouch.h"
+#if __has_include(<LPPushController.h>)
+#define LPPushController_h
+#import <LPPushController.h>
+#endif
 
 @interface LPDebug () <LPATRootViewControllerDelegate>
 
 @end
 
-@implementation LPDebug
+@implementation LPDebug {
+    LPAssistiveTouch *_assistiveTouch;
+    LPATRootViewController *_rootViewController;
+}
 
 #pragma mark - Initialization
 
@@ -29,10 +36,10 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        LPAssistiveTouch *_assistiveTouch = [LPAssistiveTouch shareInstance];
+        _assistiveTouch = [LPAssistiveTouch shareInstance];
         [_assistiveTouch showAssistiveTouch];
-        LPATRootViewController *rootViewController = (LPATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
-        rootViewController.delegate = self;
+        _rootViewController = (LPATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
+        _rootViewController.delegate = self;
         
         NSSetUncaughtExceptionHandler(&LPDebugUncaughtExceptionHandler);
         
@@ -121,17 +128,66 @@ void LPDebugUncaughtExceptionHandler(NSException *exception) {
 
 - (void)controller:(LPATRootViewController *)controller didSelectedAtPosition:(LPATPosition *)position {
     switch (position.index) {
-        case 0:
+        case 0: {
             NSLog(@"NSLog");
             break;
-        case 1:
-            
+        } case 1: {
+#ifdef LPPushController_h
+            [self p_pushViewController:[LPPushController new]];
+#endif
             break;
-        case 2:
-            NSLog(@"Transform");
+        } case 2: {
+            NSMutableArray *array = [NSMutableArray array];
+            for (int i = 0; i < 8; i++) {
+                NSString *imageName = [NSString stringWithFormat:@"Transform%d.png", i + 1];
+                CALayer *layer = [CALayer layer];
+                layer.contents = (__bridge id _Nullable)([UIImage imageNamed:imageName].CGImage);
+                LPATItemView *itemView = [LPATItemView itemWithLayer:layer];
+                [array addObject:itemView];
+            }
+            LPATViewController *viewController = [[LPATViewController alloc] initWithItems:[array copy]];
+            [_rootViewController.navigationController pushViewController:viewController
+                                                              atPisition:position];
             break;
-        default:
+        } default: {
             break;
+        }
+    }
+}
+
+- (void)p_pushViewController:(UIViewController *)viewController {
+    UIViewController *topvc = [self p_topViewController];
+    if ([topvc isKindOfClass:[UINavigationController class]]) {
+        [(UINavigationController *)topvc pushViewController:viewController animated:YES];
+    } else {
+        [topvc presentViewController:viewController animated:YES completion:^{}];
+    }
+    [_rootViewController.navigationController shrink];
+}
+
+- (UIViewController *)p_topViewController{
+    static UIViewController *cachevc;
+    if (cachevc) {
+        return cachevc;
+    }
+    cachevc = [self p_topViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    return cachevc;
+}
+
+- (UIViewController *)p_topViewController:(UIViewController *)rootvc {
+    if (_navigationController) {
+        return _navigationController;
+    } else {
+        if ([rootvc isKindOfClass:[UITabBarController class]]) {
+            UIViewController *tabvc = ((UITabBarController *)rootvc).selectedViewController;
+            return [self p_topViewController:tabvc];
+        } else {
+            UIViewController *topvc = rootvc;
+            while (topvc.presentedViewController) {
+                topvc = topvc.presentedViewController;
+            }
+            return topvc;
+        }
     }
 }
 
