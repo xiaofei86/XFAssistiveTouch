@@ -34,7 +34,7 @@
         LPATRootViewController *rootViewController = (LPATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
         rootViewController.delegate = self;
         
-        NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
+        NSSetUncaughtExceptionHandler(&LPDebugUncaughtExceptionHandler);
         
 //        hookLog();
 //        NSLog(@"%@", [NSThread callStackSymbols]);
@@ -85,7 +85,7 @@ void hookLog() {
 
 #pragma mark - UncaughtExceptionHandler
 
-void UncaughtExceptionHandler(NSException *exception) {
+void LPDebugUncaughtExceptionHandler(NSException *exception) {
     NSArray *callStack = [exception callStackSymbols];
     NSString *reason = [exception reason];
     NSString *name = [exception name];
@@ -120,7 +120,19 @@ void UncaughtExceptionHandler(NSException *exception) {
 }
 
 - (void)controller:(LPATRootViewController *)controller didSelectedAtPosition:(LPATPosition *)position {
-    
+    switch (position.index) {
+        case 0:
+            NSLog(@"NSLog");
+            break;
+        case 1:
+            
+            break;
+        case 2:
+            NSLog(@"Transform");
+            break;
+        default:
+            break;
+    }
 }
 
 @end
