@@ -76,8 +76,9 @@ static const NSInteger itemHeight = 40;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.title = @"LPPushService";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"showData" style:UIBarButtonItemStylePlain target:self action:@selector(showData)];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"ClearLog" style:UIBarButtonItemStylePlain target:self action:@selector(clearLogs)];
+    UIBarButtonItem *dataItem = [[UIBarButtonItem alloc] initWithTitle:@"Data" style:UIBarButtonItemStylePlain target:self action:@selector(showData)];
+    UIBarButtonItem *clearItem = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStylePlain target:self action:@selector(clearLogs)];
+    self.navigationItem.rightBarButtonItems = @[dataItem, clearItem];
     
     UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
     collectionViewFlowLayout.itemSize = CGSizeMake(itemHeight * 2, itemHeight);
@@ -316,10 +317,17 @@ static const NSInteger itemHeight = 40;
     NSString *tempStr2 = [tempStr1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
     NSString *tempStr3 = [[@"\"" stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
     NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
-    NSString* returnStr = [NSPropertyListSerialization propertyListFromData:tempData
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > 80000
+    NSString *returnStr = [NSPropertyListSerialization propertyListWithData:tempData
+                                                                    options:NSPropertyListImmutable
+                                                                     format:NULL
+                                                                      error:NULL];
+#else
+    NSString *returnStr = [NSPropertyListSerialization propertyListFromData:tempData
                                                            mutabilityOption:NSPropertyListImmutable
                                                                      format:NULL
                                                            errorDescription:NULL];
+#endif
     return [returnStr stringByReplacingOccurrencesOfString:@"\\r\\n" withString:@"\n"];
 }
 
