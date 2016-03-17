@@ -12,6 +12,9 @@
 #define LPPushController_h
 #import <LPPushController.h>
 #endif
+#import "LPTransformViewController.h"
+
+static NSInteger _itemViewTag = 3252;
 
 @interface LPDebug () <LPATRootViewControllerDelegate>
 
@@ -23,6 +26,10 @@
 }
 
 #pragma mark - Initialization
+
++ (instancetype)sharedInstance {
+    return [LPDebug run];
+}
 
 + (instancetype)run {
     static id sharedInstance;
@@ -129,7 +136,7 @@ void LPDebugUncaughtExceptionHandler(NSException *exception) {
             break;
         } case 1: {
 #ifdef LPPushController_h
-            [self p_pushViewController:[LPPushController new]];
+            [self pushViewController:[LPPushController new]];
 #endif
             break;
         } case 2: {
@@ -139,6 +146,9 @@ void LPDebugUncaughtExceptionHandler(NSException *exception) {
                 CALayer *layer = [CALayer layer];
                 layer.contents = (__bridge id _Nullable)([UIImage imageNamed:imageName].CGImage);
                 LPATItemView *itemView = [LPATItemView itemWithLayer:layer];
+                itemView.tag = _itemViewTag + i;
+                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(p_transformItemViewAction:)];
+                [itemView addGestureRecognizer:tapGesture];
                 [array addObject:itemView];
             }
             LPATViewController *viewController = [[LPATViewController alloc] initWithItems:[array copy]];
@@ -151,14 +161,48 @@ void LPDebugUncaughtExceptionHandler(NSException *exception) {
     }
 }
 
-- (void)p_pushViewController:(UIViewController *)viewController {
+#pragma mark - Action
+
+- (void)p_transformItemViewAction:(UITapGestureRecognizer *)tapGesture {
+    LPATItemView *itemView = (LPATItemView *)tapGesture.view;
+    NSInteger index = itemView.tag - _itemViewTag;
+    LPTransformViewController *transformViewController = [LPTransformViewController new];
+    transformViewController.user = index;
+    transformViewController.transformArray = [self p_getTransformViewControllersFromDelegate];
+    [self pushViewController:transformViewController];
+}
+
+- (NSMutableArray *)p_getTransformViewControllersFromDelegate {
+    NSMutableArray *transformArray = [NSMutableArray array];
+    if (_transformDelegate && [_transformDelegate respondsToSelector:@selector(debugViewControllerByUser:atIndex:)]) {
+        for (int i = 0; i < 8; i++) {
+            NSMutableArray *array = [NSMutableArray array];
+            UIViewController *vc;
+            do {
+                vc = [_transformDelegate debugViewControllerByUser:i atIndex:array.count];
+                if (vc) {
+                    [array addObject:vc];
+                } else {
+                    break;
+                }
+            } while (YES);
+            [transformArray addObject:array];
+        }
+    }
+    return transformArray;
+}
+
+#pragma mark - PushViewController
+
+- (void)pushViewController:(UIViewController *)viewController {
     UIViewController *topvc = [self p_topViewController];
     if ([topvc isKindOfClass:[UINavigationController class]]) {
         [(UINavigationController *)topvc pushViewController:viewController animated:YES];
     } else {
         [topvc presentViewController:viewController animated:YES completion:^{}];
     }
-    [_rootViewController.navigationController shrink];
+//    TODO:shring
+//    [_rootViewController.navigationController shrink];
 }
 
 - (UIViewController *)p_topViewController{
