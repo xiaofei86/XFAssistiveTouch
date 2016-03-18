@@ -23,6 +23,7 @@ static NSInteger _itemViewTag = 3252;
 @implementation LPDebug {
     LPAssistiveTouch *_assistiveTouch;
     LPATRootViewController *_rootViewController;
+    dispatch_source_t source;
 }
 
 #pragma mark - Initialization
@@ -49,49 +50,22 @@ static NSInteger _itemViewTag = 3252;
         _rootViewController.delegate = self;
         
         NSSetUncaughtExceptionHandler(&LPDebugUncaughtExceptionHandler);
-        
-//        hookLog();
-//        NSLog(@"%@", [NSThread callStackSymbols]);
+//        LPDebugLog(@"%@\n", [NSThread callStackSymbols]);
+//        NSString *string = [[UIApplication sharedApplication].keyWindow valueForKey:@"recursiveDescription"];
+//        LPDebugLog(@"%@\n", string);
     }
     return self;
 }
 
-#pragma mark - HookNSLog
+#pragma mark - LPLog
 
-void hookLog() {
-    char pathBuffer[1024];
-    fflush(stdout);
-    fflush(stderr);
-    snprintf(pathBuffer,
-             sizeof(pathBuffer),
-             "%s/tmp/stdout-%li.log", getenv("HOME"), time(NULL));
-    setvbuf(stdout, NULL, _IONBF, 0);
-    int fd = open(pathBuffer, (O_RDWR | O_CREAT), 0644);
-    dup2(fd, STDOUT_FILENO);
-    dup2(fd, STDERR_FILENO);
-    //printf("Here is dll init, redirect stdout and stderr to logfile\n");
+void LPDebugLog(NSString *format, ...) {
+    va_list args;
+    va_start(args, format);
+    NSString *str = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    printf("[LPDebug]:%s", str.UTF8String);
 }
-
-//+ (void)injectIntoNSURLConnectionCancel
-//{
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        Class class = [NSURLConnection class];
-//        SEL selector = @selector(cancel);
-//        SEL swizzledSelector = [FLEXUtility swizzledSelectorForSelector:selector];
-//        Method originalCancel = class_getInstanceMethod(class, selector);
-//
-//        void (^swizzleBlock)(NSURLConnection *) = ^(NSURLConnection *slf) {
-//            [[FLEXNetworkObserver sharedObserver] connectionWillCancel:slf];
-//            ((void(*)(id, SEL))objc_msgSend)(slf, swizzledSelector);
-//        };
-//
-//        IMP implementation = imp_implementationWithBlock(swizzleBlock);
-//        class_addMethod(class, swizzledSelector, implementation, method_getTypeEncoding(originalCancel));
-//        Method newCancel = class_getInstanceMethod(class, swizzledSelector);
-//        method_exchangeImplementations(originalCancel, newCancel);
-//    });
-//}
 
 #pragma mark - UncaughtExceptionHandler
 
@@ -173,7 +147,11 @@ void LPDebugUncaughtExceptionHandler(NSException *exception) {
 }
 
 - (NSMutableArray *)p_getTransformViewControllersFromDelegate {
-    NSMutableArray *transformArray = [NSMutableArray array];
+    static NSMutableArray *transformArray;
+    if (transformArray.count) {
+        return transformArray;
+    }
+    transformArray = [NSMutableArray array];
     if (_transformDelegate && [_transformDelegate respondsToSelector:@selector(debugViewControllerByUser:atIndex:)]) {
         for (int i = 0; i < 8; i++) {
             NSMutableArray *array = [NSMutableArray array];
@@ -201,7 +179,7 @@ void LPDebugUncaughtExceptionHandler(NSException *exception) {
     } else {
         [topvc presentViewController:viewController animated:YES completion:^{}];
     }
-//    TODO:shring
+//    TODO:shrink
 //    [_rootViewController.navigationController shrink];
 }
 

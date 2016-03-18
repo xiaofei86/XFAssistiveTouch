@@ -29,36 +29,14 @@
 }
 
 - (UIViewController *)debugViewControllerByUser:(LPDebugUser)user atIndex:(NSInteger)index {
-    if (index > 1) {
+    if (index > 8) {
         return nil;
     }
     UIViewController *vc = [UIViewController new];
-    switch (user) {
-        case LPDebugUserHanShuai:
-            vc.view.backgroundColor = [UIColor colorWithRed:user*30 green:index*30 blue:index*30 alpha:1];
-            break;
-        case LPDebugUserRaoZhizhen:
-            vc.view.backgroundColor = [UIColor colorWithRed:user*30 green:index*30 blue:index*30 alpha:1];
-            break;
-        case LPDebugUserZouZhigang:
-            vc.view.backgroundColor = [UIColor colorWithRed:user*30 green:index*30 blue:index*30 alpha:1];
-            break;
-        case LPDebugUserZhaoWanda:
-            vc.view.backgroundColor = [UIColor colorWithRed:user*30 green:index*30 blue:index*30 alpha:1];
-            break;
-        case LPDebugUserXuYafei:
-            vc.view.backgroundColor = [UIColor colorWithRed:user*30 green:index*30 blue:index*30 alpha:1];
-            break;
-        case LPDebugUserDengJiebin:
-            vc.view.backgroundColor = [UIColor colorWithRed:user*30 green:index*30 blue:index*30 alpha:1];
-            break;
-        case LPDebugUserLongXiaowen:
-            vc.view.backgroundColor = [UIColor colorWithRed:user*30 green:index*30 blue:index*30 alpha:1];
-            break;
-        default:
-            vc.view.backgroundColor = [UIColor colorWithRed:user*30 green:index*30 blue:index*30 alpha:1];
-            break;
-    }
+    UIColor *color = [UIColor colorWithRed:user*30/255.0 green:index*30/255.0 blue:index*30/255.0 alpha:1];
+    vc.view.backgroundColor = color;
+    NSString *string = [NSString stringWithFormat:@"UIViewController%ld-%ld", user, index];
+    vc.navigationItem.title = string;
     return vc;
 }
 

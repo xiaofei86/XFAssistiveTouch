@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger, LPDebugUser) {
 @property (nonatomic, weak) id<LPTransformDelegate> transformDelegate;
 @property (nonatomic, weak) UINavigationController *navigationController;
 
+void LPDebugLog(NSString *format, ...);
+
 + (instancetype)sharedInstance;
 + (instancetype)run;
 
