@@ -18,4 +18,8 @@
 
 @property (nonatomic, strong) LPATRootNavigationController *rootNavigationController;
 
+@property (nonatomic, weak) UINavigationController *navigationController;
+
+- (void)pushViewController:(UIViewController *)viewController;
+
 @end

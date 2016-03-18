@@ -115,4 +115,43 @@
     }];
 }
 
+#pragma mark - PushViewController
+
+- (void)pushViewController:(UIViewController *)viewController {
+    UIViewController *topvc = [self p_topViewController];
+    if ([topvc isKindOfClass:[UINavigationController class]]) {
+        [(UINavigationController *)topvc pushViewController:viewController animated:YES];
+    } else {
+        [topvc presentViewController:viewController animated:YES completion:^{}];
+    }
+//    TODO:shrink
+//    [_rootViewController.navigationController shrink];
+}
+
+- (UIViewController *)p_topViewController{
+    static UIViewController *cachevc;
+    if (cachevc) {
+        return cachevc;
+    }
+    cachevc = [self p_topViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    return cachevc;
+}
+
+- (UIViewController *)p_topViewController:(UIViewController *)rootvc {
+    if (_navigationController) {
+        return _navigationController;
+    } else {
+        if ([rootvc isKindOfClass:[UITabBarController class]]) {
+            UIViewController *tabvc = ((UITabBarController *)rootvc).selectedViewController;
+            return [self p_topViewController:tabvc];
+        } else {
+            UIViewController *topvc = rootvc;
+            while (topvc.presentedViewController) {
+                topvc = topvc.presentedViewController;
+            }
+            return topvc;
+        }
+    }
+}
+
 @end

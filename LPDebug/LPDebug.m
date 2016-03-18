@@ -7,7 +7,6 @@
 //
 
 #import "LPDebug.h"
-#import "LPAssistiveTouch.h"
 #if __has_include(<LPPushController.h>)
 #define LPPushController_h
 #import <LPPushController.h>
@@ -110,7 +109,7 @@ void LPDebugUncaughtExceptionHandler(NSException *exception) {
             break;
         } case 1: {
 #ifdef LPPushController_h
-            [self pushViewController:[LPPushController new]];
+            [_assistiveTouch pushViewController:[LPPushController new]];
 #endif
             break;
         } case 2: {
@@ -143,7 +142,7 @@ void LPDebugUncaughtExceptionHandler(NSException *exception) {
     LPTransformViewController *transformViewController = [LPTransformViewController new];
     transformViewController.user = index;
     transformViewController.transformArray = [self p_getTransformViewControllersFromDelegate];
-    [self pushViewController:transformViewController];
+    [_assistiveTouch pushViewController:transformViewController];
 }
 
 - (NSMutableArray *)p_getTransformViewControllersFromDelegate {
@@ -168,45 +167,6 @@ void LPDebugUncaughtExceptionHandler(NSException *exception) {
         }
     }
     return transformArray;
-}
-
-#pragma mark - PushViewController
-
-- (void)pushViewController:(UIViewController *)viewController {
-    UIViewController *topvc = [self p_topViewController];
-    if ([topvc isKindOfClass:[UINavigationController class]]) {
-        [(UINavigationController *)topvc pushViewController:viewController animated:YES];
-    } else {
-        [topvc presentViewController:viewController animated:YES completion:^{}];
-    }
-//    TODO:shrink
-//    [_rootViewController.navigationController shrink];
-}
-
-- (UIViewController *)p_topViewController{
-    static UIViewController *cachevc;
-    if (cachevc) {
-        return cachevc;
-    }
-    cachevc = [self p_topViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
-    return cachevc;
-}
-
-- (UIViewController *)p_topViewController:(UIViewController *)rootvc {
-    if (_navigationController) {
-        return _navigationController;
-    } else {
-        if ([rootvc isKindOfClass:[UITabBarController class]]) {
-            UIViewController *tabvc = ((UITabBarController *)rootvc).selectedViewController;
-            return [self p_topViewController:tabvc];
-        } else {
-            UIViewController *topvc = rootvc;
-            while (topvc.presentedViewController) {
-                topvc = topvc.presentedViewController;
-            }
-            return topvc;
-        }
-    }
 }
 
 @end

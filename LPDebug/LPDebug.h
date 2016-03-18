@@ -6,7 +6,7 @@
 //  Copyright © 2016年 loopeer. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LPAssistiveTouch.h"
 
 @class LPDebug;
 
@@ -31,13 +31,10 @@ typedef NS_ENUM(NSInteger, LPDebugUser) {
 @interface LPDebug : NSObject
 
 @property (nonatomic, weak) id<LPTransformDelegate> transformDelegate;
-@property (nonatomic, weak) UINavigationController *navigationController;
 
 void LPDebugLog(NSString *format, ...);
 
 + (instancetype)sharedInstance;
 + (instancetype)run;
-
-- (void)pushViewController:(UIViewController *)viewController;
 
 @end
