@@ -10,20 +10,9 @@
 
 @class LPDebug;
 
-typedef NS_ENUM(NSInteger, LPDebugUser) {
-    LPDebugUserHanShuai,
-    LPDebugUserRaoZhizhen,
-    LPDebugUserZouZhigang,
-    LPDebugUserZhaoWanda,
-    LPDebugUserXuYafei,
-    LPDebugUserDengJiebin,
-    LPDebugUserLongXiaowen,
-    LPDebugUserUnkonwn,
-};
-
 @protocol LPTransformDelegate <NSObject>
 
-- (UIViewController *)debugViewControllerByUser:(LPDebugUser)user
+- (UIViewController *)debugViewControllerByUser:(NSInteger)user
                                         atIndex:(NSInteger)index;
 
 @end
@@ -32,9 +21,9 @@ typedef NS_ENUM(NSInteger, LPDebugUser) {
 
 @property (nonatomic, weak) id<LPTransformDelegate> transformDelegate;
 
-void LPDebugLog(NSString *format, ...);
-
 + (instancetype)sharedInstance;
 + (instancetype)run;
+
+void LPDebugLog(NSString *format, ...);
 
 @end

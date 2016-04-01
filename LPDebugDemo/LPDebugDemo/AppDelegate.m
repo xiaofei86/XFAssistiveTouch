@@ -28,7 +28,7 @@
     return YES;
 }
 
-- (UIViewController *)debugViewControllerByUser:(LPDebugUser)user atIndex:(NSInteger)index {
+- (UIViewController *)debugViewControllerByUser:(NSInteger)user atIndex:(NSInteger)index {
     if (index > 8) {
         return nil;
     }

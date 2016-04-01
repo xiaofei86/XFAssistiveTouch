@@ -11,18 +11,18 @@
 		AF0C0E0D1C9907DB002CFF28 /* APNS.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E021C9907DB002CFF28 /* APNS.png */; };
 		AF0C0E0E1C9907DB002CFF28 /* NSLog.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E031C9907DB002CFF28 /* NSLog.png */; };
 		AF0C0E0F1C9907DB002CFF28 /* Transform.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E041C9907DB002CFF28 /* Transform.png */; };
-		AF0C0E101C9907DB002CFF28 /* Transform1.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E051C9907DB002CFF28 /* Transform1.png */; };
-		AF0C0E111C9907DB002CFF28 /* Transform2.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E061C9907DB002CFF28 /* Transform2.png */; };
-		AF0C0E121C9907DB002CFF28 /* Transform3.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E071C9907DB002CFF28 /* Transform3.png */; };
-		AF0C0E131C9907DB002CFF28 /* Transform4.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E081C9907DB002CFF28 /* Transform4.png */; };
-		AF0C0E141C9907DB002CFF28 /* Transform5.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E091C9907DB002CFF28 /* Transform5.png */; };
-		AF0C0E151C9907DB002CFF28 /* Transform6.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E0A1C9907DB002CFF28 /* Transform6.png */; };
-		AF0C0E161C9907DB002CFF28 /* Transform7.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E0B1C9907DB002CFF28 /* Transform7.png */; };
-		AF0C0E171C9907DB002CFF28 /* Transform8.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0C0E0C1C9907DB002CFF28 /* Transform8.png */; };
 		AF1968801C2AAD5F00599D19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF19687F1C2AAD5F00599D19 /* main.m */; };
 		AF1968831C2AAD5F00599D19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1968821C2AAD5F00599D19 /* AppDelegate.m */; };
 		AF1968861C2AAD5F00599D19 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1968851C2AAD5F00599D19 /* ViewController.m */; };
 		AF19688B1C2AAD5F00599D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF19688A1C2AAD5F00599D19 /* Assets.xcassets */; };
+		AF27A6311CAECAA300568C0B /* Transform1.png in Resources */ = {isa = PBXBuildFile; fileRef = AF27A6291CAECAA300568C0B /* Transform1.png */; };
+		AF27A6321CAECAA300568C0B /* Transform2.png in Resources */ = {isa = PBXBuildFile; fileRef = AF27A62A1CAECAA300568C0B /* Transform2.png */; };
+		AF27A6331CAECAA300568C0B /* Transform3.png in Resources */ = {isa = PBXBuildFile; fileRef = AF27A62B1CAECAA300568C0B /* Transform3.png */; };
+		AF27A6341CAECAA300568C0B /* Transform4.png in Resources */ = {isa = PBXBuildFile; fileRef = AF27A62C1CAECAA300568C0B /* Transform4.png */; };
+		AF27A6351CAECAA300568C0B /* Transform5.png in Resources */ = {isa = PBXBuildFile; fileRef = AF27A62D1CAECAA300568C0B /* Transform5.png */; };
+		AF27A6361CAECAA300568C0B /* Transform6.png in Resources */ = {isa = PBXBuildFile; fileRef = AF27A62E1CAECAA300568C0B /* Transform6.png */; };
+		AF27A6371CAECAA300568C0B /* Transform7.png in Resources */ = {isa = PBXBuildFile; fileRef = AF27A62F1CAECAA300568C0B /* Transform7.png */; };
+		AF27A6381CAECAA300568C0B /* Transform8.png in Resources */ = {isa = PBXBuildFile; fileRef = AF27A6301CAECAA300568C0B /* Transform8.png */; };
 		AF7B6CAE1C2AB29C00EAC088 /* LPAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7B6CA91C2AB29C00EAC088 /* LPAssistiveTouch.m */; };
 		AFC4CA631C3E2AC7007FB460 /* LPATRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC4CA621C3E2AC7007FB460 /* LPATRootNavigationController.m */; };
 		AFDBBB961C9A650500FE4717 /* LPTransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDBBB951C9A650500FE4717 /* LPTransformViewController.m */; };
@@ -41,14 +41,6 @@
 		AF0C0E021C9907DB002CFF28 /* APNS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = APNS.png; sourceTree = "<group>"; };
 		AF0C0E031C9907DB002CFF28 /* NSLog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSLog.png; sourceTree = "<group>"; };
 		AF0C0E041C9907DB002CFF28 /* Transform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform.png; sourceTree = "<group>"; };
-		AF0C0E051C9907DB002CFF28 /* Transform1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform1.png; sourceTree = "<group>"; };
-		AF0C0E061C9907DB002CFF28 /* Transform2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform2.png; sourceTree = "<group>"; };
-		AF0C0E071C9907DB002CFF28 /* Transform3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform3.png; sourceTree = "<group>"; };
-		AF0C0E081C9907DB002CFF28 /* Transform4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform4.png; sourceTree = "<group>"; };
-		AF0C0E091C9907DB002CFF28 /* Transform5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform5.png; sourceTree = "<group>"; };
-		AF0C0E0A1C9907DB002CFF28 /* Transform6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform6.png; sourceTree = "<group>"; };
-		AF0C0E0B1C9907DB002CFF28 /* Transform7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform7.png; sourceTree = "<group>"; };
-		AF0C0E0C1C9907DB002CFF28 /* Transform8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform8.png; sourceTree = "<group>"; };
 		AF19687B1C2AAD5F00599D19 /* LPDebugDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LPDebugDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF19687F1C2AAD5F00599D19 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AF1968811C2AAD5F00599D19 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,6 +49,14 @@
 		AF1968851C2AAD5F00599D19 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AF19688A1C2AAD5F00599D19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF19688F1C2AAD5F00599D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF27A6291CAECAA300568C0B /* Transform1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform1.png; sourceTree = "<group>"; };
+		AF27A62A1CAECAA300568C0B /* Transform2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform2.png; sourceTree = "<group>"; };
+		AF27A62B1CAECAA300568C0B /* Transform3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform3.png; sourceTree = "<group>"; };
+		AF27A62C1CAECAA300568C0B /* Transform4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform4.png; sourceTree = "<group>"; };
+		AF27A62D1CAECAA300568C0B /* Transform5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform5.png; sourceTree = "<group>"; };
+		AF27A62E1CAECAA300568C0B /* Transform6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform6.png; sourceTree = "<group>"; };
+		AF27A62F1CAECAA300568C0B /* Transform7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform7.png; sourceTree = "<group>"; };
+		AF27A6301CAECAA300568C0B /* Transform8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform8.png; sourceTree = "<group>"; };
 		AF7B6CA81C2AB29C00EAC088 /* LPAssistiveTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPAssistiveTouch.h; sourceTree = "<group>"; };
 		AF7B6CA91C2AB29C00EAC088 /* LPAssistiveTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPAssistiveTouch.m; sourceTree = "<group>"; };
 		AFC4CA611C3E2AC7007FB460 /* LPATRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATRootNavigationController.h; sourceTree = "<group>"; };
@@ -188,14 +188,14 @@
 				AF0C0E021C9907DB002CFF28 /* APNS.png */,
 				AF0C0E031C9907DB002CFF28 /* NSLog.png */,
 				AF0C0E041C9907DB002CFF28 /* Transform.png */,
-				AF0C0E051C9907DB002CFF28 /* Transform1.png */,
-				AF0C0E061C9907DB002CFF28 /* Transform2.png */,
-				AF0C0E071C9907DB002CFF28 /* Transform3.png */,
-				AF0C0E081C9907DB002CFF28 /* Transform4.png */,
-				AF0C0E091C9907DB002CFF28 /* Transform5.png */,
-				AF0C0E0A1C9907DB002CFF28 /* Transform6.png */,
-				AF0C0E0B1C9907DB002CFF28 /* Transform7.png */,
-				AF0C0E0C1C9907DB002CFF28 /* Transform8.png */,
+				AF27A6291CAECAA300568C0B /* Transform1.png */,
+				AF27A62A1CAECAA300568C0B /* Transform2.png */,
+				AF27A62B1CAECAA300568C0B /* Transform3.png */,
+				AF27A62C1CAECAA300568C0B /* Transform4.png */,
+				AF27A62D1CAECAA300568C0B /* Transform5.png */,
+				AF27A62E1CAECAA300568C0B /* Transform6.png */,
+				AF27A62F1CAECAA300568C0B /* Transform7.png */,
+				AF27A6301CAECAA300568C0B /* Transform8.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -260,16 +260,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF0C0E141C9907DB002CFF28 /* Transform5.png in Resources */,
-				AF0C0E151C9907DB002CFF28 /* Transform6.png in Resources */,
+				AF27A6351CAECAA300568C0B /* Transform5.png in Resources */,
+				AF27A6361CAECAA300568C0B /* Transform6.png in Resources */,
 				AF0C0E0F1C9907DB002CFF28 /* Transform.png in Resources */,
-				AF0C0E161C9907DB002CFF28 /* Transform7.png in Resources */,
-				AF0C0E131C9907DB002CFF28 /* Transform4.png in Resources */,
-				AF0C0E101C9907DB002CFF28 /* Transform1.png in Resources */,
+				AF27A6371CAECAA300568C0B /* Transform7.png in Resources */,
+				AF27A6341CAECAA300568C0B /* Transform4.png in Resources */,
+				AF27A6311CAECAA300568C0B /* Transform1.png in Resources */,
 				AF19688B1C2AAD5F00599D19 /* Assets.xcassets in Resources */,
-				AF0C0E111C9907DB002CFF28 /* Transform2.png in Resources */,
-				AF0C0E121C9907DB002CFF28 /* Transform3.png in Resources */,
-				AF0C0E171C9907DB002CFF28 /* Transform8.png in Resources */,
+				AF27A6321CAECAA300568C0B /* Transform2.png in Resources */,
+				AF27A6331CAECAA300568C0B /* Transform3.png in Resources */,
+				AF27A6381CAECAA300568C0B /* Transform8.png in Resources */,
 				AF0C0E0D1C9907DB002CFF28 /* APNS.png in Resources */,
 				AF0C0E0E1C9907DB002CFF28 /* NSLog.png in Resources */,
 			);
@@ -420,11 +420,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LPDebugDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.loopeer.LPDebugDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -435,11 +437,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LPDebugDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.loopeer.LPDebugDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

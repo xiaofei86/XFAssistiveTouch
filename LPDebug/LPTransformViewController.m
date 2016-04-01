@@ -26,34 +26,7 @@
 
 - (void)setUser:(NSInteger)user {
     _user = user;
-    NSString *string;
-    switch (_user) {
-        case LPDebugUserHanShuai:
-            string = @"HanShuai";
-            break;
-        case LPDebugUserRaoZhizhen:
-            string = @"RaoZhizhen";
-            break;
-        case LPDebugUserZouZhigang:
-            string = @"ZouZhigang";
-            break;
-        case LPDebugUserZhaoWanda:
-            string = @"ZhaoWanda";
-            break;
-        case LPDebugUserXuYafei:
-            string = @"XuYafei";
-            break;
-        case LPDebugUserDengJiebin:
-            string = @"DengJiebin";
-            break;
-        case LPDebugUserLongXiaowen:
-            string = @"LongXiaowen";
-            break;
-        default:
-            string = @"Unkonwn";
-            break;
-    }
-    self.navigationItem.title = string;
+    self.navigationItem.title = [NSString stringWithFormat:@"User%ld", user + 1];
 }
 
 - (void)viewDidLoad {
