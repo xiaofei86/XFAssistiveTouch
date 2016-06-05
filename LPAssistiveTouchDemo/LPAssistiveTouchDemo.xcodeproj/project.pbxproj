@@ -1,0 +1,390 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF58E4711BE12C4800B88BF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF58E4701BE12C4800B88BF2 /* main.m */; };
+		AF58E4741BE12C4900B88BF2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF58E4731BE12C4900B88BF2 /* AppDelegate.m */; };
+		AF58E4771BE12C4900B88BF2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF58E4761BE12C4900B88BF2 /* ViewController.m */; };
+		AF58E47C1BE12C4900B88BF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF58E47B1BE12C4900B88BF2 /* Assets.xcassets */; };
+		AF85C0921D0441FD0020FFB8 /* LPAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = AF85C0851D0441FD0020FFB8 /* LPAssistiveTouch.m */; };
+		AF85C0931D0441FD0020FFB8 /* LPATItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF85C0871D0441FD0020FFB8 /* LPATItemView.m */; };
+		AF85C0941D0441FD0020FFB8 /* LPATNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF85C0891D0441FD0020FFB8 /* LPATNavigationController.m */; };
+		AF85C0951D0441FD0020FFB8 /* LPATPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = AF85C08B1D0441FD0020FFB8 /* LPATPosition.m */; };
+		AF85C0961D0441FD0020FFB8 /* LPATRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF85C08D1D0441FD0020FFB8 /* LPATRootNavigationController.m */; };
+		AF85C0971D0441FD0020FFB8 /* LPATRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF85C08F1D0441FD0020FFB8 /* LPATRootViewController.m */; };
+		AF85C0981D0441FD0020FFB8 /* LPATViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF85C0911D0441FD0020FFB8 /* LPATViewController.m */; };
+		AF85C0A51D0442280020FFB8 /* APNS.png in Resources */ = {isa = PBXBuildFile; fileRef = AF85C09A1D0442280020FFB8 /* APNS.png */; };
+		AF85C0A61D0442280020FFB8 /* NSLog.png in Resources */ = {isa = PBXBuildFile; fileRef = AF85C09B1D0442280020FFB8 /* NSLog.png */; };
+		AF85C0A71D0442280020FFB8 /* Transform.png in Resources */ = {isa = PBXBuildFile; fileRef = AF85C09C1D0442280020FFB8 /* Transform.png */; };
+		AF85C0A81D0442280020FFB8 /* Transform1.png in Resources */ = {isa = PBXBuildFile; fileRef = AF85C09D1D0442280020FFB8 /* Transform1.png */; };
+		AF85C0A91D0442280020FFB8 /* Transform2.png in Resources */ = {isa = PBXBuildFile; fileRef = AF85C09E1D0442280020FFB8 /* Transform2.png */; };
+		AF85C0AA1D0442280020FFB8 /* Transform3.png in Resources */ = {isa = PBXBuildFile; fileRef = AF85C09F1D0442280020FFB8 /* Transform3.png */; };
+		AF85C0AB1D0442280020FFB8 /* Transform4.png in Resources */ = {isa = PBXBuildFile; fileRef = AF85C0A01D0442280020FFB8 /* Transform4.png */; };
+		AF85C0AC1D0442280020FFB8 /* Transform5.png in Resources */ = {isa = PBXBuildFile; fileRef = AF85C0A11D0442280020FFB8 /* Transform5.png */; };
+		AF85C0AD1D0442280020FFB8 /* Transform6.png in Resources */ = {isa = PBXBuildFile; fileRef = AF85C0A21D0442280020FFB8 /* Transform6.png */; };
+		AF85C0AE1D0442280020FFB8 /* Transform7.png in Resources */ = {isa = PBXBuildFile; fileRef = AF85C0A31D0442280020FFB8 /* Transform7.png */; };
+		AF85C0AF1D0442280020FFB8 /* Transform8.png in Resources */ = {isa = PBXBuildFile; fileRef = AF85C0A41D0442280020FFB8 /* Transform8.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AF58E46C1BE12C4800B88BF2 /* LPAssistiveTouchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LPAssistiveTouchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF58E4701BE12C4800B88BF2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AF58E4721BE12C4900B88BF2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AF58E4731BE12C4900B88BF2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AF58E4751BE12C4900B88BF2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AF58E4761BE12C4900B88BF2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AF58E47B1BE12C4900B88BF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF58E4801BE12C4900B88BF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF85C0841D0441FD0020FFB8 /* LPAssistiveTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPAssistiveTouch.h; sourceTree = "<group>"; };
+		AF85C0851D0441FD0020FFB8 /* LPAssistiveTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPAssistiveTouch.m; sourceTree = "<group>"; };
+		AF85C0861D0441FD0020FFB8 /* LPATItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATItemView.h; sourceTree = "<group>"; };
+		AF85C0871D0441FD0020FFB8 /* LPATItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATItemView.m; sourceTree = "<group>"; };
+		AF85C0881D0441FD0020FFB8 /* LPATNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATNavigationController.h; sourceTree = "<group>"; };
+		AF85C0891D0441FD0020FFB8 /* LPATNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATNavigationController.m; sourceTree = "<group>"; };
+		AF85C08A1D0441FD0020FFB8 /* LPATPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATPosition.h; sourceTree = "<group>"; };
+		AF85C08B1D0441FD0020FFB8 /* LPATPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATPosition.m; sourceTree = "<group>"; };
+		AF85C08C1D0441FD0020FFB8 /* LPATRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATRootNavigationController.h; sourceTree = "<group>"; };
+		AF85C08D1D0441FD0020FFB8 /* LPATRootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATRootNavigationController.m; sourceTree = "<group>"; };
+		AF85C08E1D0441FD0020FFB8 /* LPATRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATRootViewController.h; sourceTree = "<group>"; };
+		AF85C08F1D0441FD0020FFB8 /* LPATRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATRootViewController.m; sourceTree = "<group>"; };
+		AF85C0901D0441FD0020FFB8 /* LPATViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPATViewController.h; sourceTree = "<group>"; };
+		AF85C0911D0441FD0020FFB8 /* LPATViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPATViewController.m; sourceTree = "<group>"; };
+		AF85C09A1D0442280020FFB8 /* APNS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = APNS.png; sourceTree = "<group>"; };
+		AF85C09B1D0442280020FFB8 /* NSLog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSLog.png; sourceTree = "<group>"; };
+		AF85C09C1D0442280020FFB8 /* Transform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform.png; sourceTree = "<group>"; };
+		AF85C09D1D0442280020FFB8 /* Transform1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform1.png; sourceTree = "<group>"; };
+		AF85C09E1D0442280020FFB8 /* Transform2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform2.png; sourceTree = "<group>"; };
+		AF85C09F1D0442280020FFB8 /* Transform3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform3.png; sourceTree = "<group>"; };
+		AF85C0A01D0442280020FFB8 /* Transform4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform4.png; sourceTree = "<group>"; };
+		AF85C0A11D0442280020FFB8 /* Transform5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform5.png; sourceTree = "<group>"; };
+		AF85C0A21D0442280020FFB8 /* Transform6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform6.png; sourceTree = "<group>"; };
+		AF85C0A31D0442280020FFB8 /* Transform7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform7.png; sourceTree = "<group>"; };
+		AF85C0A41D0442280020FFB8 /* Transform8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transform8.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF58E4691BE12C4800B88BF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF58E4631BE12C4800B88BF2 = {
+			isa = PBXGroup;
+			children = (
+				AF85C0831D0441FD0020FFB8 /* LPAssistiveTouch */,
+				AF58E46E1BE12C4800B88BF2 /* LPAssistiveTouchDemo */,
+				AF58E46D1BE12C4800B88BF2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF58E46D1BE12C4800B88BF2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF58E46C1BE12C4800B88BF2 /* LPAssistiveTouchDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF58E46E1BE12C4800B88BF2 /* LPAssistiveTouchDemo */ = {
+			isa = PBXGroup;
+			children = (
+				AF58E4721BE12C4900B88BF2 /* AppDelegate.h */,
+				AF58E4731BE12C4900B88BF2 /* AppDelegate.m */,
+				AF58E4751BE12C4900B88BF2 /* ViewController.h */,
+				AF58E4761BE12C4900B88BF2 /* ViewController.m */,
+				AF58E47B1BE12C4900B88BF2 /* Assets.xcassets */,
+				AF58E4801BE12C4900B88BF2 /* Info.plist */,
+				AF58E46F1BE12C4800B88BF2 /* Supporting Files */,
+			);
+			path = LPAssistiveTouchDemo;
+			sourceTree = "<group>";
+		};
+		AF58E46F1BE12C4800B88BF2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF85C0991D0442280020FFB8 /* Images */,
+				AF58E4701BE12C4800B88BF2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AF85C0831D0441FD0020FFB8 /* LPAssistiveTouch */ = {
+			isa = PBXGroup;
+			children = (
+				AF85C0841D0441FD0020FFB8 /* LPAssistiveTouch.h */,
+				AF85C0851D0441FD0020FFB8 /* LPAssistiveTouch.m */,
+				AF85C0861D0441FD0020FFB8 /* LPATItemView.h */,
+				AF85C0871D0441FD0020FFB8 /* LPATItemView.m */,
+				AF85C0881D0441FD0020FFB8 /* LPATNavigationController.h */,
+				AF85C0891D0441FD0020FFB8 /* LPATNavigationController.m */,
+				AF85C08A1D0441FD0020FFB8 /* LPATPosition.h */,
+				AF85C08B1D0441FD0020FFB8 /* LPATPosition.m */,
+				AF85C08C1D0441FD0020FFB8 /* LPATRootNavigationController.h */,
+				AF85C08D1D0441FD0020FFB8 /* LPATRootNavigationController.m */,
+				AF85C08E1D0441FD0020FFB8 /* LPATRootViewController.h */,
+				AF85C08F1D0441FD0020FFB8 /* LPATRootViewController.m */,
+				AF85C0901D0441FD0020FFB8 /* LPATViewController.h */,
+				AF85C0911D0441FD0020FFB8 /* LPATViewController.m */,
+			);
+			name = LPAssistiveTouch;
+			path = ../LPDebug/LPAssistiveTouch;
+			sourceTree = "<group>";
+		};
+		AF85C0991D0442280020FFB8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				AF85C09A1D0442280020FFB8 /* APNS.png */,
+				AF85C09B1D0442280020FFB8 /* NSLog.png */,
+				AF85C09C1D0442280020FFB8 /* Transform.png */,
+				AF85C09D1D0442280020FFB8 /* Transform1.png */,
+				AF85C09E1D0442280020FFB8 /* Transform2.png */,
+				AF85C09F1D0442280020FFB8 /* Transform3.png */,
+				AF85C0A01D0442280020FFB8 /* Transform4.png */,
+				AF85C0A11D0442280020FFB8 /* Transform5.png */,
+				AF85C0A21D0442280020FFB8 /* Transform6.png */,
+				AF85C0A31D0442280020FFB8 /* Transform7.png */,
+				AF85C0A41D0442280020FFB8 /* Transform8.png */,
+			);
+			name = Images;
+			path = ../../LPDebug/Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF58E46B1BE12C4800B88BF2 /* LPAssistiveTouchDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF58E48E1BE12C4900B88BF2 /* Build configuration list for PBXNativeTarget "LPAssistiveTouchDemo" */;
+			buildPhases = (
+				AF58E4681BE12C4800B88BF2 /* Sources */,
+				AF58E4691BE12C4800B88BF2 /* Frameworks */,
+				AF58E46A1BE12C4800B88BF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LPAssistiveTouchDemo;
+			productName = LPAssistiveTouchDemo;
+			productReference = AF58E46C1BE12C4800B88BF2 /* LPAssistiveTouchDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF58E4641BE12C4800B88BF2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = loopeer;
+				TargetAttributes = {
+					AF58E46B1BE12C4800B88BF2 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = RR838T8FGP;
+					};
+				};
+			};
+			buildConfigurationList = AF58E4671BE12C4800B88BF2 /* Build configuration list for PBXProject "LPAssistiveTouchDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF58E4631BE12C4800B88BF2;
+			productRefGroup = AF58E46D1BE12C4800B88BF2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF58E46B1BE12C4800B88BF2 /* LPAssistiveTouchDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF58E46A1BE12C4800B88BF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF85C0AC1D0442280020FFB8 /* Transform5.png in Resources */,
+				AF85C0AD1D0442280020FFB8 /* Transform6.png in Resources */,
+				AF85C0A71D0442280020FFB8 /* Transform.png in Resources */,
+				AF85C0AE1D0442280020FFB8 /* Transform7.png in Resources */,
+				AF85C0AB1D0442280020FFB8 /* Transform4.png in Resources */,
+				AF85C0A81D0442280020FFB8 /* Transform1.png in Resources */,
+				AF58E47C1BE12C4900B88BF2 /* Assets.xcassets in Resources */,
+				AF85C0A91D0442280020FFB8 /* Transform2.png in Resources */,
+				AF85C0AA1D0442280020FFB8 /* Transform3.png in Resources */,
+				AF85C0AF1D0442280020FFB8 /* Transform8.png in Resources */,
+				AF85C0A51D0442280020FFB8 /* APNS.png in Resources */,
+				AF85C0A61D0442280020FFB8 /* NSLog.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF58E4681BE12C4800B88BF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF85C0941D0441FD0020FFB8 /* LPATNavigationController.m in Sources */,
+				AF58E4771BE12C4900B88BF2 /* ViewController.m in Sources */,
+				AF85C0961D0441FD0020FFB8 /* LPATRootNavigationController.m in Sources */,
+				AF85C0951D0441FD0020FFB8 /* LPATPosition.m in Sources */,
+				AF58E4741BE12C4900B88BF2 /* AppDelegate.m in Sources */,
+				AF85C0971D0441FD0020FFB8 /* LPATRootViewController.m in Sources */,
+				AF85C0931D0441FD0020FFB8 /* LPATItemView.m in Sources */,
+				AF85C0981D0441FD0020FFB8 /* LPATViewController.m in Sources */,
+				AF58E4711BE12C4800B88BF2 /* main.m in Sources */,
+				AF85C0921D0441FD0020FFB8 /* LPAssistiveTouch.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AF58E48C1BE12C4900B88BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AF58E48D1BE12C4900B88BF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF58E48F1BE12C4900B88BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = LPAssistiveTouchDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopeer.LPAssistiveTouchDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AF58E4901BE12C4900B88BF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = LPAssistiveTouchDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopeer.LPAssistiveTouchDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF58E4671BE12C4800B88BF2 /* Build configuration list for PBXProject "LPAssistiveTouchDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF58E48C1BE12C4900B88BF2 /* Debug */,
+				AF58E48D1BE12C4900B88BF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF58E48E1BE12C4900B88BF2 /* Build configuration list for PBXNativeTarget "LPAssistiveTouchDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF58E48F1BE12C4900B88BF2 /* Debug */,
+				AF58E4901BE12C4900B88BF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF58E4641BE12C4800B88BF2 /* Project object */;
+}
