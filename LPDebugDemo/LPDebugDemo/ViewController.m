@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <LPPushController.h>
 #import <LPPushDataController.h>
+#import "LPDebug.h"
 
 @interface ViewController () <UITableViewDataSource>
 
@@ -49,6 +50,12 @@
     tableView.userInteractionEnabled = NO;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    //LPDebugLog(@"%@", [[UIApplication sharedApplication].keyWindow valueForKey:@"recursiveDescription"]);
+    LPDebugLog(@"%@", [NSDate date]);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

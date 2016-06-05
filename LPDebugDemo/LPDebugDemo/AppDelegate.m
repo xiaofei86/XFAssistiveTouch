@@ -24,7 +24,6 @@
     [_window makeKeyAndVisible];
     _debug = [LPDebug run];
     _debug.transformDelegate = self;
-    
     return YES;
 }
 

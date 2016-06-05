@@ -12,6 +12,7 @@
 #import <LPPushController.h>
 #endif
 #import "LPTransformViewController.h"
+#import "LPMainViewController.h"
 
 static NSInteger _itemViewTag = 3252;
 
@@ -49,21 +50,21 @@ static NSInteger _itemViewTag = 3252;
         _rootViewController.delegate = self;
         
         NSSetUncaughtExceptionHandler(&LPDebugUncaughtExceptionHandler);
-//        LPDebugLog(@"%@\n", [NSThread callStackSymbols]);
-//        NSString *string = [[UIApplication sharedApplication].keyWindow valueForKey:@"recursiveDescription"];
-//        LPDebugLog(@"%@\n", string);
     }
     return self;
 }
 
-#pragma mark - LPLog
+#pragma mark - LPDebugLog
 
 void LPDebugLog(NSString *format, ...) {
     va_list args;
     va_start(args, format);
-    NSString *str = [[NSString alloc] initWithFormat:format arguments:args];
+    NSString *string = [[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
-    printf("[LPDebug]:%s", str.UTF8String);
+    
+    [LPMainViewController print:string];
+    
+    printf("[LPDebug]:%s\n", string.UTF8String);
 }
 
 #pragma mark - UncaughtExceptionHandler
@@ -76,7 +77,7 @@ void LPDebugUncaughtExceptionHandler(NSException *exception) {
                          name,
                          reason,
                          [callStack componentsJoinedByString:@"\n"]];
-    NSLog(@"%@", content);
+    LPDebugLog(@"%@", content);
 }
 
 #pragma mark - LPATRootViewControllerDelegate
@@ -105,7 +106,7 @@ void LPDebugUncaughtExceptionHandler(NSException *exception) {
 - (void)controller:(LPATRootViewController *)controller didSelectedAtPosition:(LPATPosition *)position {
     switch (position.index) {
         case 0: {
-            NSLog(@"NSLog");
+            [_assistiveTouch pushViewController:[LPMainViewController sharedInstance]];
             break;
         } case 1: {
 #ifdef LPPushController_h

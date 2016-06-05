@@ -8,6 +8,8 @@
 
 #import "LPAssistiveTouch.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class LPDebug;
 
 @protocol LPTransformDelegate <NSObject>
@@ -27,3 +29,5 @@
 void LPDebugLog(NSString *format, ...);
 
 @end
+
+NS_ASSUME_NONNULL_END
