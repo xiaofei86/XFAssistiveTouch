@@ -6,7 +6,7 @@
 [![SUPPORT](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://en.wikipedia.org/wiki/IOS_8)&nbsp;
 [![BLOG](https://img.shields.io/badge/blog-xuyafei.cn-orange.svg?style=flat)](http://xuyafei.cn)&nbsp;
 
-本 Repositories 提供了 LPAssistiveTouchDemo 和 LPDebugDemo 两个 Demo。
+本 Repositories 提供了 LPAssistiveTouchDemo 和 LPDebugDemo 两个 Demo。你可以在源码中学到怎样像 UIKit 一样去组织文件。
 
 LPAssistiveTouch 是仿照 iOS 系统的辅助按钮 AssistiveTouch 制作的辅助按钮。其外观、行为、动画等效果都与系统的 AssistiveTouch 相同。如下图。
 
@@ -159,11 +159,8 @@ LPDebug 的使用十分简单。调用 run 方法、然后接 delegate 来提供
 
 ```objective-c
 @property (nonatomic, strong) UINavigationController *navigationController;
-```
+``` 
 
 ##Link
 
->[博客：xuyafei.cn](http://xuyafei.cn)  
-[简书：jianshu.com/users/2555924d8c6e](http://www.jianshu.com/users/2555924d8c6e)  
-[微博：weibo.com/xuyafei86](http://weibo.com/xuyafei86)  
-[Github：github.com/xiaofei86](https://github.com/xiaofei86)  
+简书地址：[http://www.jianshu.com/p/9c7cf61edb24](http://www.jianshu.com/p/9c7cf61edb24)
