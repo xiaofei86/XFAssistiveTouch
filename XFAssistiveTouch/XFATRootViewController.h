@@ -8,6 +8,8 @@
 
 #import "XFATViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class XFATRootViewController;
 
 @protocol XFATRootViewControllerDelegate <NSObject>
@@ -26,3 +28,5 @@
 @property (nonatomic, weak) id<XFATRootViewControllerDelegate> delegate;
 
 @end
+
+NS_ASSUME_NONNULL_END

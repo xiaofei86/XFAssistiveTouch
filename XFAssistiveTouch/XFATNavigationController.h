@@ -8,6 +8,8 @@
 
 #import "XFATViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 static const NSTimeInterval duration = 0.25;
 
 @interface XFATNavigationController : UIViewController
@@ -38,3 +40,5 @@ static const NSTimeInterval duration = 0.25;
 @property (nonatomic, assign) XFATNavigationController *navigationController;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -8,6 +8,8 @@
 
 #import "XFATItemView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface XFATViewController : UIResponder
 
 - (instancetype)initWithItems:(NSArray<XFATItemView *> *)items;
@@ -19,3 +21,5 @@
 @property (nonatomic, strong) NSArray<XFATItemView *> *items;
 
 @end
+
+NS_ASSUME_NONNULL_END

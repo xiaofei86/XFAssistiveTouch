@@ -8,6 +8,8 @@
 
 #import "XFATRootNavigationController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface XFAssistiveTouch : NSObject
 
 + (instancetype)shareInstance;
@@ -23,3 +25,5 @@
 - (void)pushViewController:(UIViewController *)viewController;
 
 @end
+
+NS_ASSUME_NONNULL_END

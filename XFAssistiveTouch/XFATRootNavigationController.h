@@ -9,6 +9,8 @@
 #import "XFATNavigationController.h"
 #import "XFATRootViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol XFATRootNavigationControllerDelegate <NSObject>
 
 - (void)touchBegan;
@@ -21,3 +23,5 @@
 @property (nonatomic, assign) id<XFATRootNavigationControllerDelegate> delegate;
 
 @end
+
+NS_ASSUME_NONNULL_END

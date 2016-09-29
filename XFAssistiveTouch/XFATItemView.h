@@ -8,6 +8,8 @@
 
 #import "XFATPosition.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSInteger, XFATItemViewType) {
     XFATItemViewTypeNone,
     XFATItemViewTypeSystem,
@@ -23,3 +25,5 @@ typedef NS_ENUM(NSInteger, XFATItemViewType) {
 @property (nonatomic, strong) XFATPosition *position;
 
 @end
+
+NS_ASSUME_NONNULL_END

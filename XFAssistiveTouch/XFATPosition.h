@@ -8,6 +8,8 @@
 
 #import "XFATLayoutAttributes.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface XFATPosition : NSObject
 
 + (instancetype)positionWithCount:(NSInteger)count index:(NSInteger)index;
@@ -18,3 +20,5 @@
 @property (nonatomic, assign) CGRect frame;
 
 @end
+
+NS_ASSUME_NONNULL_END
