@@ -35,6 +35,9 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
             break;
     }
     XFATItemView *item = [[self alloc] initWithLayer:layer];
+    if (type == XFATItemViewTypeSystem) {
+        item.bounds = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
+    }
     return item;
 }
 
@@ -53,8 +56,6 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
 - (instancetype)initWithLayer:(nullable CALayer *)layer {
     self = [super initWithFrame:CGRectMake(0, 0, [XFATLayoutAttributes itemWidth], [XFATLayoutAttributes itemWidth])];
     if (self) {
-        CGFloat itemScale = [XFATLayoutAttributes itemWidth] / [XFATLayoutAttributes itemImageWidth];
-        self.layer.contentsRect = CGRectMake((1 - itemScale) / 2, (1 - itemScale) / 2, itemScale, itemScale);
         if (layer) {
             layer.contentsScale = [UIScreen mainScreen].scale;
             if (CGRectEqualToRect(layer.bounds, CGRectZero)) {
@@ -81,6 +82,8 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
     [layer addSublayer:[[self class] createInnerCircle:XFATInnerCircleLarge]];
     [layer addSublayer:[[self class] createInnerCircle:XFATInnerCircleMiddle]];
     [layer addSublayer:[[self class] createInnerCircle:XFATInnerCircleSmall]];
+    layer.bounds = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
+    layer.position = CGPointMake([XFATLayoutAttributes itemImageWidth] / 2, [XFATLayoutAttributes itemImageWidth] / 2);
     return layer;
 }
 
