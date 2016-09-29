@@ -6,10 +6,6 @@
 //  Copyright © 2016年 XuYafei. All rights reserved.
 //
 
-#define IS_IPAD_IDIOM (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-#define IS_IPHONE_IDIOM (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define IS_DEVICE_LANDSCAPE UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
-
 #import "XFATLayoutAttributes.h"
 
 @implementation XFATLayoutAttributes

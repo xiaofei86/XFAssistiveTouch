@@ -32,7 +32,7 @@
     _rootViewController = (XFATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
     _rootViewController.delegate = self;
     
-    _textField = [[UITextField alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 44, CGRectGetWidth(self.view.frame), 44)];
+    _textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 88)];
     _textField.layer.borderColor = [UIColor whiteColor].CGColor;
     _textField.layer.borderWidth = 1;
     [self.view addSubview:_textField];

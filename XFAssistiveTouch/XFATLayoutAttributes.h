@@ -10,6 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#define IS_IPAD_IDIOM (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE_IDIOM (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_DEVICE_LANDSCAPE UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
+
 @interface XFATLayoutAttributes : NSObject
 
 + (CGRect)contentViewSpreadFrame;

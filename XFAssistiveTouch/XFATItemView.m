@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
     XFATItemView *item = [[self alloc] initWithLayer:layer];
     if (type == XFATItemViewTypeSystem) {
         item.bounds = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
-        item.layer.zPosition = CGFLOAT_MAX;
+        item.layer.zPosition = FLT_MAX;
     }
     return item;
 }
@@ -142,23 +142,27 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
 }
 
 + (CAShapeLayer *)createInnerCircle:(XFATInnerCircle)circleType {
+    
+    // iPad   width 390 itemWidth 76 margin 2 corner:14  48-41-33
+    // iPhone width 295 itemWidth 60 margin 2 corner:14  44-38-30
+    
     CGFloat circleAlpha = 0;
     CGFloat radius = 0;
     CGFloat borderAlpha = 0;
     switch (circleType) {
         case XFATInnerCircleSmall: {
             circleAlpha = 1;
-            radius = 14.5;
+            radius = IS_IPAD_IDIOM? 16: 14.5;
             borderAlpha = 0.3;
             break;
         } case XFATInnerCircleMiddle: {
             circleAlpha = 0.4;
-            radius = 18.5;
+            radius = IS_IPAD_IDIOM? 20: 18.5;
             borderAlpha = 0.15;
             break;
         } case XFATInnerCircleLarge: {
             circleAlpha = 0.2;
-            radius = 22;
+            radius = IS_IPAD_IDIOM? 24: 22;
             borderAlpha = 0;
             break;
         } default: {

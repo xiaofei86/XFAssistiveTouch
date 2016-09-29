@@ -130,7 +130,7 @@ static const NSTimeInterval hideAlpha = 0.4;
 #pragma mark - StickToPoint
 
 - (CGPoint)stickToPointByHorizontal {
-    CGRect screen = [[UIScreen mainScreen] bounds];
+    CGRect screen = [UIScreen mainScreen].bounds;
     CGPoint center = self.contentPoint;
     if (center.y < center.x && center.y < -center.x + screen.size.width) {
         CGPoint point = CGPointMake(center.x, [XFATLayoutAttributes margin] + [XFATLayoutAttributes itemImageWidth] / 2);
@@ -155,7 +155,7 @@ static const NSTimeInterval hideAlpha = 0.4;
 }
 
 - (CGPoint)stickToPointByVertical {
-    CGRect screen = [[UIScreen mainScreen] bounds];
+    CGRect screen = [UIScreen mainScreen].bounds;
     CGPoint center = self.contentPoint;
     CGFloat k = screen.size.height / screen.size.width;
     if (center.y < k * center.x) {
@@ -182,7 +182,7 @@ static const NSTimeInterval hideAlpha = 0.4;
 }
 
 - (CGPoint)makePointValid:(CGPoint)point {
-    CGRect screen = [[UIScreen mainScreen] bounds];
+    CGRect screen = [UIScreen mainScreen].bounds;
     if (point.x < [XFATLayoutAttributes margin] + [XFATLayoutAttributes itemImageWidth] / 2) {
         point.x = [XFATLayoutAttributes margin] + [XFATLayoutAttributes itemImageWidth] / 2;
     }
