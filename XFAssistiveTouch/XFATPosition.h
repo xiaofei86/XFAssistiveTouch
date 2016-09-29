@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XFATPosition : NSObject
 
 + (instancetype)positionWithCount:(NSInteger)count index:(NSInteger)index;
+- (instancetype)initWithCount:(NSInteger)count index:(NSInteger)index NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic, assign, readonly) NSInteger count;
 @property (nonatomic, assign, readonly) NSInteger index;

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XFATViewController : UIResponder
 
-- (instancetype)initWithItems:(NSArray<XFATItemView *> *)items;
+- (instancetype)initWithItems:(nullable NSArray<XFATItemView *> *)items NS_DESIGNATED_INITIALIZER;
 
 - (void)loadView;
 - (void)viewDidLoad;

@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, XFATItemViewType) {
 
 @interface XFATItemView : UIView
 
+- (instancetype)initWithLayer:(nullable CALayer *)layer NS_DESIGNATED_INITIALIZER;
 + (instancetype)itemWithType:(XFATItemViewType)type;
 + (instancetype)itemWithLayer:(CALayer *)layer;
 

@@ -17,78 +17,96 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
 };
 
 + (instancetype)itemWithType:(XFATItemViewType)type {
-    XFATItemView *item = [[XFATItemView alloc] initWithFrame:CGRectZero];
+    CALayer *layer = nil;
     switch (type) {
         case XFATItemViewTypeSystem:
-            [item initWithSystemType];
+            layer = [self createLayerSystemType];
             break;
         case XFATItemViewTypeNone:
-            [item initWithNoneType];
+            layer = [self createLayerWithNoneType];
             break;
         case XFATItemViewTypeBack:
-            [item initWithBackType];
+            layer = [self createLayerBackType];
             break;
         case XFATItemViewTypeStar:
-            [item initWithStarType];
+            layer = [self createLayerStarType];
             break;
         default:
             break;
     }
+    XFATItemView *item = [[self alloc] initWithLayer:layer];
     return item;
 }
 
 + (instancetype)itemWithLayer:(CALayer *)layer {
-    XFATItemView *item = [[XFATItemView alloc] initWithFrame:CGRectZero];
-    layer.contentsScale = [UIScreen mainScreen].scale;
-    item.layer.contents = layer.contents;
-    return item;
+    return [[self alloc] initWithLayer:layer];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
+    return [self initWithLayer:nil];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    return [self initWithLayer:nil];
+}
+
+- (instancetype)initWithLayer:(nullable CALayer *)layer {
     self = [super initWithFrame:CGRectMake(0, 0, [XFATLayoutAttributes itemWidth], [XFATLayoutAttributes itemWidth])];
     if (self) {
-        [self initWithNoneType];
+        CGFloat itemScale = [XFATLayoutAttributes itemWidth] / [XFATLayoutAttributes itemImageWidth];
+        self.layer.contentsRect = CGRectMake((1 - itemScale) / 2, (1 - itemScale) / 2, itemScale, itemScale);
+        if (layer) {
+            layer.contentsScale = [UIScreen mainScreen].scale;
+            if (CGRectEqualToRect(layer.bounds, CGRectZero)) {
+                layer.bounds = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
+            }
+            if (CGPointEqualToPoint(layer.position, CGPointZero)) {
+                layer.position = CGPointMake([XFATLayoutAttributes itemWidth] / 2,
+                                             [XFATLayoutAttributes itemWidth] / 2);
+            }
+            [self.layer addSublayer:layer];
+        }
     }
     return self;
 }
 
-#pragma mark - NativeType
+#pragma mark - CreateLayer
 
-- (void)initWithNoneType {
-    CGFloat itemScale = [XFATLayoutAttributes itemWidth] / [XFATLayoutAttributes itemImageWidth];
-    [self.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
-    self.layer.contentsScale = [UIScreen mainScreen].scale;
-    self.layer.contentsRect = CGRectMake((1 - itemScale) / 2, (1 - itemScale) / 2, itemScale, itemScale);
++ (CALayer *)createLayerWithNoneType {
+    return [CALayer layer];
 }
 
-- (void)initWithSystemType {
-    self.frame = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
-    [self.layer addSublayer:[self createInnerCircle:XFATInnerCircleLarge]];
-    [self.layer addSublayer:[self createInnerCircle:XFATInnerCircleMiddle]];
-    [self.layer addSublayer:[self createInnerCircle:XFATInnerCircleSmall]];
++ (CALayer *)createLayerSystemType {
+    CALayer *layer = [CALayer layer];
+    [layer addSublayer:[[self class] createInnerCircle:XFATInnerCircleLarge]];
+    [layer addSublayer:[[self class] createInnerCircle:XFATInnerCircleMiddle]];
+    [layer addSublayer:[[self class] createInnerCircle:XFATInnerCircleSmall]];
+    return layer;
 }
 
-- (void)initWithBackType {
++ (CALayer *)createLayerBackType {
     CAShapeLayer *layer = [CAShapeLayer layer];
+    CGSize size = CGSizeMake(22, 22);
     UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:CGPointMake(0, 0)];
-    [path addLineToPoint:CGPointMake(11, 8.5)];
-    [path addLineToPoint:CGPointMake(11, 3.5)];
-    [path addLineToPoint:CGPointMake(22, 3.5)];
-    [path addLineToPoint:CGPointMake(22, -3.5)];
-    [path addLineToPoint:CGPointMake(11, -3.5)];
-    [path addLineToPoint:CGPointMake(11, -8.5)];
+    [path moveToPoint:CGPointMake(0, size.height / 2)];
+    [path addLineToPoint:CGPointMake(size.width / 2, 8.5 + size.height / 2)];
+    [path addLineToPoint:CGPointMake(size.width / 2, 3.5 + size.height / 2)];
+    [path addLineToPoint:CGPointMake(size.width, 3.5 + size.height / 2)];
+    [path addLineToPoint:CGPointMake(size.width, -3.5 + size.height / 2)];
+    [path addLineToPoint:CGPointMake(size.width / 2, -3.5 + size.height / 2)];
+    [path addLineToPoint:CGPointMake(size.width / 2, -8.5 + size.height / 2)];
     [path closePath];
     layer.path = path.CGPath;
-    layer.contentsScale = [UIScreen mainScreen].scale;
     layer.lineWidth = 2;
     layer.fillColor = [UIColor clearColor].CGColor;
     layer.strokeColor = [UIColor whiteColor].CGColor;
-    layer.position = CGPointMake(self.layer.position.x - 11, self.layer.position.y);
-    [self.layer addSublayer:layer];
+    layer.bounds = CGRectMake(0, 0, size.width, size.height);
+    layer.position = CGPointMake([XFATLayoutAttributes itemWidth] / 2,
+                                 [XFATLayoutAttributes itemWidth] / 2);
+    return layer;
 }
 
-- (void)initWithStarType {
++ (CALayer *)createLayerStarType {
     CAShapeLayer *layer = [CAShapeLayer layer];
     CGSize size = CGSizeMake(44, 44);
     CGFloat numberOfPoints = 5;
@@ -112,16 +130,14 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
     }
     [path closePath];
     layer.path = path.CGPath;
-    layer.contentsScale = [UIScreen mainScreen].scale;
-    layer.lineWidth = 2;
     layer.fillColor = [UIColor whiteColor].CGColor;
-    layer.position = CGPointMake(self.layer.position.x - 22, self.layer.position.y - 22);
-    [self.layer addSublayer:layer];
+    layer.bounds = CGRectMake(0, 0, size.width, size.height);
+    layer.position = CGPointMake([XFATLayoutAttributes itemWidth] / 2,
+                                 [XFATLayoutAttributes itemWidth] / 2);
+    return layer;
 }
 
-#pragma mark - Private
-
-- (CAShapeLayer *)createInnerCircle:(XFATInnerCircle)circleType {
++ (CAShapeLayer *)createInnerCircle:(XFATInnerCircle)circleType {
     CGFloat circleAlpha = 0;
     CGFloat radius = 0;
     CGFloat borderAlpha = 0;
@@ -146,12 +162,15 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
         }
     }
     CAShapeLayer *layer = [CAShapeLayer layer];
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.center radius:radius startAngle:0 endAngle:2 * M_PI clockwise:YES];
+    CGPoint position = CGPointMake([XFATLayoutAttributes itemImageWidth] / 2, [XFATLayoutAttributes itemImageWidth] / 2);
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:position radius:radius startAngle:0 endAngle:2 * M_PI clockwise:YES];
     layer.path = path.CGPath;
     layer.contentsScale = [UIScreen mainScreen].scale;
     layer.lineWidth = 1;
     layer.fillColor = [UIColor colorWithWhite:1 alpha:circleAlpha].CGColor;
     layer.strokeColor = [UIColor colorWithWhite:0 alpha:borderAlpha].CGColor;
+    layer.bounds = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
+    layer.position = CGPointMake(position.x, position.y);
     return layer;
 }
 

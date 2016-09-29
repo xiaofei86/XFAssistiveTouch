@@ -16,14 +16,9 @@
 #pragma mark - Initialization
 
 - (instancetype)initWithItems:(NSArray<XFATItemView *> *)items {
-    self = [self init];
-    self.items = items;
-    return self;
-}
-
-- (instancetype)init {
     self = [super init];
     if (self) {
+        self.items = items;
         _backItem = [XFATItemView itemWithType:XFATItemViewTypeBack];
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
         [_backItem addGestureRecognizer:tapGesture];
@@ -31,12 +26,15 @@
     return self;
 }
 
+- (instancetype)init {
+    return [self initWithItems:nil];
+}
+
 #pragma mark - Accessor
 
 - (NSArray<XFATItemView *> *)items {
     if (!_items) {
         [self loadView];
-        [self viewDidLoad];
     }
     return _items;
 }
@@ -56,6 +54,7 @@
                [XFATItemView new], [XFATItemView new],
                [XFATItemView new], [XFATItemView new],
                [XFATItemView new], [XFATItemView new]];
+    [self viewDidLoad];
 }
 
 - (void)viewDidLoad {

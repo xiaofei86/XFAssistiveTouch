@@ -14,7 +14,7 @@ static const NSTimeInterval duration = 0.25;
 
 @interface XFATNavigationController : UIViewController
 
-- (instancetype)initWithRootViewController:(XFATViewController *)viewController;
+- (instancetype)initWithRootViewController:(nullable XFATViewController *)viewController NS_DESIGNATED_INITIALIZER;
 
 - (void)spread;
 - (void)shrink;

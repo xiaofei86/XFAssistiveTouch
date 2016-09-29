@@ -18,15 +18,20 @@
     UIVisualEffectView *_effectView;
 }
 
-#pragma mark - Initialization
-
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    return [self initWithRootViewController:_rootViewController];
+    return [self initWithRootViewController:nil];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    return [self initWithRootViewController:nil];
 }
 
 - (instancetype)initWithRootViewController:(XFATViewController *)viewController {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
+        if (!viewController) {
+            viewController = [XFATViewController new];
+        }
         _rootViewController = viewController;
         _rootViewController.navigationController = self;
         _viewControllers = [NSMutableArray arrayWithObject:_rootViewController];
@@ -34,15 +39,6 @@
     }
     return self;
 }
-
-- (XFATViewController *)rootViewController {
-    if (!_rootViewController) {
-        _rootViewController = [XFATViewController new];
-    }
-    return _rootViewController;
-}
-
-#pragma mark - UIViewController
 
 - (void)loadView {
     [super loadView];
