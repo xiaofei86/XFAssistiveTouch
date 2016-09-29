@@ -19,8 +19,6 @@ static const NSTimeInterval hideAlpha = 0.4;
     NSTimer *_timer;
 }
 
-#pragma mark - Initialization
-
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     return [super initWithRootViewController:[XFATRootViewController new]];
 }
@@ -28,8 +26,6 @@ static const NSTimeInterval hideAlpha = 0.4;
 - (BOOL)prefersStatusBarHidden {
     return NO;
 }
-
-#pragma mark - UIViewController
 
 - (void)loadView {
     [super loadView];
@@ -67,7 +63,7 @@ static const NSTimeInterval hideAlpha = 0.4;
     [self stopTimer];
 }
 
-#pragma mark - GestureAction
+#pragma mark - Action
 
 - (void)spreadBegin {
     if (!self.isShow) {

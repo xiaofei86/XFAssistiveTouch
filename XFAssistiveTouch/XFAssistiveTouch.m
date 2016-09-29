@@ -17,8 +17,6 @@
     CGPoint _coverWindowPoint;
 }
 
-#pragma mark - Initialization
-
 + (instancetype)shareInstance {
     static id shareInstance;
     static dispatch_once_t onceToken;

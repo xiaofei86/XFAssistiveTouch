@@ -13,15 +13,13 @@
 
 @synthesize items = _items;
 
-#pragma mark - Initialization
-
 - (instancetype)initWithItems:(NSArray<XFATItemView *> *)items {
     self = [super init];
     if (self) {
         self.items = items;
         _backItem = [XFATItemView itemWithType:XFATItemViewTypeBack];
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
-        [_backItem addGestureRecognizer:tapGesture];
+        UITapGestureRecognizer *backGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backGesture:)];
+        [_backItem addGestureRecognizer:backGesture];
     }
     return self;
 }
@@ -63,7 +61,7 @@
 
 #pragma mark - Action
 
-- (void)tapGesture:(UITapGestureRecognizer *)gestureRecognizer {
+- (void)backGesture:(UITapGestureRecognizer *)backGesture {
     [self.navigationController popViewController];
 }
 
