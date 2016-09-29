@@ -8,7 +8,7 @@
 
 #import "XFATRootNavigationController.h"
 
-static NSTimeInterval hideDuration = 5;
+static NSTimeInterval hideDuration = 4;
 static const NSTimeInterval hideAlpha = 0.4;
 
 @interface XFATRootNavigationController ()
@@ -48,7 +48,7 @@ static const NSTimeInterval hideAlpha = 0.4;
 
 - (void)beginTimer {
     _timer = [NSTimer timerWithTimeInterval:hideDuration target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
-    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)stopTimer {

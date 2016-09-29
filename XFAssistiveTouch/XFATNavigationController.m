@@ -70,9 +70,9 @@
     }
 }
 
-- (void)setContentalpha:(CGFloat)contentalpha {
+- (void)setContentAlpha:(CGFloat)contentAlpha {
     if (!_show) {
-        _contentAlpha = contentalpha;
+        _contentAlpha = contentAlpha;
         _contentView.alpha = _contentAlpha;
         _contentItem.alpha = _contentAlpha;
     }
