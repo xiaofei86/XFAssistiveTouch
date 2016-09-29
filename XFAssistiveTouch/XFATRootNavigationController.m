@@ -13,11 +13,11 @@ static const NSTimeInterval hideAlpha = 0.4;
 
 @interface XFATRootNavigationController ()
 
+@property (nonatomic, strong) NSTimer *timer;
+
 @end
 
-@implementation XFATRootNavigationController {
-    NSTimer *_timer;
-}
+@implementation XFATRootNavigationController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     return [super initWithRootViewController:[XFATRootViewController new]];

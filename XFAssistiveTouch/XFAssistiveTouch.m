@@ -10,12 +10,12 @@
 
 @interface XFAssistiveTouch () <XFATRootNavigationControllerDelegate>
 
+@property (nonatomic, assign) CGPoint assistiveWindowPoint;
+@property (nonatomic, assign) CGPoint coverWindowPoint;
+
 @end
 
-@implementation XFAssistiveTouch {
-    CGPoint _assistiveWindowPoint;
-    CGPoint _coverWindowPoint;
-}
+@implementation XFAssistiveTouch
 
 + (instancetype)shareInstance {
     static id shareInstance;

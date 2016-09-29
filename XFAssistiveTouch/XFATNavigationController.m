@@ -11,12 +11,12 @@
 
 @interface XFATNavigationController ()
 
+@property (nonatomic, strong) NSMutableArray<XFATPosition *> *pushPosition;
+@property (nonatomic, strong) UIVisualEffectView *effectView;
+
 @end
 
-@implementation XFATNavigationController {
-    NSMutableArray<XFATPosition *> *_pushPosition;
-    UIVisualEffectView *_effectView;
-}
+@implementation XFATNavigationController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     return [self initWithRootViewController:nil];
