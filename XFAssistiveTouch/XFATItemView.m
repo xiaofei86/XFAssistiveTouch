@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
     XFATItemView *item = [[self alloc] initWithLayer:layer];
     if (type == XFATItemViewTypeSystem) {
         item.bounds = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
+        item.layer.zPosition = CGFLOAT_MAX;
     }
     return item;
 }

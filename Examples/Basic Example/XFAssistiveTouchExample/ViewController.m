@@ -11,12 +11,13 @@
 
 @interface ViewController () <XFATRootViewControllerDelegate>
 
+@property (nonatomic, strong) XFAssistiveTouch *assistiveTouch;
+@property (nonatomic, strong) XFATRootViewController *rootViewController;
+@property (nonatomic, strong) UITextField *textField;
+
 @end
 
-@implementation ViewController {
-    XFAssistiveTouch *_assistiveTouch;
-    XFATRootViewController *_rootViewController;
-}
+@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +31,11 @@
     [_assistiveTouch showAssistiveTouch];
     _rootViewController = (XFATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
     _rootViewController.delegate = self;
+    
+    _textField = [[UITextField alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 44, CGRectGetWidth(self.view.frame), 44)];
+    _textField.layer.borderColor = [UIColor whiteColor].CGColor;
+    _textField.layer.borderWidth = 1;
+    [self.view addSubview:_textField];
 }
 
 #pragma mark - XFATRootViewControllerDelegate
@@ -82,6 +88,10 @@
     XFATViewController *viewController = [[XFATViewController alloc] initWithItems:[array copy]];
     [_rootViewController.navigationController pushViewController:viewController
                                                       atPisition:position];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_textField resignFirstResponder];
 }
 
 @end

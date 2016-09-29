@@ -32,7 +32,7 @@
         _rootNavigationController = [[XFATRootNavigationController alloc] init];
         _rootNavigationController.delegate = self;
         _assistiveWindowPoint = [XFATLayoutAttributes cotentViewDefaultPoint];
-        //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     }
     return self;
 }
@@ -40,7 +40,7 @@
 - (void)showAssistiveTouch {
     _assistiveWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth])];
     _assistiveWindow.center = _assistiveWindowPoint;
-    _assistiveWindow.windowLevel = powf(10, 7);
+    _assistiveWindow.windowLevel = CGFLOAT_MAX;
     _assistiveWindow.backgroundColor = [UIColor clearColor];
     _assistiveWindow.rootViewController = _rootNavigationController;
     [self makeVisibleWindow];
@@ -70,9 +70,9 @@
     _rootNavigationController.contentPoint = CGPointMake([XFATLayoutAttributes itemImageWidth] / 2, [XFATLayoutAttributes itemImageWidth] / 2);
 }
 
-//#pragma mark - UIKeyboardWillChangeFrameNotification
-//
-//- (void)keyboardWillChangeFrame:(NSNotification *)notification {
+#pragma mark - UIKeyboardWillChangeFrameNotification
+
+- (void)keyboardWillChangeFrame:(NSNotification *)notification {
 //    /*因为动画过程中不能实时修改_assistiveWindowRect,
 //     *所以如果执行点击操作的话,_assistiveTouchView位置会以动画之前的位置为准.
 //     *如果执行拖动操作则会有跳动效果.所以需要禁止用户操作.*/
@@ -111,7 +111,7 @@
 //        //使其遮盖键盘
 //        [self makeVisibleWindow];
 //    }];
-//}
+}
 
 #pragma mark - PushViewController
 
