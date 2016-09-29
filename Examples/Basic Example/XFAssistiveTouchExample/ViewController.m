@@ -66,6 +66,7 @@
             for (int i = 0; i < 8; i++) {
                 NSString *imageName = [NSString stringWithFormat:@"Transform%d.png", i + 1];
                 CALayer *layer = [CALayer layer];
+                layer.contentsScale = [UIScreen mainScreen].scale;
                 layer.contents = (__bridge id _Nullable)([UIImage imageNamed:imageName].CGImage);
                 XFATItemView *itemView = [XFATItemView itemWithLayer:layer];
                 [array addObject:itemView];

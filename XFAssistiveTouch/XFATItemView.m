@@ -79,6 +79,7 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
     [path addLineToPoint:CGPointMake(11, -8.5)];
     [path closePath];
     layer.path = path.CGPath;
+    layer.contentsScale = [UIScreen mainScreen].scale;
     layer.lineWidth = 2;
     layer.fillColor = [UIColor clearColor].CGColor;
     layer.strokeColor = [UIColor whiteColor].CGColor;
@@ -110,6 +111,7 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
     }
     [path closePath];
     layer.path = path.CGPath;
+    layer.contentsScale = [UIScreen mainScreen].scale;
     layer.lineWidth = 2;
     layer.fillColor = [UIColor whiteColor].CGColor;
     layer.position = CGPointMake(self.layer.position.x - 22, self.layer.position.y - 22);
@@ -145,6 +147,7 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
     CAShapeLayer *layer = [CAShapeLayer layer];
     UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.center radius:radius startAngle:0 endAngle:2 * M_PI clockwise:YES];
     layer.path = path.CGPath;
+    layer.contentsScale = [UIScreen mainScreen].scale;
     layer.lineWidth = 1;
     layer.fillColor = [UIColor colorWithWhite:1 alpha:circleAlpha].CGColor;
     layer.strokeColor = [UIColor colorWithWhite:0 alpha:borderAlpha].CGColor;
