@@ -35,7 +35,7 @@
 #pragma mark - XFATRootViewControllerDelegate
 
 - (NSInteger)numberOfItemsInController:(XFATRootViewController *)atViewController {
-    return 3;
+    return 8;
 }
 
 - (XFATItemView *)controller:(XFATRootViewController *)controller itemViewAtPosition:(XFATPosition *)position {
@@ -49,6 +49,21 @@
         case 2:
             return [XFATItemView itemWithType:XFATItemViewTypeStar];
             break;
+        case 3:
+            return [XFATItemView itemWithType:XFATItemViewTypeStar];
+            break;
+        case 4:
+            return [XFATItemView itemWithType:XFATItemViewTypeStar];
+            break;
+        case 5:
+            return [XFATItemView itemWithType:XFATItemViewTypeStar];
+            break;
+        case 6:
+            return [XFATItemView itemWithType:XFATItemViewTypeStar];
+            break;
+        case 7:
+            return [XFATItemView itemWithType:XFATItemViewTypeStar];
+            break;
         default:
             return [XFATItemView itemWithType:XFATItemViewTypeNone];
             break;
@@ -56,29 +71,17 @@
 }
 
 - (void)controller:(XFATRootViewController *)controller didSelectedAtPosition:(XFATPosition *)position {
-    switch (position.index) {
-        case 0: {
-            break;
-        } case 1: {
-            break;
-        } case 2: {
-            NSMutableArray *array = [NSMutableArray array];
-            for (int i = 0; i < 8; i++) {
-                NSString *imageName = [NSString stringWithFormat:@"Transform%d.png", i + 1];
-                CALayer *layer = [CALayer layer];
-                layer.contentsScale = [UIScreen mainScreen].scale;
-                layer.contents = (__bridge id _Nullable)([UIImage imageNamed:imageName].CGImage);
-                XFATItemView *itemView = [XFATItemView itemWithLayer:layer];
-                [array addObject:itemView];
-            }
-            XFATViewController *viewController = [[XFATViewController alloc] initWithItems:[array copy]];
-            [_rootViewController.navigationController pushViewController:viewController
-                                                              atPisition:position];
-            break;
-        } default: {
-            break;
-        }
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i = 0; i < position.index + 1; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"Transform%d.png", i + 1];
+        CALayer *layer = [CALayer layer];
+        layer.contents = (__bridge id _Nullable)([UIImage imageNamed:imageName].CGImage);
+        XFATItemView *itemView = [XFATItemView itemWithLayer:layer];
+        [array addObject:itemView];
     }
+    XFATViewController *viewController = [[XFATViewController alloc] initWithItems:[array copy]];
+    [_rootViewController.navigationController pushViewController:viewController
+                                                      atPisition:position];
 }
 
 @end

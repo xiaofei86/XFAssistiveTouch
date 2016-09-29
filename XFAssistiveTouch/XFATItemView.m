@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
 
 + (instancetype)itemWithLayer:(CALayer *)layer {
     XFATItemView *item = [[XFATItemView alloc] initWithFrame:CGRectZero];
+    layer.contentsScale = [UIScreen mainScreen].scale;
     item.layer.contents = layer.contents;
     return item;
 }
