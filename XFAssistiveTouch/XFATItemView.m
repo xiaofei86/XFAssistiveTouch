@@ -31,8 +31,13 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
         case XFATItemViewTypeStar:
             layer = [self createLayerStarType];
             break;
-        default:
+        default: {
+            if (type >= XFATItemViewTypeCount) {
+                NSInteger count = type - XFATItemViewTypeCount;
+                layer = [self createLayerWithCount:count];
+            }
             break;
+        }
     }
     XFATItemView *item = [[self alloc] initWithLayer:layer];
     if (type == XFATItemViewTypeSystem) {
@@ -83,7 +88,6 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
     [layer addSublayer:[[self class] createInnerCircle:XFATInnerCircleLarge]];
     [layer addSublayer:[[self class] createInnerCircle:XFATInnerCircleMiddle]];
     [layer addSublayer:[[self class] createInnerCircle:XFATInnerCircleSmall]];
-    layer.bounds = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
     layer.position = CGPointMake([XFATLayoutAttributes itemImageWidth] / 2, [XFATLayoutAttributes itemImageWidth] / 2);
     return layer;
 }
@@ -105,14 +109,12 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
     layer.fillColor = [UIColor clearColor].CGColor;
     layer.strokeColor = [UIColor whiteColor].CGColor;
     layer.bounds = CGRectMake(0, 0, size.width, size.height);
-    layer.position = CGPointMake([XFATLayoutAttributes itemWidth] / 2,
-                                 [XFATLayoutAttributes itemWidth] / 2);
     return layer;
 }
 
 + (CALayer *)createLayerStarType {
     CAShapeLayer *layer = [CAShapeLayer layer];
-    CGSize size = CGSizeMake(44, 44);
+    CGSize size = CGSizeMake([XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
     CGFloat numberOfPoints = 5;
     CGFloat starRatio = 0.5;
     CGFloat steps = numberOfPoints * 2;
@@ -135,9 +137,31 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
     [path closePath];
     layer.path = path.CGPath;
     layer.fillColor = [UIColor whiteColor].CGColor;
-    layer.bounds = CGRectMake(0, 0, size.width, size.height);
-    layer.position = CGPointMake([XFATLayoutAttributes itemWidth] / 2,
-                                 [XFATLayoutAttributes itemWidth] / 2);
+    return layer;
+}
+
++ (CALayer *)createLayerWithCount:(NSInteger)count {
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    CGRect bounds = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:bounds];
+    [path appendPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectInset(bounds, 5, 5)] bezierPathByReversingPath]];
+    layer.path = path.CGPath;
+    layer.fillColor = [UIColor whiteColor].CGColor;
+    layer.bounds = bounds;
+    
+    CATextLayer *textLayer = [CATextLayer layer];
+    if (count >= 10 || count < 0) {
+        textLayer.string = @"!";
+    } else {
+        textLayer.string = [NSString stringWithFormat:@"%ld", count];
+    }
+    textLayer.fontSize = 48;
+    textLayer.alignmentMode = kCAAlignmentCenter;
+    textLayer.bounds = bounds;
+    textLayer.position = CGPointMake(CGRectGetMidX(layer.bounds), CGRectGetMidY(layer.bounds));
+    textLayer.contentsScale = [UIScreen mainScreen].scale;
+    [layer addSublayer:textLayer];
+    
     return layer;
 }
 
@@ -173,12 +197,12 @@ typedef NS_ENUM(NSInteger, XFATInnerCircle) {
     CGPoint position = CGPointMake([XFATLayoutAttributes itemImageWidth] / 2, [XFATLayoutAttributes itemImageWidth] / 2);
     UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:position radius:radius startAngle:0 endAngle:2 * M_PI clockwise:YES];
     layer.path = path.CGPath;
-    layer.contentsScale = [UIScreen mainScreen].scale;
     layer.lineWidth = 1;
     layer.fillColor = [UIColor colorWithWhite:1 alpha:circleAlpha].CGColor;
     layer.strokeColor = [UIColor colorWithWhite:0 alpha:borderAlpha].CGColor;
     layer.bounds = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
     layer.position = CGPointMake(position.x, position.y);
+    layer.contentsScale = [UIScreen mainScreen].scale;
     return layer;
 }
 

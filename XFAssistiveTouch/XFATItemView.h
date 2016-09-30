@@ -11,10 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, XFATItemViewType) {
-    XFATItemViewTypeNone,
-    XFATItemViewTypeSystem,
-    XFATItemViewTypeBack,
-    XFATItemViewTypeStar
+    XFATItemViewTypeNone = 0,
+    XFATItemViewTypeSystem = 1,
+    XFATItemViewTypeBack = 2,
+    XFATItemViewTypeStar = 3,
+    XFATItemViewTypeCount = 10
 };
 
 @interface XFATItemView : UIView

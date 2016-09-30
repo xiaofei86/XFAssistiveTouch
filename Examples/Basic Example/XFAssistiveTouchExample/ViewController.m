@@ -79,10 +79,7 @@
 - (void)controller:(XFATRootViewController *)controller didSelectedAtPosition:(XFATPosition *)position {
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < position.index + 1; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"Transform%d.png", i + 1];
-        CALayer *layer = [CALayer layer];
-        layer.contents = (__bridge id _Nullable)([UIImage imageNamed:imageName].CGImage);
-        XFATItemView *itemView = [XFATItemView itemWithLayer:layer];
+        XFATItemView *itemView = [XFATItemView itemWithType:XFATItemViewTypeCount + 5 + i];
         [array addObject:itemView];
     }
     XFATViewController *viewController = [[XFATViewController alloc] initWithItems:[array copy]];
