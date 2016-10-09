@@ -14,14 +14,10 @@
 
 @end
 
-@implementation AppDelegate {
-    XFDebug *_debug;
-}
-
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    _debug = [XFDebug run];
-    _debug.transformDelegate = self;
+    [XFDebug sharedInstance].transformDelegate = self;
     return YES;
 }
 

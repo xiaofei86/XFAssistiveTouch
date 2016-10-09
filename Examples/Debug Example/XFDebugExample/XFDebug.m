@@ -14,8 +14,6 @@
 #import "XFQuickAccessViewController.h"
 #import "XFMainViewController.h"
 
-static NSInteger _itemViewTag = 3252;
-
 @interface XFDebug () <XFATRootViewControllerDelegate>
 
 @end
@@ -116,11 +114,8 @@ void XFDebugUncaughtExceptionHandler(NSException *exception) {
         } case 2: {
             NSMutableArray *array = [NSMutableArray array];
             for (int i = 0; i < 8; i++) {
-                NSString *imageName = [NSString stringWithFormat:@"Transform%d.png", i + 1];
-                CALayer *layer = [CALayer layer];
-                layer.contents = (__bridge id _Nullable)([UIImage imageNamed:imageName].CGImage);
-                XFATItemView *itemView = [XFATItemView itemWithLayer:layer];
-                itemView.tag = _itemViewTag + i;
+                XFATItemView *itemView = [XFATItemView itemWithType:XFATItemViewTypeCount + i];
+                itemView.tag = i;
                 UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(p_transformItemViewAction:)];
                 [itemView addGestureRecognizer:tapGesture];
                 [array addObject:itemView];
@@ -139,7 +134,7 @@ void XFDebugUncaughtExceptionHandler(NSException *exception) {
 
 - (void)p_transformItemViewAction:(UITapGestureRecognizer *)tapGesture {
     XFATItemView *itemView = (XFATItemView *)tapGesture.view;
-    NSInteger index = itemView.tag - _itemViewTag;
+    NSInteger index = itemView.tag;
     XFQuickAccessViewController *transformViewController = [XFQuickAccessViewController new];
     transformViewController.user = index;
     transformViewController.transformArray = [self p_getTransformViewControllersFromDelegate];

@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) XFAssistiveTouch *assistiveTouch;
 @property (nonatomic, strong) XFATRootViewController *rootViewController;
-@property (nonatomic, strong) UITextField *textField;
 
 @end
 
@@ -25,17 +24,12 @@
     layer.frame = self.view.layer.frame;
     layer.colors = @[(__bridge id)[UIColor orangeColor].CGColor,
                      (__bridge id)[UIColor yellowColor].CGColor];
-    [self.view.layer addSublayer:layer];
+    [self.view.layer insertSublayer:layer below:0];
     
     _assistiveTouch = [XFAssistiveTouch shareInstance];
     [_assistiveTouch showAssistiveTouch];
     _rootViewController = (XFATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
     _rootViewController.delegate = self;
-    
-    _textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 88)];
-    _textField.layer.borderColor = [UIColor whiteColor].CGColor;
-    _textField.layer.borderWidth = 1;
-    [self.view addSubview:_textField];
 }
 
 #pragma mark - XFATRootViewControllerDelegate
@@ -88,7 +82,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [_textField resignFirstResponder];
+    [self.view endEditing:YES];
 }
 
 @end

@@ -26,7 +26,7 @@
 
 - (void)setUser:(NSInteger)user {
     _user = user;
-    self.navigationItem.title = [NSString stringWithFormat:@"User%ld", user + 1];
+    self.navigationItem.title = [NSString stringWithFormat:@"User%ld", user];
 }
 
 - (void)viewDidLoad {
