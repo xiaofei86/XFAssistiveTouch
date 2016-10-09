@@ -1,10 +1,10 @@
 # XFAssistiveTouch
 
-[![LICENSE](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/xiaofei86/LPAssistiveTouch/master/LICENSE)&nbsp;
-[![PLATFORM](https://img.shields.io/cocoapods/p/LPDebug.svg?style=flat)](https://cocoapods.org/?q=LPDEBUG)&nbsp;
-[![COCOAPODS](https://img.shields.io/cocoapods/v/LPDebug.svg?style=flat)](https://cocoapods.org/?q=LPDEBUG)&nbsp;
-[![SUPPORT](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://en.wikipedia.org/wiki/IOS_8)&nbsp;
-[![BLOG](https://img.shields.io/badge/blog-xuyafei.cn-orange.svg?style=flat)](http://xuyafei.cn)&nbsp;
+[![LICENSE](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://raw.githubusercontent.com/xiaofei86/LPAssistiveTouch/master/LICENSE)&nbsp;
+[![PLATFORM](https://img.shields.io/cocoapods/p/LPDebug.svg?style=flat-square)](https://cocoapods.org/?q=LPDEBUG)&nbsp;
+[![COCOAPODS](https://img.shields.io/cocoapods/v/LPDebug.svg?style=flat-square)](https://cocoapods.org/?q=LPDEBUG)&nbsp;
+[![SUPPORT](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat-square)](https://en.wikipedia.org/wiki/IOS_8)&nbsp;
+[![BLOG](https://img.shields.io/badge/blog-xuyafei.cn-orange.svg?style=flat-square)](http://xuyafei.cn)&nbsp;
 
 <img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/XFAssitiveTouchHeader.png" width = 850>
 
