@@ -6,11 +6,13 @@
 [![SUPPORT](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://en.wikipedia.org/wiki/IOS_8)&nbsp;
 [![BLOG](https://img.shields.io/badge/blog-xuyafei.cn-orange.svg?style=flat)](http://xuyafei.cn)&nbsp;
 
+<img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/XFAssitiveTouchHeader.png">
+
 正在重构……	暂不可用！！！
 
 LPAssistiveTouch 是仿照 iOS 系统的辅助按钮 AssistiveTouch 制作的辅助按钮。
 
-<img src = "https://github.com/xiaofei86/LPDebug/raw/master/Images/1.gif" width = 373>
+<img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/1.gif" width = 373>
 	
 ##Usage
 	
