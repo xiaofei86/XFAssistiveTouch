@@ -6,7 +6,7 @@
 [![SUPPORT](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://en.wikipedia.org/wiki/IOS_8)&nbsp;
 [![BLOG](https://img.shields.io/badge/blog-xuyafei.cn-orange.svg?style=flat)](http://xuyafei.cn)&nbsp;
 
-<img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/XFAssitiveTouchHeader.png">
+<img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/XFAssitiveTouchHeader.png" width = 850>
 
 正在重构……	暂不可用！！！
 
