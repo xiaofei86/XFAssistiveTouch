@@ -8,7 +8,7 @@
 
 <img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/XFAssitiveTouchHeader.png" width = 850>
 
-正在重构……	暂不可用！！！
+正在重构，暂不可用……
 
 LPAssistiveTouch 是仿照 iOS 系统的辅助按钮 AssistiveTouch 制作的辅助按钮。
 

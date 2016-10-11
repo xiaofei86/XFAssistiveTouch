@@ -29,7 +29,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _rootNavigationController = [[XFATRootNavigationController alloc] init];
+        _rootNavigationController = [[XFATNavigationController alloc] initWithRootViewController:[XFATRootViewController new]];
         _rootNavigationController.delegate = self;
         _assistiveWindowPoint = [XFATLayoutAttributes cotentViewDefaultPoint];
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -67,14 +67,15 @@
     _coverWindowPoint = CGPointZero;
     _assistiveWindow.frame = [UIScreen mainScreen].bounds;
     _rootNavigationController.view.frame = [UIScreen mainScreen].bounds;
-    _rootNavigationController.contentPoint = _assistiveWindowPoint;
+    [_rootNavigationController moveContentViewToPoint:_assistiveWindowPoint];
 }
 
 - (void)shrinkToPoint:(CGPoint)point {
     _assistiveWindowPoint = point;
     _assistiveWindow.frame = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
     _assistiveWindow.center = _assistiveWindowPoint;
-    _rootNavigationController.contentPoint = CGPointMake([XFATLayoutAttributes itemImageWidth] / 2, [XFATLayoutAttributes itemImageWidth] / 2);
+    CGPoint contentPoint = CGPointMake([XFATLayoutAttributes itemImageWidth] / 2, [XFATLayoutAttributes itemImageWidth] / 2);
+    [_rootNavigationController moveContentViewToPoint:contentPoint];
 }
 
 #pragma mark - UIKeyboardWillChangeFrameNotification
@@ -134,8 +135,7 @@
     } else {
         [topvc presentViewController:viewController animated:YES completion:^{}];
     }
-    //    TODO:shrink
-    //    [_rootViewController.navigationController shrink];
+    [_rootNavigationController shrink];
 }
 
 - (UIViewController *)p_topViewController{

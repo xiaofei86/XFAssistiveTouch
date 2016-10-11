@@ -10,7 +10,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-static const NSTimeInterval duration = 0.25;
+//typedef NS_ENUM(NSInteger, XFATStatus) {
+//    XFATStatusTouchBegin,
+//    XFATStatusTouchMove,
+//    XFATStatusStickBegin,
+//    XFATStatusStickEnd,
+//    XFATStatusSpreadBegin,
+//    XFATStatusSpreadEnd,
+//    XFATStatusShrinkBegin,
+//    XFATStatusShrinkEnd,
+//};
+
+@protocol XFATRootNavigationControllerDelegate <NSObject>
+
+- (void)touchBegan;
+- (void)shrinkToPoint:(CGPoint)point;
+
+@end
 
 @interface XFATNavigationController : UIViewController
 
@@ -21,17 +37,15 @@ static const NSTimeInterval duration = 0.25;
 - (void)pushViewController:(XFATViewController *)viewController atPisition:(XFATPosition *)position;
 - (void)popViewController;
 
-- (void)spreadBegin;
-- (void)shrinkEnd;
+//- (void)spreadBegin;
+//- (void)shrinkEnd;
 
-// TODO: Remove readonly
-@property (nonatomic, strong, readonly) NSMutableArray<XFATViewController *> *viewControllers;
+- (void)moveContentViewToPoint:(CGPoint)point;
+
+@property (nonatomic, strong) NSMutableArray<XFATViewController *> *viewControllers;
 @property (nonatomic, strong) XFATViewController *rootViewController;
-@property (nonatomic, strong) UIView *contentView;
-@property (nonatomic, strong) XFATItemView *contentItem;
-@property (nonatomic, assign) CGPoint contentPoint;
-@property (nonatomic, assign) CGFloat contentAlpha;
 @property (nonatomic, assign, readonly, getter=isShow) BOOL show;
+@property (nonatomic, assign) id<XFATRootNavigationControllerDelegate> delegate;
 
 @end
 

@@ -18,7 +18,6 @@
 		AF1AB9D41D96B3D4007486D0 /* XFATViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1AB9D31D96B3D4007486D0 /* XFATViewController.m */; };
 		AF1AB9D71D96B7DF007486D0 /* XFATNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1AB9D61D96B7DF007486D0 /* XFATNavigationController.m */; };
 		AF1AB9DA1D96B9C7007486D0 /* XFATRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1AB9D91D96B9C7007486D0 /* XFATRootViewController.m */; };
-		AF1AB9DD1D96BA2F007486D0 /* XFATRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1AB9DC1D96BA2F007486D0 /* XFATRootNavigationController.m */; };
 		AF1AB9E01D98F115007486D0 /* XFAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1AB9DF1D98F115007486D0 /* XFAssistiveTouch.m */; };
 		AFA97EE91D9C26CC0077221C /* XFATLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA97EE81D9C26CC0077221C /* XFATLayoutAttributes.m */; };
 /* End PBXBuildFile section */
@@ -44,8 +43,6 @@
 		AF1AB9D61D96B7DF007486D0 /* XFATNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFATNavigationController.m; sourceTree = "<group>"; };
 		AF1AB9D81D96B9C7007486D0 /* XFATRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFATRootViewController.h; sourceTree = "<group>"; };
 		AF1AB9D91D96B9C7007486D0 /* XFATRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFATRootViewController.m; sourceTree = "<group>"; };
-		AF1AB9DB1D96BA2F007486D0 /* XFATRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFATRootNavigationController.h; sourceTree = "<group>"; };
-		AF1AB9DC1D96BA2F007486D0 /* XFATRootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFATRootNavigationController.m; sourceTree = "<group>"; };
 		AF1AB9DE1D98F115007486D0 /* XFAssistiveTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFAssistiveTouch.h; sourceTree = "<group>"; };
 		AF1AB9DF1D98F115007486D0 /* XFAssistiveTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAssistiveTouch.m; sourceTree = "<group>"; };
 		AFA97EE71D9C26CC0077221C /* XFATLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFATLayoutAttributes.h; sourceTree = "<group>"; };
@@ -119,8 +116,6 @@
 				AF1AB9D61D96B7DF007486D0 /* XFATNavigationController.m */,
 				AF1AB9D81D96B9C7007486D0 /* XFATRootViewController.h */,
 				AF1AB9D91D96B9C7007486D0 /* XFATRootViewController.m */,
-				AF1AB9DB1D96BA2F007486D0 /* XFATRootNavigationController.h */,
-				AF1AB9DC1D96BA2F007486D0 /* XFATRootNavigationController.m */,
 				AF1AB9DE1D98F115007486D0 /* XFAssistiveTouch.h */,
 				AF1AB9DF1D98F115007486D0 /* XFAssistiveTouch.m */,
 			);
@@ -210,7 +205,6 @@
 				AF1AB9D71D96B7DF007486D0 /* XFATNavigationController.m in Sources */,
 				AF1AB9B51D968649007486D0 /* main.m in Sources */,
 				AF1AB9CE1D96B102007486D0 /* XFATPosition.m in Sources */,
-				AF1AB9DD1D96BA2F007486D0 /* XFATRootNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

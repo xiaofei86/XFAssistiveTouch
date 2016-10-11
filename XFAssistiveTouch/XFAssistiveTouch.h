@@ -6,7 +6,8 @@
 //  Copyright © 2016年 XuYafei. All rights reserved.
 //
 
-#import "XFATRootNavigationController.h"
+#import "XFATNavigationController.h"
+#import "XFATRootViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIWindow *assistiveWindow;
 
-@property (nonatomic, strong) XFATRootNavigationController *rootNavigationController;
+@property (nonatomic, strong) XFATNavigationController *rootNavigationController;
 
 @property (nonatomic, weak) UINavigationController *navigationController;
 

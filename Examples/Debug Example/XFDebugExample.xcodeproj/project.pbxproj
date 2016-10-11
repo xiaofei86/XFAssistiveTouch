@@ -18,7 +18,6 @@
 		AFCE88CD1DA9D88100E83839 /* XFATLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCE88C01DA9D88100E83839 /* XFATLayoutAttributes.m */; };
 		AFCE88CE1DA9D88100E83839 /* XFATNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCE88C21DA9D88100E83839 /* XFATNavigationController.m */; };
 		AFCE88CF1DA9D88100E83839 /* XFATPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCE88C41DA9D88100E83839 /* XFATPosition.m */; };
-		AFCE88D01DA9D88100E83839 /* XFATRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCE88C61DA9D88100E83839 /* XFATRootNavigationController.m */; };
 		AFCE88D11DA9D88100E83839 /* XFATRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCE88C81DA9D88100E83839 /* XFATRootViewController.m */; };
 		AFCE88D21DA9D88100E83839 /* XFATViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCE88CA1DA9D88100E83839 /* XFATViewController.m */; };
 		AFCE88D51DA9D9BB00E83839 /* XFDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCE88D41DA9D9BB00E83839 /* XFDebug.m */; };
@@ -48,8 +47,6 @@
 		AFCE88C21DA9D88100E83839 /* XFATNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFATNavigationController.m; sourceTree = "<group>"; };
 		AFCE88C31DA9D88100E83839 /* XFATPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFATPosition.h; sourceTree = "<group>"; };
 		AFCE88C41DA9D88100E83839 /* XFATPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFATPosition.m; sourceTree = "<group>"; };
-		AFCE88C51DA9D88100E83839 /* XFATRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFATRootNavigationController.h; sourceTree = "<group>"; };
-		AFCE88C61DA9D88100E83839 /* XFATRootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFATRootNavigationController.m; sourceTree = "<group>"; };
 		AFCE88C71DA9D88100E83839 /* XFATRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFATRootViewController.h; sourceTree = "<group>"; };
 		AFCE88C81DA9D88100E83839 /* XFATRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFATRootViewController.m; sourceTree = "<group>"; };
 		AFCE88C91DA9D88100E83839 /* XFATViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFATViewController.h; sourceTree = "<group>"; };
@@ -127,22 +124,20 @@
 		AFCE88BA1DA9D88100E83839 /* XFAssistiveTouch */ = {
 			isa = PBXGroup;
 			children = (
-				AFCE88BB1DA9D88100E83839 /* XFAssistiveTouch.h */,
-				AFCE88BC1DA9D88100E83839 /* XFAssistiveTouch.m */,
-				AFCE88BD1DA9D88100E83839 /* XFATItemView.h */,
-				AFCE88BE1DA9D88100E83839 /* XFATItemView.m */,
 				AFCE88BF1DA9D88100E83839 /* XFATLayoutAttributes.h */,
 				AFCE88C01DA9D88100E83839 /* XFATLayoutAttributes.m */,
-				AFCE88C11DA9D88100E83839 /* XFATNavigationController.h */,
-				AFCE88C21DA9D88100E83839 /* XFATNavigationController.m */,
 				AFCE88C31DA9D88100E83839 /* XFATPosition.h */,
 				AFCE88C41DA9D88100E83839 /* XFATPosition.m */,
-				AFCE88C51DA9D88100E83839 /* XFATRootNavigationController.h */,
-				AFCE88C61DA9D88100E83839 /* XFATRootNavigationController.m */,
-				AFCE88C71DA9D88100E83839 /* XFATRootViewController.h */,
-				AFCE88C81DA9D88100E83839 /* XFATRootViewController.m */,
+				AFCE88BD1DA9D88100E83839 /* XFATItemView.h */,
+				AFCE88BE1DA9D88100E83839 /* XFATItemView.m */,
 				AFCE88C91DA9D88100E83839 /* XFATViewController.h */,
 				AFCE88CA1DA9D88100E83839 /* XFATViewController.m */,
+				AFCE88C11DA9D88100E83839 /* XFATNavigationController.h */,
+				AFCE88C21DA9D88100E83839 /* XFATNavigationController.m */,
+				AFCE88C71DA9D88100E83839 /* XFATRootViewController.h */,
+				AFCE88C81DA9D88100E83839 /* XFATRootViewController.m */,
+				AFCE88BB1DA9D88100E83839 /* XFAssistiveTouch.h */,
+				AFCE88BC1DA9D88100E83839 /* XFAssistiveTouch.m */,
 			);
 			name = XFAssistiveTouch;
 			path = ../../XFAssistiveTouch;
@@ -233,7 +228,6 @@
 				AFCE88D21DA9D88100E83839 /* XFATViewController.m in Sources */,
 				AFCE88A31DA9D70500E83839 /* main.m in Sources */,
 				AFCE88DE1DA9DB6500E83839 /* XFQuickAccessViewController.m in Sources */,
-				AFCE88D01DA9D88100E83839 /* XFATRootNavigationController.m in Sources */,
 				AFCE88D81DA9DA4300E83839 /* XFMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
