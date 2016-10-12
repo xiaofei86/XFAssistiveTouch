@@ -9,10 +9,6 @@
 #import "XFATNavigationController.h"
 #import <objc/runtime.h>
 
-static NSTimeInterval hideDuration = 4;
-static const NSTimeInterval hideAlpha = 0.4;
-static const NSTimeInterval duration = 0.25;
-
 @interface XFATNavigationController ()
 
 @property (nonatomic, strong) NSMutableArray<XFATPosition *> *pushPosition;
@@ -74,7 +70,7 @@ static const NSTimeInterval duration = 0.25;
     [self.view addSubview:_contentItem];
     
     self.view.frame = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
-    self.contentAlpha = hideAlpha;
+    self.contentAlpha = [XFATLayoutAttributes inactiveAlpha];
     self.contentPoint = CGPointMake([XFATLayoutAttributes itemImageWidth] / 2, [XFATLayoutAttributes itemImageWidth] / 2);
 }
 
@@ -125,13 +121,13 @@ static const NSTimeInterval duration = 0.25;
         item.alpha = 0;
         item.center = _contentPoint;
         [self.view addSubview:item];
-        [UIView animateWithDuration:duration animations:^{
+        [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
             item.center = [XFATPosition positionWithCount:count index:i].center;
             item.alpha = 1;
         }];
     }
     
-    [UIView animateWithDuration:duration animations:^{
+    [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
         _contentView.frame = [XFATLayoutAttributes contentViewSpreadFrame];
         _effectView.frame = _contentView.bounds;
         _contentView.alpha = 1;
@@ -143,17 +139,17 @@ static const NSTimeInterval duration = 0.25;
 - (void)shrink {
     [self setShow:NO];
     for (XFATItemView *item in _viewControllers.lastObject.items) {
-        [UIView animateWithDuration:duration animations:^{
+        [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
             item.center = _contentPoint;
             item.alpha = 0;
         }];
     }
-    [UIView animateWithDuration:duration animations:^{
+    [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
         _viewControllers.lastObject.backItem.center = _contentPoint;
         _viewControllers.lastObject.backItem.alpha = 0;
     }];
     
-    [UIView animateWithDuration:duration animations:^{
+    [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
         _contentView.frame = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
         _contentView.center = _contentPoint;
         _effectView.frame = _contentView.bounds;
@@ -172,11 +168,11 @@ static const NSTimeInterval duration = 0.25;
 - (void)pushViewController:(XFATViewController *)viewController atPisition:(XFATPosition *)position {
     XFATViewController *oldViewController = _viewControllers.lastObject;
     for (XFATItemView *item in oldViewController.items) {
-        [UIView animateWithDuration:duration animations:^{
+        [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
             item.alpha = 0;
         }];
     }
-    [UIView animateWithDuration:duration animations:^{
+    [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
         oldViewController.backItem.alpha = 0;
     }];
     
@@ -186,7 +182,7 @@ static const NSTimeInterval duration = 0.25;
         item.alpha = 0;
         item.center = position.center;
         [self.view addSubview:item];
-        [UIView animateWithDuration:duration animations:^{
+        [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
             item.center = [XFATPosition positionWithCount:count index:i].center;
             item.alpha = 1;
         }];
@@ -194,7 +190,7 @@ static const NSTimeInterval duration = 0.25;
     viewController.backItem.alpha = 0;
     viewController.backItem.center = position.center;
     [self.view addSubview:viewController.backItem];
-    [UIView animateWithDuration:duration animations:^{
+    [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
         viewController.backItem.center = self.view.center;
         viewController.backItem.alpha = 1;
     }];
@@ -208,12 +204,12 @@ static const NSTimeInterval duration = 0.25;
     if (_pushPosition.count > 0) {
         XFATPosition *position = _pushPosition.lastObject;
         for (XFATItemView *item in _viewControllers.lastObject.items) {
-            [UIView animateWithDuration:duration animations:^{
+            [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
                 item.center = position.center;
                 item.alpha = 0;
             }];
         }
-        [UIView animateWithDuration:duration animations:^{
+        [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
             _viewControllers.lastObject.backItem.center = position.center;
             _viewControllers.lastObject.backItem.alpha = 0;
         } completion:^(BOOL finished) {
@@ -221,11 +217,11 @@ static const NSTimeInterval duration = 0.25;
             [_viewControllers.lastObject.backItem removeFromSuperview];
             [_viewControllers removeLastObject];
             for (XFATItemView *item in _viewControllers.lastObject.items) {
-                [UIView animateWithDuration:duration animations:^{
+                [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
                     item.alpha = 1;
                 }];
             }
-            [UIView animateWithDuration:duration animations:^{
+            [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
                 _viewControllers.lastObject.backItem.alpha = 1;
             }];
         }];
@@ -235,7 +231,7 @@ static const NSTimeInterval duration = 0.25;
 #pragma mark - Timer
 
 - (void)beginTimer {
-    _timer = [NSTimer timerWithTimeInterval:hideDuration target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
+    _timer = [NSTimer timerWithTimeInterval:[XFATLayoutAttributes activeDuration] target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
     [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 
@@ -245,8 +241,8 @@ static const NSTimeInterval duration = 0.25;
 }
 
 - (void)timerFired {
-    [UIView animateWithDuration:duration animations:^{
-        self.contentAlpha = hideAlpha;
+    [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
+        self.contentAlpha = [XFATLayoutAttributes inactiveAlpha];
     }];
     [self stopTimer];
 }
@@ -279,7 +275,7 @@ static const NSTimeInterval duration = 0.25;
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
         [self invokeActionBeginDelegate];
         [self stopTimer];
-        [UIView animateWithDuration:duration animations:^{
+        [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
             self.contentAlpha = 1;
         }];
     } else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
@@ -287,7 +283,7 @@ static const NSTimeInterval duration = 0.25;
     } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded
                || gestureRecognizer.state == UIGestureRecognizerStateCancelled
                || gestureRecognizer.state == UIGestureRecognizerStateFailed) {
-        [UIView animateWithDuration:duration animations:^{
+        [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
             self.contentPoint = [self stickToPointByHorizontal];
         } completion:^(BOOL finished) {
             [self invokeActionEndDelegate];

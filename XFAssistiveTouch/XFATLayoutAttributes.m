@@ -51,4 +51,16 @@
     return 8;
 }
 
++ (CGFloat)inactiveAlpha {
+    return 0.4;
+}
+
++ (CGFloat)animationDuration {
+    return 0.25;
+}
+
++ (CGFloat)activeDuration {
+    return 4;
+}
+
 @end

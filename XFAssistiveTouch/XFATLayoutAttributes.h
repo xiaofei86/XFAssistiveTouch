@@ -24,6 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGFloat)margin;
 + (NSUInteger)maxCount;
 
++ (CGFloat)inactiveAlpha;
++ (CGFloat)animationDuration;
++ (CGFloat)activeDuration;
+
 @end
 
 NS_ASSUME_NONNULL_END
