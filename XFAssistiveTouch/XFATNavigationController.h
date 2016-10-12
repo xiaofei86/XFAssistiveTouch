@@ -10,21 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-//typedef NS_ENUM(NSInteger, XFATStatus) {
-//    XFATStatusTouchBegin,
-//    XFATStatusTouchMove,
-//    XFATStatusStickBegin,
-//    XFATStatusStickEnd,
-//    XFATStatusSpreadBegin,
-//    XFATStatusSpreadEnd,
-//    XFATStatusShrinkBegin,
-//    XFATStatusShrinkEnd,
-//};
+@class XFATNavigationController;
 
-@protocol XFATRootNavigationControllerDelegate <NSObject>
+@protocol XFATNavigationControllerDelegate <NSObject>
 
-- (void)touchBegan;
-- (void)shrinkToPoint:(CGPoint)point;
+- (void)navigationController:(XFATNavigationController *)navigationController actionBeginAtPoint:(CGPoint)point;
+- (void)navigationController:(XFATNavigationController *)navigationController actionEndAtPoint:(CGPoint)point;
 
 @end
 
@@ -37,15 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)pushViewController:(XFATViewController *)viewController atPisition:(XFATPosition *)position;
 - (void)popViewController;
 
-//- (void)spreadBegin;
-//- (void)shrinkEnd;
-
 - (void)moveContentViewToPoint:(CGPoint)point;
 
 @property (nonatomic, strong) NSMutableArray<XFATViewController *> *viewControllers;
 @property (nonatomic, strong) XFATViewController *rootViewController;
 @property (nonatomic, assign, readonly, getter=isShow) BOOL show;
-@property (nonatomic, assign) id<XFATRootNavigationControllerDelegate> delegate;
+@property (nonatomic, assign) id<XFATNavigationControllerDelegate> delegate;
 
 @end
 

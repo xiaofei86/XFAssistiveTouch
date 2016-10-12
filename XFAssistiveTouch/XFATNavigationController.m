@@ -22,6 +22,7 @@ static const NSTimeInterval duration = 0.25;
 @property (nonatomic, assign) CGPoint contentPoint;
 @property (nonatomic, assign) CGFloat contentAlpha;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) BOOL show;
 
 @end
 
@@ -94,7 +95,7 @@ static const NSTimeInterval duration = 0.25;
 }
 
 - (void)setContentPoint:(CGPoint)contentPoint {
-    if (!_show) {
+    if (!self.isShow) {
         _contentPoint = contentPoint;
         _contentView.center = _contentPoint;
         _contentItem.center = _contentPoint;
@@ -102,7 +103,7 @@ static const NSTimeInterval duration = 0.25;
 }
 
 - (void)setContentAlpha:(CGFloat)contentAlpha {
-    if (!_show) {
+    if (!self.isShow) {
         _contentAlpha = contentAlpha;
         _contentView.alpha = _contentAlpha;
         _contentItem.alpha = _contentAlpha;
@@ -115,25 +116,9 @@ static const NSTimeInterval duration = 0.25;
 
 #pragma mark - Animition
 
-- (void)spreadBegin {
-    if (!self.isShow) {
-        if (_delegate && [_delegate respondsToSelector:@selector(touchBegan)]) {
-            [_delegate touchBegan];
-        }
-    }
-}
-
-- (void)shrinkEnd {
-    if (!self.isShow) {
-        if (_delegate && [_delegate respondsToSelector:@selector(shrinkToPoint:)]) {
-            [_delegate shrinkToPoint:self.contentPoint];
-        }
-    }
-}
-
 - (void)spread {
-    [self spreadBegin];
-    _show = YES;
+    [self invokeActionBeginDelegate];
+    [self setShow:YES];
     NSUInteger count = _viewControllers.firstObject.items.count;
     for (int i = 0; i < count; i++) {
         XFATItemView *item = _viewControllers.firstObject.items[i];
@@ -156,7 +141,7 @@ static const NSTimeInterval duration = 0.25;
 }
 
 - (void)shrink {
-    _show = NO;
+    [self setShow:NO];
     for (XFATItemView *item in _viewControllers.lastObject.items) {
         [UIView animateWithDuration:duration animations:^{
             item.center = _contentPoint;
@@ -180,7 +165,7 @@ static const NSTimeInterval duration = 0.25;
             [viewController.backItem removeFromSuperview];
         }
         _viewControllers = [NSMutableArray arrayWithObject:_viewControllers.firstObject];
-        [self shrinkEnd];
+        [self invokeActionEndDelegate];
     }];
 }
 
@@ -292,7 +277,7 @@ static const NSTimeInterval duration = 0.25;
     });
     
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        [self spreadBegin];
+        [self invokeActionBeginDelegate];
         [self stopTimer];
         [UIView animateWithDuration:duration animations:^{
             self.contentAlpha = 1;
@@ -305,9 +290,7 @@ static const NSTimeInterval duration = 0.25;
         [UIView animateWithDuration:duration animations:^{
             self.contentPoint = [self stickToPointByHorizontal];
         } completion:^(BOOL finished) {
-            if (_delegate && [_delegate respondsToSelector:@selector(shrinkToPoint:)]) {
-                [_delegate shrinkToPoint:self.contentPoint];
-            }
+            [self invokeActionEndDelegate];
             onceToken = NO;
             [self beginTimer];
         }];
@@ -341,33 +324,6 @@ static const NSTimeInterval duration = 0.25;
     }
 }
 
-- (CGPoint)stickToPointByVertical {
-    CGRect screen = [UIScreen mainScreen].bounds;
-    CGPoint center = self.contentPoint;
-    CGFloat k = screen.size.height / screen.size.width;
-    if (center.y < k * center.x) {
-        if (center.y < - k * center.x + screen.size.height) {
-            CGPoint point = CGPointMake(center.x, [XFATLayoutAttributes margin] + [XFATLayoutAttributes itemImageWidth] / 2);
-            point = [self makePointValid:point];
-            return point;
-        } else {
-            CGPoint point = CGPointMake(center.x, CGRectGetHeight(screen) - [XFATLayoutAttributes itemImageWidth] / 2 - [XFATLayoutAttributes margin]);
-            point = [self makePointValid:point];
-            return point;
-        }
-    } else {
-        if (center.y < - k * center.x + screen.size.height) {
-            CGPoint point = CGPointMake([XFATLayoutAttributes margin] + [XFATLayoutAttributes itemImageWidth] / 2, center.y);
-            point = [self makePointValid:point];
-            return point;
-        } else {
-            CGPoint point = CGPointMake(CGRectGetWidth(screen) - [XFATLayoutAttributes itemImageWidth] / 2 - [XFATLayoutAttributes margin], center.y);
-            point = [self makePointValid:point];
-            return point;
-        }
-    }
-}
-
 - (CGPoint)makePointValid:(CGPoint)point {
     CGRect screen = [UIScreen mainScreen].bounds;
     if (point.x < [XFATLayoutAttributes margin] + [XFATLayoutAttributes itemImageWidth] / 2) {
@@ -383,6 +339,20 @@ static const NSTimeInterval duration = 0.25;
         point.y = CGRectGetHeight(screen) - [XFATLayoutAttributes itemImageWidth] / 2 - [XFATLayoutAttributes margin];
     }
     return point;
+}
+
+#pragma mark - Private
+
+- (void)invokeActionBeginDelegate {
+    if (!self.isShow && _delegate && [_delegate respondsToSelector:@selector(navigationController:actionBeginAtPoint:)]) {
+        [_delegate navigationController:self actionBeginAtPoint:self.contentPoint];
+    }
+}
+
+- (void)invokeActionEndDelegate {
+    if (_delegate && [_delegate respondsToSelector:@selector(navigationController:actionEndAtPoint:)]) {
+        [_delegate navigationController:self actionEndAtPoint:self.contentPoint];
+    }
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import "XFAssistiveTouch.h"
 
-@interface XFAssistiveTouch () <XFATRootNavigationControllerDelegate>
+@interface XFAssistiveTouch () <XFATNavigationControllerDelegate>
 
 @property (nonatomic, assign) CGPoint assistiveWindowPoint;
 @property (nonatomic, assign) CGPoint coverWindowPoint;
@@ -63,14 +63,14 @@
 
 #pragma mark - XFATViewControllerDelegate
 
-- (void)touchBegan {
+- (void)navigationController:(XFATNavigationController *)navigationController actionBeginAtPoint:(CGPoint)point {
     _coverWindowPoint = CGPointZero;
     _assistiveWindow.frame = [UIScreen mainScreen].bounds;
     _rootNavigationController.view.frame = [UIScreen mainScreen].bounds;
     [_rootNavigationController moveContentViewToPoint:_assistiveWindowPoint];
 }
 
-- (void)shrinkToPoint:(CGPoint)point {
+- (void)navigationController:(XFATNavigationController *)navigationController actionEndAtPoint:(CGPoint)point {
     _assistiveWindowPoint = point;
     _assistiveWindow.frame = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
     _assistiveWindow.center = _assistiveWindowPoint;
