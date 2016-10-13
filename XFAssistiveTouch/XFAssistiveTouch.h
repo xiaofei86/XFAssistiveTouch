@@ -13,16 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XFAssistiveTouch : NSObject
 
-+ (instancetype)shareInstance;
-
++ (instancetype)sharedInstance;
 - (void)showAssistiveTouch;
 
 @property (nonatomic, strong) UIWindow *assistiveWindow;
+@property (nonatomic, strong) XFATNavigationController *navigationController;
 
-@property (nonatomic, strong) XFATNavigationController *rootNavigationController;
-
-@property (nonatomic, weak) UINavigationController *navigationController;
-
+- (void)pushViewController:(UIViewController *)viewController atViewController:(UIViewController *)targetViewcontroller;
 - (void)pushViewController:(UIViewController *)viewController;
 
 @end

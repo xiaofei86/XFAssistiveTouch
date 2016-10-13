@@ -58,7 +58,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UIViewController *vc = _transformArray[_user][indexPath.row];
-    [[XFAssistiveTouch shareInstance] pushViewController:vc];
+    [[XFAssistiveTouch sharedInstance] pushViewController:vc];
 }
 
 @end

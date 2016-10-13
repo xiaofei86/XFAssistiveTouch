@@ -14,14 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol XFATRootViewControllerDelegate <NSObject>
 
-- (NSInteger)numberOfItemsInController:(XFATRootViewController *)atViewController;
-
-- (XFATItemView *)controller:(XFATRootViewController *)controller itemViewAtPosition:(XFATPosition *)position;
-
-- (void)controller:(XFATRootViewController *)controller didSelectedAtPosition:(XFATPosition *)position;
+- (NSInteger)numberOfItemsInViewController:(XFATRootViewController *)viewController;
+- (XFATItemView *)viewController:(XFATRootViewController *)viewController itemViewAtPosition:(XFATPosition *)position;
+- (void)viewController:(XFATRootViewController *)viewController didSelectedAtPosition:(XFATPosition *)position;
 
 @end
-
 
 @interface XFATRootViewController : XFATViewController
 

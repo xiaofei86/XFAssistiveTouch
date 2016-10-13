@@ -26,19 +26,19 @@
                      (__bridge id)[UIColor yellowColor].CGColor];
     [self.view.layer insertSublayer:layer below:0];
     
-    _assistiveTouch = [XFAssistiveTouch shareInstance];
+    _assistiveTouch = [XFAssistiveTouch sharedInstance];
     [_assistiveTouch showAssistiveTouch];
-    _rootViewController = (XFATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
+    _rootViewController = (XFATRootViewController *)_assistiveTouch.navigationController.viewControllers.firstObject;
     _rootViewController.delegate = self;
 }
 
 #pragma mark - XFATRootViewControllerDelegate
 
-- (NSInteger)numberOfItemsInController:(XFATRootViewController *)atViewController {
+- (NSInteger)numberOfItemsInViewController:(XFATRootViewController *)viewController {
     return 8;
 }
 
-- (XFATItemView *)controller:(XFATRootViewController *)controller itemViewAtPosition:(XFATPosition *)position {
+- (XFATItemView *)viewController:(XFATRootViewController *)viewController itemViewAtPosition:(XFATPosition *)position {
     switch (position.index) {
         case 0:
             return [XFATItemView itemWithType:XFATItemViewTypeStar];
@@ -70,14 +70,14 @@
     }
 }
 
-- (void)controller:(XFATRootViewController *)controller didSelectedAtPosition:(XFATPosition *)position {
+- (void)viewController:(XFATRootViewController *)viewController didSelectedAtPosition:(XFATPosition *)position {
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < position.index + 1; i++) {
         XFATItemView *itemView = [XFATItemView itemWithType:XFATItemViewTypeCount + 5 + i];
         [array addObject:itemView];
     }
-    XFATViewController *viewController = [[XFATViewController alloc] initWithItems:[array copy]];
-    [_rootViewController.navigationController pushViewController:viewController
+    XFATViewController *vc = [[XFATViewController alloc] initWithItems:[array copy]];
+    [_rootViewController.navigationController pushViewController:vc
                                                       atPisition:position];
 }
 

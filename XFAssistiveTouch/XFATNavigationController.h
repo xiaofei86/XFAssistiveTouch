@@ -31,7 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)moveContentViewToPoint:(CGPoint)point;
 
 @property (nonatomic, strong) NSMutableArray<XFATViewController *> *viewControllers;
-@property (nonatomic, strong) XFATViewController *rootViewController;
 @property (nonatomic, assign, readonly, getter=isShow) BOOL show;
 @property (nonatomic, assign) id<XFATNavigationControllerDelegate> delegate;
 

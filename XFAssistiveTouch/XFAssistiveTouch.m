@@ -17,20 +17,20 @@
 
 @implementation XFAssistiveTouch
 
-+ (instancetype)shareInstance {
-    static id shareInstance;
++ (instancetype)sharedInstance {
+    static id sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        shareInstance = [self new];
+        sharedInstance = [self new];
     });
-    return shareInstance;
+    return sharedInstance;
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _rootNavigationController = [[XFATNavigationController alloc] initWithRootViewController:[XFATRootViewController new]];
-        _rootNavigationController.delegate = self;
+        _navigationController = [[XFATNavigationController alloc] initWithRootViewController:[XFATRootViewController new]];
+        _navigationController.delegate = self;
         _assistiveWindowPoint = [XFATLayoutAttributes cotentViewDefaultPoint];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyboardWillChangeFrame:)
@@ -49,7 +49,7 @@
     _assistiveWindow.center = _assistiveWindowPoint;
     _assistiveWindow.windowLevel = CGFLOAT_MAX;
     _assistiveWindow.backgroundColor = [UIColor clearColor];
-    _assistiveWindow.rootViewController = _rootNavigationController;
+    _assistiveWindow.rootViewController = _navigationController;
     [self makeVisibleWindow];
 }
 
@@ -61,13 +61,13 @@
     }
 }
 
-#pragma mark - XFATViewControllerDelegate
+#pragma mark - XFATNavigationController
 
 - (void)navigationController:(XFATNavigationController *)navigationController actionBeginAtPoint:(CGPoint)point {
     _coverWindowPoint = CGPointZero;
     _assistiveWindow.frame = [UIScreen mainScreen].bounds;
-    _rootNavigationController.view.frame = [UIScreen mainScreen].bounds;
-    [_rootNavigationController moveContentViewToPoint:_assistiveWindowPoint];
+    _navigationController.view.frame = [UIScreen mainScreen].bounds;
+    [_navigationController moveContentViewToPoint:_assistiveWindowPoint];
 }
 
 - (void)navigationController:(XFATNavigationController *)navigationController actionEndAtPoint:(CGPoint)point {
@@ -75,7 +75,7 @@
     _assistiveWindow.frame = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
     _assistiveWindow.center = _assistiveWindowPoint;
     CGPoint contentPoint = CGPointMake([XFATLayoutAttributes itemImageWidth] / 2, [XFATLayoutAttributes itemImageWidth] / 2);
-    [_rootNavigationController moveContentViewToPoint:contentPoint];
+    [_navigationController moveContentViewToPoint:contentPoint];
 }
 
 #pragma mark - UIKeyboardWillChangeFrameNotification
@@ -128,6 +128,15 @@
 
 #pragma mark - PushViewController
 
+- (void)pushViewController:(UIViewController *)viewController atViewController:(nonnull UIViewController *)targetViewcontroller {
+    if ([targetViewcontroller isKindOfClass:[UINavigationController class]]) {
+        [(UINavigationController *)targetViewcontroller pushViewController:viewController animated:YES];
+    } else {
+        [targetViewcontroller presentViewController:viewController animated:YES completion:^{}];
+    }
+    [_navigationController shrink];
+}
+
 - (void)pushViewController:(UIViewController *)viewController {
     UIViewController *topvc = [self p_topViewController];
     if ([topvc isKindOfClass:[UINavigationController class]]) {
@@ -135,32 +144,23 @@
     } else {
         [topvc presentViewController:viewController animated:YES completion:^{}];
     }
-    [_rootNavigationController shrink];
+    [_navigationController shrink];
 }
 
 - (UIViewController *)p_topViewController{
-    static UIViewController *cachevc;
-    if (cachevc) {
-        return cachevc;
-    }
-    cachevc = [self p_topViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
-    return cachevc;
+    return [self p_topViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
 }
 
 - (UIViewController *)p_topViewController:(UIViewController *)rootvc {
-    if (_navigationController) {
-        return _navigationController;
+    if ([rootvc isKindOfClass:[UITabBarController class]]) {
+        UIViewController *tabvc = ((UITabBarController *)rootvc).selectedViewController;
+        return [self p_topViewController:tabvc];
     } else {
-        if ([rootvc isKindOfClass:[UITabBarController class]]) {
-            UIViewController *tabvc = ((UITabBarController *)rootvc).selectedViewController;
-            return [self p_topViewController:tabvc];
-        } else {
-            UIViewController *topvc = rootvc;
-            while (topvc.presentedViewController) {
-                topvc = topvc.presentedViewController;
-            }
-            return topvc;
+        UIViewController *topvc = rootvc;
+        while (topvc.presentedViewController) {
+            topvc = topvc.presentedViewController;
         }
+        return topvc;
     }
 }
 

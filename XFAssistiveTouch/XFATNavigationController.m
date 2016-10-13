@@ -42,9 +42,9 @@
         if (!viewController) {
             viewController = [XFATViewController new];
         }
-        _rootViewController = viewController;
-        _rootViewController.navigationController = self;
-        _viewControllers = [NSMutableArray arrayWithObject:_rootViewController];
+        XFATViewController *rootViewController = viewController;
+        rootViewController.navigationController = self;
+        _viewControllers = [NSMutableArray arrayWithObject:rootViewController];
         _pushPosition = [NSMutableArray array];
     }
     return self;

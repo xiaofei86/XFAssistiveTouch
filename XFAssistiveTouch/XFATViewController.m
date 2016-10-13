@@ -33,6 +33,7 @@
 - (NSArray<XFATItemView *> *)items {
     if (!_items) {
         [self loadView];
+        [self viewDidLoad];
     }
     return _items;
 }
@@ -52,7 +53,6 @@
                [XFATItemView new], [XFATItemView new],
                [XFATItemView new], [XFATItemView new],
                [XFATItemView new], [XFATItemView new]];
-    [self viewDidLoad];
 }
 
 - (void)viewDidLoad {
