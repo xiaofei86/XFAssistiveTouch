@@ -16,27 +16,27 @@
 
 @interface XFDebug () <XFATRootViewControllerDelegate>
 
+@property (nonatomic, strong) XFAssistiveTouch *assistiveTouch;
+@property (nonatomic, strong) XFATRootViewController *rootViewController;
+
 @end
 
-@implementation XFDebug {
-    XFAssistiveTouch *_assistiveTouch;
-    XFATRootViewController *_rootViewController;
-    dispatch_source_t source;
-}
+@implementation XFDebug
 
 #pragma mark - Initialization
 
 + (instancetype)sharedInstance {
-    return [XFDebug run];
-}
-
-+ (instancetype)run {
     static id sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [self new];
     });
     return sharedInstance;
+    
+}
+
++ (void)run {
+    [self sharedInstance];
 }
 
 - (instancetype)init {

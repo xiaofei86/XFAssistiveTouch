@@ -14,8 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol XFTransformDelegate <NSObject>
 
-- (UIViewController *)debugViewControllerByUser:(NSInteger)user
-                                        atIndex:(NSInteger)index;
+- (UIViewController *)debugViewControllerByUser:(NSInteger)user atIndex:(NSInteger)index;
 
 @end
 
@@ -24,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<XFTransformDelegate> transformDelegate;
 
 + (instancetype)sharedInstance;
-+ (instancetype)run;
++ (void)run;
 
 void XFDebugLog(NSString *format, ...);
 

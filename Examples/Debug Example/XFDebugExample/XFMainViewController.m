@@ -12,11 +12,15 @@
 
 static NSString *const kXFDebugLogCacheKey = @"kXFDebugLogCacheKey";
 
-@implementation XFMainViewController {
-    UITextView *_textView;
-    NSString *_cacheString;
-    BOOL _isPrevious;
-}
+@interface XFMainViewController ()
+
+@property (nonatomic, strong)UITextView *textView;
+@property (nonatomic, strong)NSString *cacheString;
+@property (nonatomic, assign) BOOL isPrevious;
+
+@end
+
+@implementation XFMainViewController
 
 + (instancetype)sharedInstance {
     static id sharedInstance;
