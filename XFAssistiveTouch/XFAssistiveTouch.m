@@ -172,6 +172,7 @@
         [topvc presentViewController:viewController animated:YES completion:^{}];
     }
     [_navigationController shrink];
+    
 }
 
 - (UIViewController *)p_topViewController{

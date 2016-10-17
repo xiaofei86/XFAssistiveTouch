@@ -76,8 +76,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UITapGestureRecognizer *spreadGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(spreadGestureAction:)];
-    UITapGestureRecognizer *shrinkGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shrinkGestureAction:)];
+    UITapGestureRecognizer *spreadGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(spread)];
+    UITapGestureRecognizer *shrinkGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shrink)];
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureAction:)];
     [self.contentItem addGestureRecognizer:spreadGestureRecognizer];
     [self.view addGestureRecognizer:shrinkGestureRecognizer];
@@ -113,6 +113,10 @@
 #pragma mark - Animition
 
 - (void)spread {
+    if (self.isShow) {
+        return;
+    }
+    [self stopTimer];
     [self invokeActionBeginDelegate];
     [self setShow:YES];
     NSUInteger count = _viewControllers.firstObject.items.count;
@@ -137,6 +141,10 @@
 }
 
 - (void)shrink {
+    if (!self.isShow) {
+        return;
+    }
+    [self beginTimer];
     [self setShow:NO];
     for (XFATItemView *item in _viewControllers.lastObject.items) {
         [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
@@ -248,20 +256,6 @@
 }
 
 #pragma mark - Action
-
-- (void)spreadGestureAction:(UIGestureRecognizer *)gestureRecognizer {
-    if (!self.isShow) {
-        [self stopTimer];
-        [self spread];
-    }
-}
-
-- (void)shrinkGestureAction:(UIGestureRecognizer *)gestureRecognizer {
-    if (self.isShow) {
-        [self beginTimer];
-        [self shrink];
-    }
-}
 
 - (void)panGestureAction:(UIGestureRecognizer *)gestureRecognizer {
     CGPoint point = [gestureRecognizer locationInView:self.view];
