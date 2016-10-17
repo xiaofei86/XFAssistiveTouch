@@ -7,8 +7,9 @@
 //
 
 #import "XFAssistiveTouch.h"
+#import "XFATRootViewController.h"
 
-@interface XFAssistiveTouch () <XFATNavigationControllerDelegate>
+@interface XFAssistiveTouch () <XFATNavigationControllerDelegate, XFATRootViewControllerDelegate>
 
 @property (nonatomic, assign) CGPoint assistiveWindowPoint;
 @property (nonatomic, assign) CGPoint coverWindowPoint;
@@ -29,7 +30,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _navigationController = [[XFATNavigationController alloc] initWithRootViewController:[XFATRootViewController new]];
+        XFATRootViewController *rootViewController = [XFATRootViewController new];
+        rootViewController.delegate = self;
+        _navigationController = [[XFATNavigationController alloc] initWithRootViewController:rootViewController];
         _navigationController.delegate = self;
         _assistiveWindowPoint = [XFATLayoutAttributes cotentViewDefaultPoint];
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -61,7 +64,31 @@
     }
 }
 
-#pragma mark - XFATNavigationController
+#pragma mark - XFATRootViewControllerDelegate
+
+- (NSInteger)numberOfItemsInViewController:(XFATViewController *)viewController {
+    if (_delegate && [_delegate respondsToSelector:@selector(numberOfItemsInViewController:)]) {
+        return [_delegate numberOfItemsInViewController:viewController];
+    } else {
+        return 0;
+    }
+}
+
+- (XFATItemView *)viewController:(XFATViewController *)viewController itemViewAtPosition:(XFATPosition *)position {
+    if (_delegate && [_delegate respondsToSelector:@selector(viewController:itemViewAtPosition:)]) {
+        return [_delegate viewController:viewController itemViewAtPosition:position];
+    } else {
+        return nil;
+    }
+}
+
+- (void)viewController:(XFATViewController *)viewController didSelectedAtPosition:(XFATPosition *)position {
+    if (_delegate && [_delegate respondsToSelector:@selector(numberOfItemsInViewController:)]) {
+        [_delegate viewController:viewController didSelectedAtPosition:position];
+    }
+}
+
+#pragma mark - XFATNavigationControllerDelegate
 
 - (void)navigationController:(XFATNavigationController *)navigationController actionBeginAtPoint:(CGPoint)point {
     _coverWindowPoint = CGPointZero;

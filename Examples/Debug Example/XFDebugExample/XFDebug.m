@@ -14,10 +14,7 @@
 #import "XFQuickAccessViewController.h"
 #import "XFMainViewController.h"
 
-@interface XFDebug () <XFATRootViewControllerDelegate>
-
-@property (nonatomic, strong) XFAssistiveTouch *assistiveTouch;
-@property (nonatomic, strong) XFATRootViewController *rootViewController;
+@interface XFDebug () <XFXFAssistiveTouchDelegate>
 
 @end
 
@@ -42,10 +39,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _assistiveTouch = [XFAssistiveTouch sharedInstance];
-        [_assistiveTouch showAssistiveTouch];
-        _rootViewController = (XFATRootViewController *)_assistiveTouch.navigationController.viewControllers.firstObject;
-        _rootViewController.delegate = self;
+        XFAssistiveTouch *assistiveTouch = [XFAssistiveTouch sharedInstance];
+        assistiveTouch.delegate = self;
+        [assistiveTouch showAssistiveTouch];
         
         NSSetUncaughtExceptionHandler(&XFDebugUncaughtExceptionHandler);
     }
@@ -80,11 +76,11 @@ void XFDebugUncaughtExceptionHandler(NSException *exception) {
 
 #pragma mark - XFATRootViewControllerDelegate
 
-- (NSInteger)numberOfItemsInViewController:(XFATRootViewController *)viewController {
+- (NSInteger)numberOfItemsInViewController:(XFATViewController *)viewController {
     return 3;
 }
 
-- (XFATItemView *)viewController:(XFATRootViewController *)viewController itemViewAtPosition:(XFATPosition *)position {
+- (XFATItemView *)viewController:(XFATViewController *)viewController itemViewAtPosition:(XFATPosition *)position {
     switch (position.index) {
         case 0:
             return [XFATItemView itemWithType:XFATItemViewTypeCount + 1];
@@ -101,10 +97,10 @@ void XFDebugUncaughtExceptionHandler(NSException *exception) {
     }
 }
 
-- (void)viewController:(XFATRootViewController *)viewController didSelectedAtPosition:(XFATPosition *)position {
+- (void)viewController:(XFATViewController *)viewController didSelectedAtPosition:(XFATPosition *)position {
     switch (position.index) {
         case 0: {
-            [_assistiveTouch pushViewController:[XFMainViewController sharedInstance]];
+            [[XFAssistiveTouch sharedInstance] pushViewController:[XFMainViewController sharedInstance]];
             break;
         } case 1: {
 #ifdef XFPushController_h
@@ -121,8 +117,7 @@ void XFDebugUncaughtExceptionHandler(NSException *exception) {
                 [array addObject:itemView];
             }
             XFATViewController *viewController = [[XFATViewController alloc] initWithItems:[array copy]];
-            [_rootViewController.navigationController pushViewController:viewController
-                                                              atPisition:position];
+            [[XFAssistiveTouch sharedInstance].navigationController pushViewController:viewController atPisition:position];
             break;
         } default: {
             break;
@@ -138,7 +133,7 @@ void XFDebugUncaughtExceptionHandler(NSException *exception) {
     XFQuickAccessViewController *transformViewController = [XFQuickAccessViewController new];
     transformViewController.user = index;
     transformViewController.transformArray = [self p_getTransformViewControllersFromDelegate];
-    [_assistiveTouch pushViewController:transformViewController];
+    [[XFAssistiveTouch sharedInstance] pushViewController:transformViewController];
 }
 
 - (NSMutableArray *)p_getTransformViewControllersFromDelegate {

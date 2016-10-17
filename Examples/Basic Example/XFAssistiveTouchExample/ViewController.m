@@ -9,10 +9,7 @@
 #import "ViewController.h"
 #import "XFAssistiveTouch.h"
 
-@interface ViewController () <XFATRootViewControllerDelegate>
-
-@property (nonatomic, strong) XFAssistiveTouch *assistiveTouch;
-@property (nonatomic, strong) XFATRootViewController *rootViewController;
+@interface ViewController () <XFXFAssistiveTouchDelegate>
 
 @end
 
@@ -26,19 +23,18 @@
                      (__bridge id)[UIColor yellowColor].CGColor];
     [self.view.layer insertSublayer:layer below:0];
     
-    _assistiveTouch = [XFAssistiveTouch sharedInstance];
-    [_assistiveTouch showAssistiveTouch];
-    _rootViewController = (XFATRootViewController *)_assistiveTouch.navigationController.viewControllers.firstObject;
-    _rootViewController.delegate = self;
+    XFAssistiveTouch *assistiveTouch = [XFAssistiveTouch sharedInstance];
+    assistiveTouch.delegate = self;
+    [assistiveTouch showAssistiveTouch];
 }
 
-#pragma mark - XFATRootViewControllerDelegate
+#pragma mark - XFXFAssistiveTouchDelegate
 
-- (NSInteger)numberOfItemsInViewController:(XFATRootViewController *)viewController {
+- (NSInteger)numberOfItemsInViewController:(XFATViewController *)viewController {
     return 8;
 }
 
-- (XFATItemView *)viewController:(XFATRootViewController *)viewController itemViewAtPosition:(XFATPosition *)position {
+- (XFATItemView *)viewController:(XFATViewController *)viewController itemViewAtPosition:(XFATPosition *)position {
     switch (position.index) {
         case 0:
             return [XFATItemView itemWithType:XFATItemViewTypeStar];
@@ -70,15 +66,14 @@
     }
 }
 
-- (void)viewController:(XFATRootViewController *)viewController didSelectedAtPosition:(XFATPosition *)position {
+- (void)viewController:(XFATViewController *)viewController didSelectedAtPosition:(XFATPosition *)position {
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < position.index + 1; i++) {
         XFATItemView *itemView = [XFATItemView itemWithType:XFATItemViewTypeCount + 5 + i];
         [array addObject:itemView];
     }
     XFATViewController *vc = [[XFATViewController alloc] initWithItems:[array copy]];
-    [_rootViewController.navigationController pushViewController:vc
-                                                      atPisition:position];
+    [[XFAssistiveTouch sharedInstance].navigationController pushViewController:vc atPisition:position];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

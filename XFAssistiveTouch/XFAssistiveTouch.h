@@ -7,9 +7,16 @@
 //
 
 #import "XFATNavigationController.h"
-#import "XFATRootViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+@protocol XFXFAssistiveTouchDelegate <NSObject>
+
+- (NSInteger)numberOfItemsInViewController:(XFATViewController *)viewController;
+- (XFATItemView *)viewController:(XFATViewController *)viewController itemViewAtPosition:(XFATPosition *)position;
+- (void)viewController:(XFATViewController *)viewController didSelectedAtPosition:(XFATPosition *)position;
+
+@end
 
 @interface XFAssistiveTouch : NSObject
 
@@ -18,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIWindow *assistiveWindow;
 @property (nonatomic, strong) XFATNavigationController *navigationController;
+@property (nonatomic, weak) id<XFXFAssistiveTouchDelegate> delegate;
 
 - (void)pushViewController:(UIViewController *)viewController atViewController:(UIViewController *)targetViewcontroller;
 - (void)pushViewController:(UIViewController *)viewController;
