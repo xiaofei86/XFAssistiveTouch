@@ -1,79 +1,125 @@
 <img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/XFAssitiveTouchHeader.png" width = 850>
 
-[![LICENSE](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://raw.githubusercontent.com/xiaofei86/LPAssistiveTouch/master/LICENSE)&nbsp;
-[![PLATFORM](https://img.shields.io/cocoapods/p/LPDebug.svg?style=flat-square)](https://cocoapods.org/?q=LPDEBUG)&nbsp;
-[![COCOAPODS](https://img.shields.io/cocoapods/v/LPDebug.svg?style=flat-square)](https://cocoapods.org/?q=LPDEBUG)&nbsp;
+[![LICENSE](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://raw.githubusercontent.com/xiaofei86/XFAssistiveTouch/master/LICENSE)&nbsp;
+[![PLATFORM](https://img.shields.io/cocoapods/p/XFDebug.svg?style=flat-square)](https://cocoapods.org/?q=XFDEBUG)&nbsp;
+[![COCOAPODS](https://img.shields.io/cocoapods/v/XFDebug.svg?style=flat-square)](https://cocoapods.org/?q=XFDEBUG)&nbsp;
 [![SUPPORT](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat-square)](https://en.wikipedia.org/wiki/IOS_8)&nbsp;
 [![BLOG](https://img.shields.io/badge/blog-xuyafei.cn-orange.svg?style=flat-square)](http://xuyafei.cn)&nbsp;
 
-正在重构，暂不可用……
+XFAssistiveTouch 是仿照 iOS 系统的辅助按钮 AssistiveTouch 制作的辅助按钮。你可以用在调试等场景中使用。
 
-LPAssistiveTouch 是仿照 iOS 系统的辅助按钮 AssistiveTouch 制作的辅助按钮。
+#Getting Started
+* 阅读此 README 文档或 [相关博客](http://www.jianshu.com/p/9c7cf61edb24) 了解 XFAssistiveTouch
+* 下载 XFAssistiveTouch 运行 Examples 文件夹中的示例查看效果
+* 参考 Installation 章节将 XFAssistiveTouch 集成在你的项目中
+* 参考 Usage 章节或示例代码在你的项目中使用 XFAssistiveTouch
 
-<img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/1.gif" width = 373>
-	
-##Usage
-	
-首先通过 LPAssistiveTouch 去接 ```rootViewController``` 的代理。
 
-```objective-c
-_assistiveTouch = [LPAssistiveTouch shareInstance];
-[_assistiveTouch showAssistiveTouch];
-_rootViewController = (LPATRootViewController *)_assistiveTouch.rootNavigationController.rootViewController;
-_rootViewController.delegate = self;
+#Communication
+
+* 如果你需要使用上的帮助，请联系我 <xuyafei86@163.com> 。
+* 如果你有使用上通用的问题，请新建 Issue。
+* 如果你发现 BUG，请新建 Issue。
+* 如果你对 XFAssistiveTouch 有新的需求，请新建 Issue。
+* 如果你想帮助改善 XFAssistiveTouch，请提交 Pull Request。
+
+#Installation
+
+XFAssistiveTouch 支持两种方式来安装
+
+### 使用 cocoapods 安装
+
+```
+pod 'XFAssistiveTouch', '~>0.0.1'
 ```
 
-然后通过代理方法去设置根目录 LPATItemView 的数量、初始化 LPATItemView 、处理点击回调。
+### 通过 clone/download 安装
 
-```objective-c
-- (NSInteger)numberOfItemsInController:(LPATRootViewController *)atViewController {
-    return 3;
-}
+1. 将 XFAssistiveTouch clone 或 download 到本地
+2. 将 XFAssistiveTouch 文件夹中的所有文件复制到你的项目中
 
-- (LPATItemView *)controller:(LPATRootViewController *)controller itemViewAtPosition:(LPATPosition *)position {
-    return [LPATItemView itemWithType: position.index + 4];
-}
+#Usage
 
-- (void)controller:(LPATRootViewController *)controller didSelectedAtPosition:(LPATPosition *)position {
-	NSLog(@"%@", position.index);
-}
+###显示 XFAssistiveTouch
+
+* 导入头文件 
+ 
+```
+#import "XFAssistiveTouch.h"
 ```
 
-当用户点击根目录的某个 item 的时候。可以通过 LPATNavigaitonController 的 ```pushViewController:atPisition:``` 方法 push 下级 LPATViewController。
+* 初始化 XFAssistiveTouch
 
-```objective-c
-- (void)controller:(LPATRootViewController *)controller didSelectedAtPosition:(LPATPosition *)position {
-	// 初始化items
-	NSMutableArray *array = [NSMutableArray array];
-	for (int i = 0; i < 8; i++) {
-	    NSString *imageName = [NSString stringWithFormat:@"Transform%d.png", i + 1];
-	    CALayer *layer = [CALayer layer];
-	    layer.contents = (__bridge id _Nullable)([UIImage imageNamed:imageName].CGImage);
-	    LPATItemView *itemView = [LPATItemView itemWithLayer:layer];
-	    itemView.tag = _itemViewTag + i;
-	    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(p_transformItemViewAction:)];
-	    [itemView addGestureRecognizer:tapGesture];
-	    [array addObject:itemView];
-	}
-	// 初始化 LPATViewController
-	LPATViewController *viewController = [[LPATViewController alloc] initWithItems:[array copy]];
-	// 在 position 处展开下一级viewController
-	[_rootViewController.navigationController pushViewController:viewController atPisition:position];
-}
 ```
-在第二级目录的点击事件中可以继续 push 下一级页面，也可以使用 LPAssistiveTouch 中的 ```pushViewController:``` 这个方法会将你提供的 controller 在 keyWindows 自动找到合适的 UINavigationController 进行 push。如果没有找到，则会在合适的 UIViewController 进行 present。
-
-```objective-c
-- (void)p_transformItemViewAction:(UITapGestureRecognizer *)tapGesture {
-    LPATItemView *itemView = (LPATItemView *)tapGesture.view;
-    NSInteger index = itemView.tag - _itemViewTag;
-    LPTransformViewController *transformViewController = [LPTransformViewController new];
-    transformViewController.user = index;
-    transformViewController.transformArray = [self p_getTransformViewControllersFromDelegate];
-    [self pushViewController:transformViewController];
-}
+XFAssistiveTouch *assistiveTouch = [XFAssistiveTouch sharedInstance];
+assistiveTouch.delegate = self;
+[assistiveTouch showAssistiveTouch];
 ```
 
-##Link
+* 实现 XFXFAssistiveTouchDelegate 来初始化 XFXFAssistiveTouch 的首页
 
-简书地址：[http://www.jianshu.com/p/9c7cf61edb24](http://www.jianshu.com/p/9c7cf61edb24)
+```objective-c
+@protocol XFXFAssistiveTouchDelegate <NSObject>
+
+- (NSInteger)numberOfItemsInViewController:(XFATViewController *)viewController;
+- (XFATItemView *)viewController:(XFATViewController *)viewController itemViewAtPosition:(XFATPosition *)position;
+- (void)viewController:(XFATViewController *)viewController didSelectedAtPosition:(XFATPosition *)position;
+
+@end
+```
+
+###操作 XFXFAssistiveTouch
+
+在实现 XFXFAssistiveTouchDelegate 时，你可以给首页的 XFATItemView 添加手势以便在点击的时候对 XFXFAssistiveTouch 或你项目的 UIViewController 进行交互。
+
+####XFXFAssistiveTouch 可进行的交互
+
+* 展开 XFXFAssistiveTouch
+
+```
+- (void)spread;
+```
+
+* 收起 XFXFAssistiveTouch
+
+```
+- (void)shrink;
+```
+
+* 在 XFXFAssistiveTouch 展示下级 XFATViewController
+
+```
+- (void)pushViewController:(XFATViewController *)viewController atPisition:(XFATPosition *)position;
+```
+
+* 回到 XFXFAssistiveTouch 上级页面
+
+```
+- (void)popViewController;
+```
+
+#### XFXFAssistiveTouch 可与项目进行的交互
+
+* 在 targetViewcontroller 中 push 或 present 提供的 viewController。
+
+```
+- (void)pushViewController:(UIViewController *)viewController atViewController:(UIViewController *)targetViewController;
+```
+
+* 自动找到项目中最上层的 ViewController push 或 present 提供的 viewController。
+
+```
+- (void)pushViewController:(UIViewController *)viewController;
+```
+
+#Architecture
+
+###交互
+<img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/Architecture1.png" width = 850>
+
+###文件
+<img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/Architecture2.png" width = 850>
+
+#License
+
+XFAssistiveTouch is released under the [MIT License](https://raw.githubusercontent.com/xiaofei86/XFAssistiveTouch/master/LICENSE).
