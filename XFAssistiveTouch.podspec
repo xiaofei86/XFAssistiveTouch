@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.social_media_url   	= "http://xuyafei.cn"
   s.platform     	= :ios, "8.0"
   s.source       	= { :git => "https://github.com/xiaofei86/XFAssistiveTouch.git", :tag => s.version }
-  s.source_files  	= "AssistiveTouch/*.{h,m}"
+  s.source_files  	= "XFAssistiveTouch/*.{h,m}"
   s.requires_arc 	= true
 
 end
