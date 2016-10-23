@@ -43,13 +43,13 @@ pod 'XFAssistiveTouch', '~>0.0.1'
 
 * 导入头文件 
  
-```
+```objective-c
 #import "XFAssistiveTouch.h"
 ```
 
 * 初始化 XFAssistiveTouch
 
-```
+```objective-c
 XFAssistiveTouch *assistiveTouch = [XFAssistiveTouch sharedInstance];
 assistiveTouch.delegate = self;
 [assistiveTouch showAssistiveTouch];
@@ -75,25 +75,25 @@ assistiveTouch.delegate = self;
 
 * 展开 XFXFAssistiveTouch
 
-```
+```objective-c
 - (void)spread;
 ```
 
 * 收起 XFXFAssistiveTouch
 
-```
+```objective-c
 - (void)shrink;
 ```
 
 * 在 XFXFAssistiveTouch 展示下级 XFATViewController
 
-```
+```objective-c
 - (void)pushViewController:(XFATViewController *)viewController atPisition:(XFATPosition *)position;
 ```
 
 * 回到 XFXFAssistiveTouch 上级页面
 
-```
+```objective-c
 - (void)popViewController;
 ```
 
@@ -101,13 +101,13 @@ assistiveTouch.delegate = self;
 
 * 在 targetViewcontroller 中 push 或 present 提供的 viewController。
 
-```
+```objective-c
 - (void)pushViewController:(UIViewController *)viewController atViewController:(UIViewController *)targetViewController;
 ```
 
 * 自动找到项目中最上层的 ViewController push 或 present 提供的 viewController。
 
-```
+```objective-c
 - (void)pushViewController:(UIViewController *)viewController;
 ```
 
