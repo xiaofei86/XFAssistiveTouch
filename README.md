@@ -1,8 +1,7 @@
 <img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/XFAssitiveTouchHeader.png" width = 850>
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://raw.githubusercontent.com/xiaofei86/XFAssistiveTouch/master/LICENSE)&nbsp;
-[![PLATFORM](https://img.shields.io/cocoapods/p/XFDebug.svg?style=flat-square)](https://cocoapods.org/?q=XFDEBUG)&nbsp;
-[![COCOAPODS](https://img.shields.io/cocoapods/v/XFDebug.svg?style=flat-square)](https://cocoapods.org/?q=XFDEBUG)&nbsp;
+[![COCOAPODS](https://img.shields.io/cocoapods/v/XFAssistiveTouch.svg?style=flat-square)](https://cocoapods.org/?q=XFAssistiveTouch)&nbsp;
 [![SUPPORT](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat-square)](https://en.wikipedia.org/wiki/IOS_8)&nbsp;
 [![BLOG](https://img.shields.io/badge/blog-xuyafei.cn-orange.svg?style=flat-square)](http://xuyafei.cn)&nbsp;
 
@@ -118,7 +117,16 @@ assistiveTouch.delegate = self;
 <img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/Architecture1.png" width = 850>
 
 ###文件
-<img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/Architecture2.png" width = 850>
+
+|类|说明|
+|---|---|
+|XFATLayoutAttributes|提供方法返回某些固定的坐标和大小，用来适配 iPhone 和 iPad |
+|XFATPosition|对位置信息进行封装以隐藏计算细节，项目中传递位置信息的容器|
+|XFATItemView|项目中的基本视图，每个页面由最多 8 个组成|
+|XFATViewController|页面控制器，控制最多 8 个 XFATItemView|
+|XFATNavigationController|控制多个 XFATViewController 的切换、返回、展开、收起、移动、隐藏等的行为及动画|
+|XFATRootViewController|继承自 XFATViewController，XFAssistiveTouch 的首页|
+|XFAssistiveTouch|用最高层级的 UIWindows 作为 XFATNavigationController 的平台。提供代理来让用户配置首页，并提供连接 keyWindow 的方法。**用户只需直接与此类进行交互**|
 
 #License
 
