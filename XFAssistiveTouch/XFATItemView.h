@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, XFATItemViewType) {
 - (instancetype)initWithLayer:(nullable CALayer *)layer NS_DESIGNATED_INITIALIZER;
 + (instancetype)itemWithType:(XFATItemViewType)type;
 + (instancetype)itemWithLayer:(CALayer *)layer;
++ (instancetype)itemWithImage:(UIImage *)image;
 
 @property (nonatomic, strong) XFATPosition *position;
 
