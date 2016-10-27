@@ -69,7 +69,7 @@
 - (void)viewController:(XFATViewController *)viewController didSelectedAtPosition:(XFATPosition *)position {
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < position.index + 1; i++) {
-        XFATItemView *itemView = [XFATItemView itemWithType:XFATItemViewTypeCount + 5 + i];
+        XFATItemView *itemView = [XFATItemView itemWithType:XFATItemViewTypeCount + i];
         [array addObject:itemView];
     }
     XFATViewController *vc = [[XFATViewController alloc] initWithItems:[array copy]];
