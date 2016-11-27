@@ -10,15 +10,15 @@
 
 @implementation XFATPosition
 
-+ (instancetype)positionWithCount:(NSInteger)count index:(NSInteger)index {
-    return [[self alloc] initWithCount:count index:index];
++ (instancetype)positionWithCount:(NSInteger)count index:(NSInteger)index referenceFrame:(CGRect)frame {
+    return [[self alloc] initWithCount:count index:index referenceFrame:frame];
 }
 
 - (instancetype)init {
-    return [self initWithCount:0 index:0];
+    return [self initWithCount:0 index:0 referenceFrame:CGRectZero];
 }
 
-- (instancetype)initWithCount:(NSInteger)count index:(NSInteger)index {
+- (instancetype)initWithCount:(NSInteger)count index:(NSInteger)index referenceFrame:(CGRect)frame {
     self = [super init];
     if (self) {
         _count = count < 0? 0: count;
