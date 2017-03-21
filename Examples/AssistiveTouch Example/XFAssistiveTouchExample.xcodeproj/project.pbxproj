@@ -332,6 +332,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3428ff0d-187c-4409-9995-c6cc2ff18ee0";
 				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -339,15 +340,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 975UV32A32;
 				INFOPLIST_FILE = XFAssistiveTouchExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xyf.XFAssistiveTouchExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "16276280-edd5-422e-9160-062b962dfce2";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Ad Hoc";
+				PROVISIONING_PROFILE = "3428ff0d-187c-4409-9995-c6cc2ff18ee0";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

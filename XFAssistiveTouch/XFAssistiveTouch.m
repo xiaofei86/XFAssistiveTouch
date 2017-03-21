@@ -53,6 +53,7 @@
     _assistiveWindow.windowLevel = CGFLOAT_MAX;
     _assistiveWindow.backgroundColor = [UIColor clearColor];
     _assistiveWindow.rootViewController = _navigationController;
+    _assistiveWindow.layer.masksToBounds = YES;
     [self makeVisibleWindow];
 }
 
