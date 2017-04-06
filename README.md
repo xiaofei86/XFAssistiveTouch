@@ -7,14 +7,14 @@
 
 XFAssistiveTouch 是仿照 iOS 系统的辅助按钮 AssistiveTouch 制作的辅助按钮。你可以用在调试等场景中使用。
 
-#Getting Started
+# Getting Started
 * 阅读此 README 文档或 [相关博客](http://www.jianshu.com/p/9c7cf61edb24) 了解 XFAssistiveTouch
 * 下载 XFAssistiveTouch 运行 Examples 文件夹中的示例查看效果
 * 参考 Installation 章节将 XFAssistiveTouch 集成在你的项目中
 * 参考 Usage 章节或示例代码在你的项目中使用 XFAssistiveTouch
 
 
-#Communication
+# Communication
 
 * 如果你需要使用上的帮助，请联系我 <xuyafei86@163.com> 。
 * 如果你有使用上通用的问题，请新建 Issue。
@@ -22,7 +22,7 @@ XFAssistiveTouch 是仿照 iOS 系统的辅助按钮 AssistiveTouch 制作的辅
 * 如果你对 XFAssistiveTouch 有新的需求，请新建 Issue。
 * 如果你想帮助改善 XFAssistiveTouch，请提交 Pull Request。
 
-#Installation
+# Installation
 
 XFAssistiveTouch 支持两种方式来安装
 
@@ -37,9 +37,9 @@ pod 'XFAssistiveTouch', '~>0.0.1'
 1. 将 XFAssistiveTouch clone 或 download 到本地
 2. 将 XFAssistiveTouch 文件夹中的所有文件复制到你的项目中
 
-#Usage
+# Usage
 
-###显示 XFAssistiveTouch
+### 显示 XFAssistiveTouch
 
 * 导入头文件 
  
@@ -67,11 +67,11 @@ assistiveTouch.delegate = self;
 @end
 ```
 
-###操作 XFXFAssistiveTouch
+### 操作 XFXFAssistiveTouch
 
 在实现 XFXFAssistiveTouchDelegate 时，你可以给首页的 XFATItemView 添加手势以便在点击的时候对 XFXFAssistiveTouch 或你项目的 UIViewController 进行交互。
 
-####XFXFAssistiveTouch 可进行的交互
+#### XFXFAssistiveTouch 可进行的交互
 
 * 展开 XFXFAssistiveTouch
 
@@ -111,12 +111,12 @@ assistiveTouch.delegate = self;
 - (void)pushViewController:(UIViewController *)viewController;
 ```
 
-#Architecture
+# Architecture
 
-###交互
+### 交互
 <img src = "https://github.com/xiaofei86/XFAssistiveTouch/raw/master/Images/Architecture1.png" width = 850>
 
-###文件
+### 文件
 
 |类|说明|
 |---|---|
@@ -128,6 +128,6 @@ assistiveTouch.delegate = self;
 |XFATRootViewController|继承自 XFATViewController，XFAssistiveTouch 的首页。|
 |XFAssistiveTouch|用顶层 UIWindow 展示 XFATNavigationController。用户只需直接与此类进行交互。|
 
-#License
+# License
 
 XFAssistiveTouch is released under the [MIT License](https://raw.githubusercontent.com/xiaofei86/XFAssistiveTouch/master/LICENSE).
