@@ -224,6 +224,7 @@
             [_viewControllers.lastObject.items makeObjectsPerformSelector:@selector(removeFromSuperview)];
             [_viewControllers.lastObject.backItem removeFromSuperview];
             [_viewControllers removeLastObject];
+            [_pushPosition removeLastObject];
             for (XFATItemView *item in _viewControllers.lastObject.items) {
                 [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
                     item.alpha = 1;
